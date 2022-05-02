@@ -193,6 +193,8 @@ return [
         Domain\Shared\Providers\AuthServiceProvider::class,
         // Domain\Shared\\Providers\BroadcastServiceProvider::class,
         Domain\Shared\Providers\EventServiceProvider::class,
+
+        // Routes
         Domain\Shared\Providers\RouteServiceProvider::class,
 
     ],
