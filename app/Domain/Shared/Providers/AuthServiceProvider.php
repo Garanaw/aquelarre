@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Providers;
+declare(strict_types=1);
+
+namespace Domain\Shared\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {

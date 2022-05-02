@@ -156,9 +156,7 @@ return [
 
     'providers' => [
 
-        /*
-         * Laravel Framework Service Providers...
-         */
+        /* Laravel Framework Service Providers... */
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -182,18 +180,17 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
-        /*
-         * Package Service Providers...
-         */
+        /* Package Service Providers... */
+        Domain\Shared\Providers\TelescopeServiceProvider::class,
 
-        /*
-         * Application Service Providers...
-         */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        /* Application Service Providers... */
+        Domain\Shared\Providers\AppServiceProvider::class,
+        Domain\Shared\Providers\AuthServiceProvider::class,
+        // Domain\Shared\\Providers\BroadcastServiceProvider::class,
+        Domain\Shared\Providers\EventServiceProvider::class,
+
+        /* Routes... */
+        Domain\Shared\Providers\RouteServiceProvider::class,
 
     ],
 
