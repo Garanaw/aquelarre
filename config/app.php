@@ -182,7 +182,7 @@ return [
 
         /* Package Service Providers... */
         Domain\Shared\Providers\TelescopeServiceProvider::class,
-        \Domain\User\Providers\FortifyServiceProvider::class,
+        Domain\User\Providers\FortifyServiceProvider::class,
 
         /* Application Service Providers... */
         Domain\Shared\Providers\AppServiceProvider::class,

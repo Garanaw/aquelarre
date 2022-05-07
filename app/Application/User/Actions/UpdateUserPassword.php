@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions\Fortify;
+namespace Application\User\Actions;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;

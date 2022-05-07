@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Actions\Fortify;
+namespace Application\User\Actions;
 
-use Infrastructure\User\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Infrastructure\User\Models\User;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
 class CreateNewUser implements CreatesNewUsers

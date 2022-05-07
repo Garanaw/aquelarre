@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Domain\User\Providers;
 
-use App\Actions\Fortify\CreateNewUser;
-use App\Actions\Fortify\ResetUserPassword;
-use App\Actions\Fortify\UpdateUserPassword;
-use App\Actions\Fortify\UpdateUserProfileInformation;
+use Application\User\Actions\CreateNewUser;
+use Application\User\Actions\ResetUserPassword;
+use Application\User\Actions\UpdateUserPassword;
+use Application\User\Actions\UpdateUserProfileInformation;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
