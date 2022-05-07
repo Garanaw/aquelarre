@@ -10,6 +10,7 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "@tailwindcss/typography": "^0.5.2",
         "axios": "^0.25",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
@@ -19,6 +20,7 @@
         "vue-loader": "^17.0.0"
     },
     "dependencies": {
+        "autoprefixer": "^10.4.7",
         "vue": "^3.2.31"
     }
 }
