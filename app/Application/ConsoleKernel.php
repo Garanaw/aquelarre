@@ -6,6 +6,7 @@ namespace Application;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel;
+use Illuminate\Support\Str;
 
 class ConsoleKernel extends Kernel
 {
@@ -28,6 +29,10 @@ class ConsoleKernel extends Kernel
     protected function commands()
     {
         $this->load(__DIR__.'/Commands');
+
+        foreach ($this->app['config']['domain.available_domains'] as $domainName) {
+            $this->load(sprintf('%s/%s/Commands', __DIR__, Str::ucfirst($domainName)));
+        }
 
         require base_path('routes/console.php');
     }
