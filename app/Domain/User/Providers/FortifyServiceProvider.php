@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Domain\Shared\Providers;
+namespace Domain\User\Providers;
 
 use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
@@ -16,28 +16,29 @@ use Laravel\Fortify\Fortify;
 
 class FortifyServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
     public function register(): void
     {
         //
     }
 
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
     public function boot(): void
+    {
+        $this->defineActions();
+        $this->defineRateLimits();
+        $this->defineViews();
+
+    }
+
+    private function defineActions(): void
     {
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
+    }
 
+    private function defineRateLimits(): void
+    {
         RateLimiter::for('login', function (Request $request) {
             $email = (string) $request->email;
 
@@ -47,5 +48,10 @@ class FortifyServiceProvider extends ServiceProvider
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
+    }
+
+    private function defineViews(): void
+    {
+        Fortify::loginView('auth.login');
     }
 }

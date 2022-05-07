@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Application\Shared\Middleware;
+namespace Application\Shared\Middleware;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ServiceProviderLoader
 {
-    public function __construct(private readonly Application $app)
+    public function __construct(protected readonly Application $app)
     {
     }
 
@@ -24,7 +24,7 @@ class ServiceProviderLoader
         return $next($request);
     }
 
-    private function getProviders(): Collection
+    protected function getProviders(): Collection
     {
         return Collection::wrap($this->app['config']->get('domain.shared.providers', []));
     }
