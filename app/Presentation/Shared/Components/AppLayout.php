@@ -10,6 +10,6 @@ class AppLayout extends Component
 {
     public function render()
     {
-        return view('shared::.layouts.app');
+        return view('shared::layouts.app');
     }
 }
