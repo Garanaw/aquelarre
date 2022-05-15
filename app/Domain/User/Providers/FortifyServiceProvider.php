@@ -16,11 +16,6 @@ use Laravel\Fortify\Fortify;
 
 class FortifyServiceProvider extends ServiceProvider
 {
-    public function register(): void
-    {
-        //
-    }
-
     public function boot(): void
     {
         $this->defineActions();
@@ -52,6 +47,6 @@ class FortifyServiceProvider extends ServiceProvider
 
     private function defineViews(): void
     {
-        Fortify::loginView('auth.login');
+        Fortify::loginView('user::login');
     }
 }

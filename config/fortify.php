@@ -1,5 +1,6 @@
 <?php
 
+use Application\User\Middleware\ServiceProviderLoader;
 use Domain\Shared\Providers\RouteServiceProvider;
 use Laravel\Fortify\Features;
 
@@ -89,7 +90,10 @@ return [
     |
     */
 
-    'middleware' => ['web'],
+    'middleware' => [
+        'web',
+        ServiceProviderLoader::class,
+    ],
 
     /*
     |--------------------------------------------------------------------------
