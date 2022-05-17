@@ -19,7 +19,7 @@ class PermissionsSeeder extends Seeder
     {
         return [
             [
-                'name' => 'create-network',
+                'name' => 'create-character',
                 'guard_name' => 'web',
                 'created_at' => $this->now,
                 'updated_at' => $this->now,
