@@ -19,6 +19,15 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        $this->schema->create('user_profiles', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->text('bio')->nullable();
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
+
         $this->schema->create('password_resets', function (Blueprint $table) {
             $table->string('email')->index();
             $table->string('token');
