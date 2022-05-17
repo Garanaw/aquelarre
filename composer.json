@@ -2,13 +2,13 @@
     "name": "garanaw/aquelarre",
     "type": "project",
     "description": "Web version of the Spanish game Aquelarre",
-    "keywords": ["aquelarre", "laravel", "rpg"],
+    "keywords": ["aquelarre", "laravel", "rpg", "game", "web", "ddd"],
     "license": "MIT",
     "authors": [
         {
             "name": "Pablo Villalba",
             "email": "garanaw@gmail.com",
-            "role": "Developer"
+            "role": "Developer|Arquitect"
         }
     ],
     "require": {
@@ -22,6 +22,7 @@
         "laravel/socialite": "^5.5",
         "laravel/telescope": "^4.9",
         "laravel/tinker": "^2.7",
+        "spatie/data-transfer-object": "^3.7",
         "spatie/laravel-permission": "^5.5"
     },
     "require-dev": {
