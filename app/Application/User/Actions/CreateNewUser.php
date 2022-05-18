@@ -1,41 +1,53 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Application\User\Actions;
 
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
-use Infrastructure\User\Models\User;
+use Application\Shared\Rules\Rule;
+use Domain\User\Dto\NewUser;
+use Domain\User\Services\Writer;
+use Illuminate\Validation\Factory;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
 class CreateNewUser implements CreatesNewUsers
 {
     use PasswordValidationRules;
 
-    /**
-     * Validate and create a newly registered user.
-     *
-     * @param  array  $input
-     * @return User
-     */
+    public function __construct(
+        private readonly Factory $validator,
+        private readonly Writer $writer,
+    ) {
+    }
+
     public function create(array $input)
     {
-        Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => [
-                'required',
-                'string',
-                'email',
-                'max:255',
-                Rule::unique(User::class),
-            ],
-            'password' => $this->passwordRules(),
-        ])->validate();
+        $data = $this->validator->make(
+            data: $input,
+            rules: $this->rules()
+        )->validate();
 
-        return User::create([
-            'name' => $input['name'],
-            'email' => $input['email'],
-            'password' => Hash::make($input['password']),
-        ]);
+        return $this->writer->create(
+            data: $this->mapDataToDto(input: $data),
+        );
+    }
+
+    private function mapDataToDto(array $input): NewUser
+    {
+        return new NewUser(
+            name: $input['name'],
+            email: $input['email'],
+            password: $input['password'],
+            role_name: $input['role'] ?? 'user',
+        );
+    }
+
+    private function rules(): array
+    {
+        return [
+            'name' => Rule::nameRules(),
+            'email' => Rule::emailRules(),
+            'password' => Rule::passwordRules(),
+        ];
     }
 }

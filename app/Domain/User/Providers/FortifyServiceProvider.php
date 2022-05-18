@@ -48,5 +48,6 @@ class FortifyServiceProvider extends ServiceProvider
     private function defineViews(): void
     {
         Fortify::loginView('user::login');
+        Fortify::registerView('user::register');
     }
 }
