@@ -10,13 +10,6 @@ use Spatie\DataTransferObject\DataTransferObject;
 
 class NewUser extends DataTransferObject implements Arrayable
 {
-    private const USER_DATA_FIELDS = [
-        'name',
-        'email',
-        'password',
-        'email_verified_at',
-    ];
-
     public readonly string $name;
     public readonly string $email;
     public readonly string $password;
