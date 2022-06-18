@@ -2,8 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Application;
+namespace Aquelarre;
 
+use Aquelarre\Core\Shared\Application\Middleware\Authenticate;
+use Aquelarre\Core\Shared\Application\Middleware\EncryptCookies;
+use Aquelarre\Core\Shared\Application\Middleware\PreventRequestsDuringMaintenance;
+use Aquelarre\Core\Shared\Application\Middleware\RedirectIfAuthenticated;
+use Aquelarre\Core\Shared\Application\Middleware\TrimStrings;
+use Aquelarre\Core\Shared\Application\Middleware\TrustProxies;
+use Aquelarre\Core\Shared\Application\Middleware\VerifyCsrfToken;
 use Illuminate\Foundation\Http\Kernel;
 
 class HttpKernel extends Kernel
@@ -17,11 +24,11 @@ class HttpKernel extends Kernel
      */
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
-        Shared\Middleware\TrustProxies::class,
+        TrustProxies::class,
         \Illuminate\Http\Middleware\HandleCors::class,
-        Shared\Middleware\PreventRequestsDuringMaintenance::class,
+        PreventRequestsDuringMaintenance::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-        Shared\Middleware\TrimStrings::class,
+        TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
 
@@ -32,11 +39,11 @@ class HttpKernel extends Kernel
      */
     protected $middlewareGroups = [
         'web' => [
-            Shared\Middleware\EncryptCookies::class,
+            EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            Shared\Middleware\VerifyCsrfToken::class,
+            VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
@@ -55,12 +62,12 @@ class HttpKernel extends Kernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
-        'auth' => Shared\Middleware\Authenticate::class,
+        'auth' => Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest' => Shared\Middleware\RedirectIfAuthenticated::class,
+        'guest' => RedirectIfAuthenticated::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,

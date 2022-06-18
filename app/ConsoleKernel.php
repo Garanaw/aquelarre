@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Application;
+namespace Aquelarre;
 
 use Aquelarre\Core\Shared\Domain\Support\Str;
 use Illuminate\Console\Application;
