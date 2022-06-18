@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Infrastructure\User\Models;
 
-use App\Infrastructure\User\Models\UserProfile;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;

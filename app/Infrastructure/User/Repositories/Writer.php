@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Infrastructure\User\Repositories;
 
-use App\Infrastructure\User\Models\UserProfile;
 use Domain\User\Dto\NewUser;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Hashing\HashManager;
 use Infrastructure\User\Models\User;
+use Infrastructure\User\Models\UserProfile;
 
 class Writer
 {
