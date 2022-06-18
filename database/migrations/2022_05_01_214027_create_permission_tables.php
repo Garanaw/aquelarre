@@ -2,12 +2,19 @@
 
 declare(strict_types=1);
 
+use Database\Seeders\User\PermissionsSeeder;
+use Database\Seeders\User\RolesSeeder;
 use Infrastructure\Migration\Blueprint;
 use Infrastructure\Migration\Migration;
 use Spatie\Permission\PermissionRegistrar;
 
 return new class extends Migration
 {
+    protected array $seeders = [
+        PermissionsSeeder::class,
+        RolesSeeder::class,
+    ];
+
     public function up(): void
     {
         $tableNames = config('permission.table_names');

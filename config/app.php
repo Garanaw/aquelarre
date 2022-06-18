@@ -182,6 +182,7 @@ return [
 
         /* Package Service Providers... */
         Domain\Shared\Providers\TelescopeServiceProvider::class,
+        Domain\User\Providers\FortifyServiceProvider::class,
 
         /* Application Service Providers... */
         Domain\Shared\Providers\AppServiceProvider::class,
@@ -209,4 +210,11 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Custom Configuration
+    |--------------------------------------------------------------------------
+    */
+
+    'password_length' => 8,
 ];

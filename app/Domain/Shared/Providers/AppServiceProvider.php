@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Shared\Providers;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,6 +26,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Model::preventLazyLoading();
     }
 }

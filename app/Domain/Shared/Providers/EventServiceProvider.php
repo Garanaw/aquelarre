@@ -6,7 +6,9 @@ namespace Domain\Shared\Providers;
 
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
+use Illuminate\Database\Events\MigrationEnded as MigrationEndedEvent;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Infrastructure\Seed\MigrationEnded as MigrationEndedListener;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -19,17 +21,10 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        MigrationEndedEvent::class => [
+            MigrationEndedListener::class,
+        ],
     ];
-
-    /**
-     * Register any events for your application.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
 
     /**
      * Determine if events and listeners should be automatically discovered.
