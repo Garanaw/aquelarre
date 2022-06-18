@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Application\Shared\Rules;
+namespace Aquelarre\Core\Shared\Application\Rules;
 
 use Illuminate\Contracts\Validation\Rule as RuleContract;
 use Illuminate\Validation\Rule as BaseRule;

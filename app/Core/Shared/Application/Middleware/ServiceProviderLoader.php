@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Application\Shared\Middleware;
+namespace Aquelarre\Core\Shared\Application\Middleware;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;

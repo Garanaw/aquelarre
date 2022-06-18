@@ -38,8 +38,7 @@
             "Aquelarre\\": "app/",
             "Application\\": "app/Application",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/",
-            "Infrastructure\\": "app/Infrastructure/"
+            "Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {

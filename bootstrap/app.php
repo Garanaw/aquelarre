@@ -38,7 +38,7 @@ $app->singleton(
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    Application\Shared\Exceptions\Handler::class
+    Aquelarre\Core\Shared\Application\Exceptions\Handler::class
 );
 
 /*

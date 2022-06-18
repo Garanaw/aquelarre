@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Application\Shared\Middleware;
+namespace Aquelarre\Core\Shared\Application\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
