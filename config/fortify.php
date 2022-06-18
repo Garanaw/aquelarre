@@ -1,7 +1,7 @@
 <?php
 
-use Application\User\Middleware\ServiceProviderLoader;
 use Aquelarre\Core\Framework\Providers\RouteServiceProvider;
+use Aquelarre\Core\User\Application\Middleware\ServiceProviderLoader;
 use Laravel\Fortify\Features;
 
 return [

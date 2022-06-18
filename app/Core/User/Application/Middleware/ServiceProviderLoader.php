@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Application\User\Middleware;
+namespace Aquelarre\Core\User\Application\Middleware;
 
-use Application\Shared\Middleware\ServiceProviderLoader as BaseServiceProviderLoader;
+use Aquelarre\Core\Shared\Application\Middleware\ServiceProviderLoader as BaseServiceProviderLoader;
 use Illuminate\Support\Collection;
 
 class ServiceProviderLoader extends BaseServiceProviderLoader

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Aquelarre\Core\User\Domain\Providers;
 
-use Application\User\Actions\CreateNewUser;
-use Application\User\Actions\ResetUserPassword;
-use Application\User\Actions\UpdateUserPassword;
-use Application\User\Actions\UpdateUserProfileInformation;
+use Aquelarre\Core\User\Application\Actions\CreateNewUser;
+use Aquelarre\Core\User\Application\Actions\ResetUserPassword;
+use Aquelarre\Core\User\Application\Actions\UpdateUserPassword;
+use Aquelarre\Core\User\Application\Actions\UpdateUserProfileInformation;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;

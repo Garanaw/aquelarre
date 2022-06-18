@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\User\Actions;
+namespace Aquelarre\Core\User\Application\Actions;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;

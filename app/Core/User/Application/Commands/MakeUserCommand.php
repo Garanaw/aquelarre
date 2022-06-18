@@ -6,9 +6,9 @@ declare(strict_types=1);
  * Due to Laravel's commands discovery mechanism,
  * the namespace of the commands must be at the App level.
  */
-namespace Application\User\Commands;
+namespace Aquelarre\Core\User\Application\Commands;
 
-use Application\Shared\Rules\Rule;
+use Aquelarre\Core\Shared\Application\Rules\Rule;
 use Aquelarre\Core\User\Domain\Dto\NewUser;
 use Aquelarre\Core\User\Domain\Services\Writer;
 use Aquelarre\Core\User\Infrastructure\Models\Role;

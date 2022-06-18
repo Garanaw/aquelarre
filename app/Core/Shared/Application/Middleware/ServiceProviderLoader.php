@@ -18,7 +18,7 @@ class ServiceProviderLoader
     public function handle(Request $request, \Closure $next): Response
     {
         $this->getProviders()->each(
-            fn (string $provider) => $this->app->register($provider)
+            callback: fn (string $provider) => $this->app->register(provider: $provider)
         );
 
         return $next($request);
@@ -26,6 +26,8 @@ class ServiceProviderLoader
 
     protected function getProviders(): Collection
     {
-        return Collection::wrap($this->app['config']->get('domain.shared.providers', []));
+        return Collection::wrap(
+            value: $this->app['config']->get(key: 'domain.shared.providers', default: [])
+        );
     }
 }

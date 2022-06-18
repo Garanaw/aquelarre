@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Application\User\Actions;
+namespace Aquelarre\Core\User\Application\Actions;
 
-use Application\Shared\Rules\Rule;
+use Aquelarre\Core\Shared\Application\Rules\Rule;
 use Aquelarre\Core\User\Domain\Dto\NewUser;
 use Aquelarre\Core\User\Domain\Services\Writer;
 use Illuminate\Validation\Factory;

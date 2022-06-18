@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\User\Actions;
+namespace Aquelarre\Core\User\Application\Actions;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Validator;
