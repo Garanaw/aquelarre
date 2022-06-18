@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Infrastructure\User\Models;
+namespace Aquelarre\Core\User\Infrastructure\Models;
 
 use Spatie\Permission\Models\Role as BaseRole;
 

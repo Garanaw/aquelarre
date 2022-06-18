@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Infrastructure\User\Models;
+namespace Aquelarre\Core\User\Infrastructure\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;

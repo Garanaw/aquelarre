@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Infrastructure\User\Repositories;
+namespace Aquelarre\Core\User\Infrastructure\Repositories;
 
 use Aquelarre\Core\User\Domain\Dto\NewUser;
+use Aquelarre\Core\User\Infrastructure\Models\User;
+use Aquelarre\Core\User\Infrastructure\Models\UserProfile;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Hashing\HashManager;
-use Infrastructure\User\Models\User;
-use Infrastructure\User\Models\UserProfile;
 
 class Writer
 {

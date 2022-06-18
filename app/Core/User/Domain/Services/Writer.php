@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Aquelarre\Core\User\Domain\Services;
 
 use Aquelarre\Core\User\Domain\Dto\NewUser;
-use Infrastructure\User\Models\User;
-use Infrastructure\User\Repositories\Writer as Repository;
+use Aquelarre\Core\User\Infrastructure\Models\User;
+use Aquelarre\Core\User\Infrastructure\Repositories\Writer as Repository;
 
 class Writer
 {

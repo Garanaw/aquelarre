@@ -11,10 +11,10 @@ namespace Application\User\Commands;
 use Application\Shared\Rules\Rule;
 use Aquelarre\Core\User\Domain\Dto\NewUser;
 use Aquelarre\Core\User\Domain\Services\Writer;
+use Aquelarre\Core\User\Infrastructure\Models\Role;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
 use Illuminate\Validation\Factory;
-use Infrastructure\User\Models\Role;
 
 class MakeUserCommand extends Command
 {

@@ -1,7 +1,7 @@
 <?php
 
-use Infrastructure\User\Models\Permission;
-use Infrastructure\User\Models\Role;
+use Aquelarre\Core\User\Infrastructure\Models\Permission;
+use Aquelarre\Core\User\Infrastructure\Models\Role;
 
 return [
 
