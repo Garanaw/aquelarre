@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Application;
 
-use Domain\Shared\Support\Str;
+use Aquelarre\Core\Shared\Domain\Support\Str;
 use Illuminate\Console\Application;
 use Illuminate\Console\Command;
 use Illuminate\Console\Scheduling\Schedule;

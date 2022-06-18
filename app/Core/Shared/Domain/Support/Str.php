@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Domain\Shared\Support;
+namespace Aquelarre\Core\Shared\Domain\Support;
 
 use Illuminate\Support\Str as BaseStr;
 
