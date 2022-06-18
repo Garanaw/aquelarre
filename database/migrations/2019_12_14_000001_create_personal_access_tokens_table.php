@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Infrastructure\Migration\Blueprint;
-use Infrastructure\Migration\Migration;
+use Aquelarre\Core\Framework\Infrastructure\Migration\Blueprint;
+use Aquelarre\Core\Framework\Infrastructure\Migration\Migration;
 
 return new class extends Migration
 {

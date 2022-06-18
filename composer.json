@@ -39,7 +39,6 @@
             "Application\\": "app/Application",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
-            "Domain\\": "app/Domain/",
             "Infrastructure\\": "app/Infrastructure/"
         }
     },

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Infrastructure\Seed;
+namespace Aquelarre\Core\Framework\Infrastructure\Seed;
 
 use Illuminate\Cache\Repository as Cache;
 use Illuminate\Database\DatabaseManager;

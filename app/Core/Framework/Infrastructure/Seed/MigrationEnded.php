@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Infrastructure\Seed;
+namespace Aquelarre\Core\Framework\Infrastructure\Seed;
 
-use Infrastructure\Migration\Migration;
+use Aquelarre\Core\Framework\Infrastructure\Migration\Migration;
 use Illuminate\Database\Events\MigrationEnded as Event;
 use Illuminate\Foundation\Application;
 use Symfony\Component\Console\Output\ConsoleOutput;

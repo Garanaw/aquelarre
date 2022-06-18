@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Infrastructure\Migration;
+namespace Aquelarre\Core\Framework\Infrastructure\Migration;
 
-use Infrastructure\Migration\Blueprint as CustomBlueprint;
+use Aquelarre\Core\Framework\Infrastructure\Migration\Blueprint as CustomBlueprint;
 use Closure;
 use Illuminate\Database\Connection;
 use Illuminate\Database\DatabaseManager;
