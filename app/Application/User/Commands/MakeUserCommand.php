@@ -9,12 +9,12 @@ declare(strict_types=1);
 namespace Application\User\Commands;
 
 use Application\Shared\Rules\Rule;
-use Domain\User\Dto\NewUser;
-use Domain\User\Services\Writer;
-use Infrastructure\User\Models\Role;
+use Aquelarre\Core\User\Domain\Dto\NewUser;
+use Aquelarre\Core\User\Domain\Services\Writer;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
 use Illuminate\Validation\Factory;
+use Infrastructure\User\Models\Role;
 
 class MakeUserCommand extends Command
 {

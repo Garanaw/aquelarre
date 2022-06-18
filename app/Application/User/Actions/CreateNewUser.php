@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Application\User\Actions;
 
 use Application\Shared\Rules\Rule;
-use Domain\User\Dto\NewUser;
-use Domain\User\Services\Writer;
+use Aquelarre\Core\User\Domain\Dto\NewUser;
+use Aquelarre\Core\User\Domain\Services\Writer;
 use Illuminate\Validation\Factory;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 

@@ -41,7 +41,6 @@
             "Database\\Seeders\\": "database/seeders/",
             "Domain\\": "app/Domain/",
             "Infrastructure\\": "app/Infrastructure/",
-            "Presentation\\": "app/Presentation/"
         }
     },
     "autoload-dev": {

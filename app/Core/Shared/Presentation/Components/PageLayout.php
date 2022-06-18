@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Presentation\Shared\Components;
+namespace Aquelarre\Core\Shared\Presentation\Components;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class PageHeader extends Component
+class PageLayout extends Component
 {
     public function render(): View
     {
-        return view('shared::layouts.page-header');
+        return view('shared::layouts.page');
     }
 }

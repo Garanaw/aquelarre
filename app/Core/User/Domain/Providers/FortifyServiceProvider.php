@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Domain\User\Providers;
+namespace Aquelarre\Core\User\Domain\Providers;
 
 use Application\User\Actions\CreateNewUser;
 use Application\User\Actions\ResetUserPassword;

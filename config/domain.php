@@ -21,9 +21,9 @@ return [
     ],
     'user' => [
         'providers' => [
-            Domain\User\Providers\BladeServiceProvider::class,
-            Domain\User\Providers\FortifyServiceProvider::class,
-            Domain\User\Providers\ViewServiceProvider::class,
+            \Aquelarre\Core\User\Domain\Providers\BladeServiceProvider::class,
+            \Aquelarre\Core\User\Domain\Providers\FortifyServiceProvider::class,
+            \Aquelarre\Core\User\Domain\Providers\ViewServiceProvider::class,
         ],
     ],
 ];

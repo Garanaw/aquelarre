@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Presentation\Shared\Components;
+namespace Aquelarre\Core\Shared\Presentation\Components;
 
 use Illuminate\View\Component;
 

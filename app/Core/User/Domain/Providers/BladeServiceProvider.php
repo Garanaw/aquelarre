@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Domain\User\Providers;
+namespace Aquelarre\Core\User\Domain\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
 
 class BladeServiceProvider extends ServiceProvider
 {
-    private const USER_NAMESPACE = 'Presentation\\User\\Components';
-    private const USER_ANONYMOUS_NAMESPACE = 'Presentation\\User\\Resources\\views';
+    private const USER_NAMESPACE = 'Aquelarre\\Core\\User\\Presentation\\Components';
+    private const USER_ANONYMOUS_NAMESPACE = 'Core/User/Presentation/Resources/views';
     private const USER_PREFIX = 'user';
 
     protected BladeCompiler $bladeCompiler;

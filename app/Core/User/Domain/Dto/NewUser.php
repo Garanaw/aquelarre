@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Domain\User\Dto;
+namespace Aquelarre\Core\User\Domain\Dto;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Carbon;

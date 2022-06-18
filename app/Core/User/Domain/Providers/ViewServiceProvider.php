@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Domain\User\Providers;
+namespace Aquelarre\Core\User\Domain\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -11,7 +11,7 @@ class ViewServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadViewsFrom(
-            app_path('Presentation/User/Resources/views'),
+            app_path('Core/User/Presentation/Resources/views'),
             'user'
         );
     }

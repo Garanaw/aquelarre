@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Infrastructure\User\Repositories;
 
-use Domain\User\Dto\NewUser;
+use Aquelarre\Core\User\Domain\Dto\NewUser;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Hashing\HashManager;
 use Infrastructure\User\Models\User;
