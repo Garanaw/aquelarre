@@ -2,8 +2,8 @@
 
 namespace Application\Shared\Middleware;
 
+use Aquelarre\Core\Framework\Providers\RouteServiceProvider;
 use Closure;
-use Domain\Shared\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

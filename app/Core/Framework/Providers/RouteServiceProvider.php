@@ -1,6 +1,6 @@
 <?php
 
-namespace Domain\Shared\Providers;
+namespace Aquelarre\Core\Framework\Providers;
 
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;

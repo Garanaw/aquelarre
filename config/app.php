@@ -181,17 +181,17 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /* Package Service Providers... */
-        Domain\Shared\Providers\TelescopeServiceProvider::class,
+        \Aquelarre\Core\Framework\Providers\TelescopeServiceProvider::class,
         Domain\User\Providers\FortifyServiceProvider::class,
 
         /* Application Service Providers... */
-        Domain\Shared\Providers\AppServiceProvider::class,
-        Domain\Shared\Providers\AuthServiceProvider::class,
+        \Aquelarre\Core\Framework\Providers\AppServiceProvider::class,
+        \Aquelarre\Core\Framework\Providers\AuthServiceProvider::class,
         // Domain\Shared\\Providers\BroadcastServiceProvider::class,
-        Domain\Shared\Providers\EventServiceProvider::class,
+        \Aquelarre\Core\Framework\Providers\EventServiceProvider::class,
 
         /* Routes... */
-        Domain\Shared\Providers\RouteServiceProvider::class,
+        \Aquelarre\Core\Framework\Providers\RouteServiceProvider::class,
 
     ],
 

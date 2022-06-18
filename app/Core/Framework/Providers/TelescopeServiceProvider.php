@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Domain\Shared\Providers;
+namespace Aquelarre\Core\Framework\Providers;
 
 use Laravel\Telescope\EntryType;
-use Laravel\Telescope\Telescope;
 use Laravel\Telescope\IncomingEntry;
+use Laravel\Telescope\Telescope;
 use Laravel\Telescope\TelescopeApplicationServiceProvider;
 
 class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
