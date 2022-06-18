@@ -23,7 +23,7 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
 
         $this->hideSensitiveRequestDetails();
 
-        Telescope::filter(function (IncomingEntry $entry) {
+        Telescope::filter(callback: function (IncomingEntry $entry) {
             return $this->app->isLocal()
                 || !in_array($entry->type, self::NOT_RECORDABLE);
         });
@@ -35,9 +35,9 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
             return;
         }
 
-        Telescope::hideRequestParameters(['_token']);
+        Telescope::hideRequestParameters(attributes: ['_token']);
 
-        Telescope::hideRequestHeaders([
+        Telescope::hideRequestHeaders(headers: [
             'cookie',
             'x-csrf-token',
             'x-xsrf-token',
@@ -46,9 +46,8 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
 
     protected function authorization(): void
     {
-        Telescope::auth(static function ($request) {
-            $user = $request->user();
-            return $user !== null && $user->isAuthorized();
-        });
+        Telescope::auth(
+            callback: static fn ($request): bool => $request->user()?->isAuthorized() ?? false
+        );
     }
 }

@@ -24,7 +24,7 @@ abstract class Seeder extends BaseSeeder
 
     protected function note($message): void
     {
-        $this->output?->writeln($message);
+        $this->output?->writeln(messages: $message);
     }
 
     public function getTable(): ?string
@@ -36,14 +36,14 @@ abstract class Seeder extends BaseSeeder
     {
         $table = $table ?? $this->getTable();
 
-        if (is_null($table)) {
+        if (is_null(value: $table)) {
             return;
         }
 
-        $this->db->table($table)->delete();
+        $this->db->table(table: $table)->delete();
         $resetAutoIncrementStm = 'ALTER TABLE '.$table.' AUTO_INCREMENT = 1;';
-        $this->db->statement($resetAutoIncrementStm);
-        $this->note('<info>Table reset</info>: ' . $table);
+        $this->db->statement(query: $resetAutoIncrementStm);
+        $this->note(message: '<info>Table reset</info>: ' . $table);
     }
 
     public abstract function run(): void;

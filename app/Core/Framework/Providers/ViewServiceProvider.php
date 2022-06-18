@@ -11,8 +11,8 @@ class ViewServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadViewsFrom(
-            app_path('Core/Shared/Presentation/Resources/views'),
-            'shared'
+            path: app_path(path: 'Core/Shared/Presentation/Resources/views'),
+            namespace: 'shared'
         );
     }
 }

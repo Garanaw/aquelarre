@@ -16,8 +16,11 @@ class BladeServiceProvider extends ServiceProvider
     public function boot(): void
     {
         /** @var BladeCompiler $blade */
-        $blade = $this->app->make(BladeCompiler::class);
-        $blade->componentNamespace(self::SHARED_NAMESPACE, self::SHARED_PREFIX);
-        $blade->anonymousComponentNamespace(app_path(self::SHARED_ANONYMOUS_NAMESPACE), self::SHARED_PREFIX);
+        $blade = $this->app->make(abstract: BladeCompiler::class);
+        $blade->componentNamespace(namespace: self::SHARED_NAMESPACE, prefix: self::SHARED_PREFIX);
+        $blade->anonymousComponentNamespace(
+            directory: app_path(path: self::SHARED_ANONYMOUS_NAMESPACE),
+            prefix: self::SHARED_PREFIX
+        );
     }
 }

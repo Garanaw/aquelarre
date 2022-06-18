@@ -22,10 +22,10 @@ abstract class Migration extends BaseMigration
 
     public function __construct()
     {
-        $manager = app(DatabaseManager::class);
+        $manager = app(abstract: DatabaseManager::class);
         $this->db = $manager->connection();
         $this->schema = $manager->getSchemaBuilder();
-        $this->setBlueprint(CustomBlueprint::class);
+        $this->setBlueprint(blueprint: CustomBlueprint::class);
     }
 
     public function hasSeeders(): bool
@@ -35,7 +35,7 @@ abstract class Migration extends BaseMigration
 
     public function getSeeders(): Collection
     {
-        return Collection::wrap($this->seeders);
+        return Collection::wrap(value: $this->seeders);
     }
 
     public function getTable(): ?string
@@ -46,7 +46,7 @@ abstract class Migration extends BaseMigration
     protected function setBlueprint(string $blueprint): void
     {
         $this->schema->blueprintResolver(
-            fn (string $table, ?Closure $callback = null): Blueprint => new $blueprint($table, $callback)
+            resolver: fn (string $table, ?Closure $callback = null): Blueprint => new $blueprint($table, $callback)
         );
     }
 

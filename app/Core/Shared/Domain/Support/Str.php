@@ -10,11 +10,11 @@ class Str extends BaseStr
 {
     public static function of($string): Stringable
     {
-        return new Stringable($string);
+        return new Stringable(value: $string);
     }
 
     public static function sprintf(string $format, ...$args): Stringable
     {
-        return new Stringable(sprintf($format, ...$args));
+        return new Stringable(value: sprintf($format, ...$args));
     }
 }

@@ -10,17 +10,17 @@ class Stringable extends BaseStringable
 {
     public function sprintf(string $format, ?int $index = null, ...$args): Stringable
     {
-        if (count($args) === 0) {
+        if (count(value: $args) === 0) {
             return Str::sprintf($format, $this->value());
         }
 
-        if (count($args) === 1) {
+        if (count(value: $args) === 1) {
             return Str::sprintf($format, $this->value(), $args[0]);
         }
 
         if (is_integer($args[0])) {
             $newArgs = [];
-            $targetIndex = array_pop($args);
+            $targetIndex = array_pop(array: $args);
             foreach ($args as $index => $arg) {
                 if ($index === $args[0]) {
                     $newArgs[] = $this->value();
@@ -31,7 +31,7 @@ class Stringable extends BaseStringable
             }
 
             if (count($args) > $targetIndex) {
-                $newArgs = array_merge($newArgs, array_slice($args, $targetIndex));
+                $newArgs = array_merge(main: $newArgs, merge: array_slice(array: $args, offset: $targetIndex));
             }
 
             return Str::sprintf($format, ...$args);

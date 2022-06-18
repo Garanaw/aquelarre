@@ -35,17 +35,17 @@ class MigrationEnded
             return;
         }
 
-        $this->seedMigration($migration);
+        $this->seedMigration(migration: $migration);
     }
 
     private function seedMigration(Migration $migration): void
     {
-        $startTime = microtime(true);
+        $startTime = microtime(as_float: true);
 
         $migration->getSeeders()->each(function (string $seederName): void {
-            $name = $this->getSeederName($seederName);
-            $seeder = $this->app->make($seederName);
-            $this->note(sprintf('<info>Running seeder</info>: %s', $name));
+            $name = $this->getSeederName(path: $seederName);
+            $seeder = $this->app->make(abstract: $seederName);
+            $this->note(message: sprintf('<info>Running seeder</info>: %s', $name));
             $seeder->run();
         });
 
@@ -56,17 +56,17 @@ class MigrationEnded
 
     private function getMigrationName(Migration $migration): string
     {
-        return str_replace('.php', '', get_class($migration));
+        return str_replace(search: '.php', replace: '', subject: get_class($migration));
     }
 
     private function getSeederName(string $path): string
     {
-        $pieces = explode('/', $path);
+        $pieces = explode(separator: '/', string: $path);
         return end($pieces);
     }
 
     private function note(string $message): void
     {
-        $this->output?->writeln($message);
+        $this->output?->writeln(messages: $message);
     }
 }
