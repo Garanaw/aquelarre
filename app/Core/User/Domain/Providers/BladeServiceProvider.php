@@ -17,8 +17,17 @@ class BladeServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $this->bladeCompiler = $this->app->make(BladeCompiler::class);
-        $this->bladeCompiler->componentNamespace(self::USER_NAMESPACE, self::USER_PREFIX);
-        $this->bladeCompiler->anonymousComponentNamespace(app_path(self::USER_ANONYMOUS_NAMESPACE), self::USER_PREFIX);
+        $this->bladeCompiler = $this->app->make(abstract: BladeCompiler::class);
+
+        $this->bladeCompiler->componentNamespace(namespace: self::USER_NAMESPACE, prefix: self::USER_PREFIX);
+        $this->bladeCompiler->anonymousComponentNamespace(
+            directory: app_path(path: self::USER_ANONYMOUS_NAMESPACE),
+            prefix: self::USER_PREFIX
+        );
+
+        $this->loadViewsFrom(
+            path: app_path(path: self::USER_ANONYMOUS_NAMESPACE),
+            namespace: self::USER_PREFIX
+        );
     }
 }

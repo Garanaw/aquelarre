@@ -17,10 +17,16 @@ class BladeServiceProvider extends ServiceProvider
     {
         /** @var BladeCompiler $blade */
         $blade = $this->app->make(abstract: BladeCompiler::class);
+
         $blade->componentNamespace(namespace: self::SHARED_NAMESPACE, prefix: self::SHARED_PREFIX);
         $blade->anonymousComponentNamespace(
             directory: app_path(path: self::SHARED_ANONYMOUS_NAMESPACE),
             prefix: self::SHARED_PREFIX
+        );
+
+        $this->loadViewsFrom(
+            path: app_path(path: self::SHARED_ANONYMOUS_NAMESPACE),
+            namespace: self::SHARED_PREFIX
         );
     }
 }

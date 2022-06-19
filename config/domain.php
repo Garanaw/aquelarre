@@ -15,7 +15,6 @@ return [
             Aquelarre\Core\Framework\Providers\EventServiceProvider::class,
             Aquelarre\Core\Framework\Providers\RouteServiceProvider::class,
             Aquelarre\Core\Framework\Providers\TelescopeServiceProvider::class,
-            Aquelarre\Core\Framework\Providers\ViewServiceProvider::class,
         ],
         'exclude_for_other_domains' => [
         ],
@@ -24,7 +23,6 @@ return [
         'providers' => [
             Aquelarre\Core\User\Domain\Providers\BladeServiceProvider::class,
             Aquelarre\Core\User\Domain\Providers\FortifyServiceProvider::class,
-            Aquelarre\Core\User\Domain\Providers\ViewServiceProvider::class,
         ],
     ],
 ];
