@@ -9,11 +9,13 @@ use Illuminate\Support\Collection;
 
 class ServiceProviderLoader extends BaseServiceProviderLoader
 {
+    final protected const SUBDOMAIN_NAME = 'user';
+
     protected function getProviders(): Collection
     {
         $config = $this->app['config']->get('domain');
-        $selfProviders = $config['user']['providers'];
-        $excluded = $config['shared']['exclude_for_other_domains'];
+        $selfProviders = $config[self::SUBDOMAIN_NAME]['providers'];
+        $excluded = $config[self::DOMAIN_NAME]['exclude_for_other_domains'];
         $sharedProviders = parent::getProviders()->reject(
             fn(string $provider) => in_array($provider, $excluded)
         );

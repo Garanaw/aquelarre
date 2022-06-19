@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ServiceProviderLoader
 {
+    final protected const DOMAIN_NAME = 'core';
+
     public function __construct(protected readonly Application $app)
     {
     }
@@ -27,7 +29,10 @@ class ServiceProviderLoader
     protected function getProviders(): Collection
     {
         return Collection::wrap(
-            value: $this->app['config']->get(key: 'domain.shared.providers', default: [])
+            value: $this->app['config']->get(
+                key: sprintf('domain.%s.providers', self::DOMAIN_NAME),
+                default: []
+            )
         );
     }
 }
