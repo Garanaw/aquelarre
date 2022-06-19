@@ -14,7 +14,7 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
       # Specify the version you desire here
-      - image: cimg/php:8.1.7
+      - image: cimg/php:8.1.3
 #      - auth:
 #          - username: "$CIRCLECI_USERNAME"
 #          - password: "$CIRCLECI_TOKEN"
