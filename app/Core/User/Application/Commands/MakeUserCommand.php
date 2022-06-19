@@ -2,10 +2,6 @@
 
 declare(strict_types=1);
 
-/**
- * Due to Laravel's commands discovery mechanism,
- * the namespace of the commands must be at the App level.
- */
 namespace Aquelarre\Core\User\Application\Commands;
 
 use Aquelarre\Core\Shared\Application\Rules\Rule;
@@ -48,8 +44,17 @@ class MakeUserCommand extends Command
 
     private function askForEmail(): string
     {
+        $error = false;
         do {
-            $email = $this->ask(question: 'What is the user email?');
+            $question = 'What is the email?';
+
+            if ($error) {
+                $question = 'The email is invalid. ' . $question;
+            }
+
+            $email = $this->ask(question: $question);
+            $this->checkForCancellation(response: $email);
+            $error = true;
         } while (! $this->validate(data: ['email' => $email], rules: ['email' => Rule::emailRules()]));
 
         return $email;
@@ -71,6 +76,7 @@ class MakeUserCommand extends Command
     {
         do {
             $roleName = $this->anticipate(question: 'What is the user role?', choices: $this->roleNames);
+            $this->checkForCancellation(response: $roleName);
         } while (! $this->validate(data: ['roles' => $roleName], rules: ['roles' => ['required', Rule::in($this->roleNames)]]));
 
         return $roleName;
@@ -79,5 +85,18 @@ class MakeUserCommand extends Command
     private function validate(array $data, array $rules): bool
     {
         return $this->validator->make($data, $rules)->passes();
+    }
+
+    private function checkForCancellation(string $response): void
+    {
+        if (in_array($response, ['q', 'quit', 'exit', 'cancel'], true)) {
+            $this->quit();
+        }
+    }
+
+    private function quit(): never
+    {
+        $this->info('Bye!');
+        exit;
     }
 }
