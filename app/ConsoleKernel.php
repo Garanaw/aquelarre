@@ -4,23 +4,11 @@ declare(strict_types=1);
 
 namespace Aquelarre;
 
-use Aquelarre\Core\Shared\Domain\Support\Str;
-use Illuminate\Console\Application;
-use Illuminate\Console\Command;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel;
-use Illuminate\Support\Arr;
-use ReflectionClass;
-use Symfony\Component\Finder\Finder;
 
 class ConsoleKernel extends Kernel
 {
-    /**
-     * Define the application's command schedule.
-     *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-     * @return void
-     */
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
@@ -31,55 +19,27 @@ class ConsoleKernel extends Kernel
         $this->load(paths: __DIR__.'/Commands');
 
         collect(value: $this->app['config']['domain.available_domains'])
-            ->map(callback: static function (string $domainName): array {
-                return [
-                    'domain' => $domainName,
-                    'path' => sprintf('%s/%s/Commands', __DIR__, Str::ucfirst($domainName)),
-                ];
-            })
-            ->each(callback: function (array $domain)  {
-                $this->load(
-                    paths: $domain['path'],
-                    namespace: ''
+            ->each(function (?array $subdomains, string $domain) {
+                $this->registerDomainCommands(domain: $domain);
+
+                if (empty($subdomains)) {
+                    return;
+                }
+
+                collect(value: $subdomains)->each(
+                    callback: fn (string $subdomain) => $this->registerDomainCommands(domain: $domain, subdomain: $subdomain)
                 );
             });
 
         require base_path(path: 'routes/console.php');
     }
 
-    protected function load($paths, ?string $namespace = null)
+    protected function registerDomainCommands(string $domain, ?string $subdomain = null): void
     {
-        if ($namespace === null) {
-            parent::load(paths: $paths);
-            return;
-        }
+        $format = $subdomain
+            ? sprintf('app/%s/%s/Application/Commands', ucfirst($domain), ucfirst($subdomain))
+            : sprintf('app/%s/Application/Commands', ucfirst($domain));
 
-        $paths = collect(Arr::wrap($paths))
-            ->unique()
-            ->filter(callback: fn ($path): bool => is_dir($path));
-
-        if ($paths->isEmpty()) {
-            return;
-        }
-
-        foreach ((new Finder)->in(dirs: $paths->toArray())->files() as $command) {
-            $command = $namespace.str_replace(
-                search: ['/', '.php'],
-                replace: ['\\', ''],
-                subject: Str::after(subject: $command->getRealPath(), search: realpath(path: app_path()).DIRECTORY_SEPARATOR)
-            );
-
-            if (is_subclass_of(object_or_class: $command, class: Command::class) === false) {
-                continue;
-            }
-
-            if ((new ReflectionClass(objectOrClass: $command))->isAbstract()) {
-                continue;
-            }
-
-            Application::starting(callback: function (Application $artisan) use ($command) {
-                $artisan->resolve(command: $command);
-            });
-        }
+        $this->load(paths: base_path(path: $format));
     }
 }

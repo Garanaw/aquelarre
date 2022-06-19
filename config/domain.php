@@ -2,10 +2,11 @@
 
 return [
     'available_domains' => [
-        'shared',
-        'user',
+        'core' => [
+            'user',
+        ],
     ],
-    'shared' => [
+    'core' => [
         'providers' => [
             Aquelarre\Core\Framework\Providers\AppServiceProvider::class,
             Aquelarre\Core\Framework\Providers\AuthServiceProvider::class,
@@ -21,9 +22,9 @@ return [
     ],
     'user' => [
         'providers' => [
-            \Aquelarre\Core\User\Domain\Providers\BladeServiceProvider::class,
-            \Aquelarre\Core\User\Domain\Providers\FortifyServiceProvider::class,
-            \Aquelarre\Core\User\Domain\Providers\ViewServiceProvider::class,
+            Aquelarre\Core\User\Domain\Providers\BladeServiceProvider::class,
+            Aquelarre\Core\User\Domain\Providers\FortifyServiceProvider::class,
+            Aquelarre\Core\User\Domain\Providers\ViewServiceProvider::class,
         ],
     ],
 ];
