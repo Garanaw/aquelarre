@@ -7,7 +7,9 @@ version: 2
 jobs:
   build:
     machine:
-      image: ubuntu-2004:202010-01
+      image: true
+    executor: ubuntu-2004:202010-01
+    resource_class: small
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
