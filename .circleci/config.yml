@@ -54,7 +54,7 @@ jobs:
           keys:
             - node-v1-{{ checksum "package.json" }}
             - node-v1-
-      - run: npm ci
+      - run: npm ci && npm run prod
       - save_cache:
           key: node-v1-{{ checksum "package.json" }}
           paths:
