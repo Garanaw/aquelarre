@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
+use Aquelarre\Core\Framework\Infrastructure\Migration\Blueprint;
+use Aquelarre\Core\Framework\Infrastructure\Migration\Migration;
 use Database\Seeders\User\PermissionsSeeder;
 use Database\Seeders\User\RolesSeeder;
-use Infrastructure\Migration\Blueprint;
-use Infrastructure\Migration\Migration;
 use Spatie\Permission\PermissionRegistrar;
 
 return new class extends Migration
