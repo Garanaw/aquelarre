@@ -11,6 +11,9 @@ jobs:
     docker:
       # Specify the version you desire here
       - image: circleci/php:8.1-node-browsers
+      auth:
+          - username: "$CIRCLECI_USERNAME"
+          - password: "$CIRCLECI_TOKEN"
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
