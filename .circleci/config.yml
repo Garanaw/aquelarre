@@ -34,9 +34,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install PHP Mess Detector
-          command: composer require phpmd/phpmd
-      - run:
           name: Run PHP Mess Detector
           command: php -d MEMORY_LIMIT=-1 ./vendor/bin/phpmd /var/www/html/app ansi phpmd.xml
   phpcs:
