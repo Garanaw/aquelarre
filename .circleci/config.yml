@@ -2,69 +2,131 @@
 # See: https://circleci.com/docs/2.0/language-php/
 version: 2
 
+references:
+  defaults: &defaults
+    docker:
+      - image: cimg/php:8.1-node
+        environment:
+          APP_NAME: TEST
+          APP_ENV: testing
+  restore_repo: &restore_repo
+    restore_cache:
+      keys:
+        # "composer.lock" can be used if it is committed to the repo
+        - v1-dependencies-{{ checksum "composer.json" }}
+        # fallback to using the latest cache if no exact match is found
+        - v1-dependencies-
+  save_repo: &save_repo
+    save_cache:
+      key: v1-dependencies-{{ checksum "composer.json" }}
+      paths:
+        - ./vendor
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  build:
-#    machine:
-#      image: true
-#    executor: ubuntu-2004:202010-01
-#    resource_class: small
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
-    docker:
-      # Specify the version you desire here
-      - image: cimg/php:8.1-node
-#      - auth:
-#          - username: "$CIRCLECI_USERNAME"
-#          - password: "$CIRCLECI_TOKEN"
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # Using the RAM variation mitigates I/O contention
-      # for database intensive operations.
-      # - image: circleci/mysql:5.7-ram
-      #
-      # - image: redis:2.8.19
-
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+  setup:
+    <<: *defaults
+    steps:
+      - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
+  phpmd:
+    <<: *defaults
     steps:
       - checkout
-
-      - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
-      #- run: sudo docker-php-ext-install zip
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            # "composer.lock" can be used if it is committed to the repo
-            - v1-dependencies-{{ checksum "composer.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
+      - run:
+          name: Install PHP Mess Detector
+          command: composer global require phpmd/phpmd
+      - run:
+          name: Run PHP Mess Detector
+          command: php -d MEMORY_LIMIT=-1 ~/.composer/vendor/bin/phpmd /var/www/html/app ansi phpmd.xml
+  phpcs:
+    <<: *defaults
+    steps:
+      - checkout
+      - *restore_repo
+      - run:
+          name: Install PHP Code Sniffer
+          command: composer global require "squizlabs/php_codesniffer=*"
+      - *save_repo
+      - run:
+          name: Run PHP Code Sniffer
+          command: ~/.composer/vendor/bin/phpcs /var/www/html/app --standard=phpcs.xml
+  tests:
+    <<: *defaults
+    steps:
+      - checkout
+      - *restore_repo
       - run: composer install -n --prefer-dist
-
-      - save_cache:
-          key: v1-dependencies-{{ checksum "composer.json" }}
-          paths:
-            - ./vendor
-      - restore_cache:
-          keys:
-            - node-v1-{{ checksum "package.json" }}
-            - node-v1-
-      - run: npm ci && npm run prod
-      - save_cache:
-          key: node-v1-{{ checksum "package.json" }}
-          paths:
-            - node_modules
-
-      # prepare the database
+      - *save_repo
+      - run: php artisan config:clear
       - run: touch database/testing.sqlite
       - run: php artisan migrate --env=testing --database=sqlite --force
-
-      # run tests with phpunit or codecept
       - run: ./vendor/bin/phpunit
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - setup
+      - phpmd
+      - phpcs
+      - tests
+
+#  build:
+##    machine:
+##      image: true
+##    executor: ubuntu-2004:202010-01
+##    resource_class: small
+#    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+#    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+#    docker:
+#      # Specify the version you desire here
+#      - image: cimg/php:8.1-node
+##      - auth:
+##          - username: "$CIRCLECI_USERNAME"
+##          - password: "$CIRCLECI_TOKEN"
+#
+#      # Specify service dependencies here if necessary
+#      # CircleCI maintains a library of pre-built images
+#      # documented at https://circleci.com/docs/2.0/circleci-images/
+#      # Using the RAM variation mitigates I/O contention
+#      # for database intensive operations.
+#      # - image: circleci/mysql:5.7-ram
+#      #
+#      # - image: redis:2.8.19
+#
+#    # Add steps to the job
+#    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+#    steps:
+#      - checkout
+#
+#      #- run: sudo docker-php-ext-install zip
+#
+#      # Download and cache dependencies
+#      - restore_cache:
+#          keys:
+#            # "composer.lock" can be used if it is committed to the repo
+#            - v1-dependencies-{{ checksum "composer.json" }}
+#            # fallback to using the latest cache if no exact match is found
+#            - v1-dependencies-
+#
+#      - run: composer install -n --prefer-dist
+#
+#      - save_cache:
+#          key: v1-dependencies-{{ checksum "composer.json" }}
+#          paths:
+#            - ./vendor
+#      - restore_cache:
+#          keys:
+#            - node-v1-{{ checksum "package.json" }}
+#            - node-v1-
+#      - run: npm ci && npm run prod
+#      - save_cache:
+#          key: node-v1-{{ checksum "package.json" }}
+#          paths:
+#            - node_modules
+
+      # prepare the database
+      # run tests with phpunit or codecept
       #- run: ./vendor/bin/codecept build
       #- run: ./vendor/bin/codecept run
