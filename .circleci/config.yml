@@ -37,6 +37,9 @@ jobs:
           name: See the directory
           command: echo $(pwd)
       - run:
+          name: See the contents
+          command: ls -la
+      - run:
           name: Install PHP Mess Detector
           command: composer require --dev phpmd/phpmd
       - run:
