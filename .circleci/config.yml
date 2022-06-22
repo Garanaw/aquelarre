@@ -44,7 +44,7 @@ jobs:
           command: composer require --dev phpmd/phpmd
       - run:
           name: Run PHP Mess Detector
-          command: php -d MEMORY_LIMIT=-1 ./vendor/bin/phpmd ./app ansi phpmd.xml
+          command: php -d MEMORY_LIMIT=-1 ./vendor/bin/phpmd ./app ansi ./phpmd.xml
   phpcs:
     <<: *defaults
     steps:
