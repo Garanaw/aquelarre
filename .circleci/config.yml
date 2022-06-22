@@ -33,7 +33,12 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - run: echo $(pwd)
+      - run:
+          name: See the directory
+          command: echo $(pwd)
+      - run:
+          name: Install PHP Mess Detector
+          command: composer require --dev phpmd/phpmd
       - run:
           name: Run PHP Mess Detector
           command: php -d MEMORY_LIMIT=-1 ./vendor/bin/phpmd /var/www/html/app ansi phpmd.xml
