@@ -8,6 +8,9 @@ use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Carbon;
 use Spatie\DataTransferObject\DataTransferObject;
 
+/**
+ * @SuppressWarnings(PHPMD.CamelCasePropertyName)
+ */
 class NewUser extends DataTransferObject implements Arrayable
 {
     public readonly string $name;
