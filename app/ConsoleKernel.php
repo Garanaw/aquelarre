@@ -9,6 +9,11 @@ use Illuminate\Foundation\Console\Kernel;
 
 class ConsoleKernel extends Kernel
 {
+    /**
+     * @param Schedule $schedule
+     * @return void
+     * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+     */
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
