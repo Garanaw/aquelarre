@@ -53,7 +53,11 @@
 
     <!-- Include some sniffs from other standards that don't conflict with PEAR -->
     <rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
-    <rule ref="Squiz.Arrays.ArrayDeclaration"/>
+    <rule ref="Squiz.Arrays.ArrayDeclaration">
+        <exclude name="Squiz.Arrays.ArrayDeclaration.DoubleArrowNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.KeyNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.ValueNotAligned"/>
+    </rule>
     <rule ref="Squiz.ControlStructures.ControlSignature"/>
     <rule ref="Squiz.ControlStructures.ElseIfDeclaration"/>
     <rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing">
