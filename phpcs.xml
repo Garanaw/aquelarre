@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Aquelarre" xsi:noNamespaceSchemaLocation="phpcs.xsd">
-    
+
     <description>Aquelarre PHPCS Config</description>
-    
+
     <config name="installed_paths" value="../../slevomat/coding-standard"/><!-- relative path from PHPCS source location -->
-    
+
     <file>./app</file>
     <file>./config</file>
     <file>./routes</file>
     <file>./tests</file>
-    
+
     <arg name="basepath" value="."/>
     <arg name="colors"/>
     <arg name="parallel" value="75"/>
     <arg value="np"/>
-    
+
     <!-- Don't hide tokenizer exceptions -->
     <rule ref="Internal.Tokenizer.Exception">
         <type>error</type>
@@ -27,7 +27,7 @@
     <rule ref="PEAR.Formatting" />
     <!--rule ref="PEAR.Functions" /-->
     <rule ref="PEAR.WhiteSpace" />
-    
+
     <!-- Include some PSR rules -->
     <rule ref="PSR1.Files.SideEffects" />
     <rule ref="PSR2.Classes.ClassDeclaration" />
@@ -138,7 +138,7 @@
     <rule ref="Generic.Strings.UnnecessaryStringConcat">
         <exclude-pattern>tests/bootstrap.php</exclude-pattern>
     </rule>
-    
+
     <!-- Lines should not exceed the fixed length -->
     <rule ref="Generic.Files.LineLength">
         <properties>
@@ -150,40 +150,40 @@
     <!-- Fixme and TODO comments are not allowed -->
     <rule ref="Generic.Commenting.Fixme"/>
     <rule ref="Generic.Commenting.Todo"/>
-    
+
     <!-- Typehits are preferred over docblocks in parameter lists-->
     <!-- When overriding native methods, add @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint -->
     <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint" />
-    
+
     <!-- Typehints are preferred over docblocks in properties -->
     <!-- When overriding native methods, add @phpcsSuppress SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint -->
     <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint" />
-    
+
     <!-- Typehints are preferred over docblocks in returns -->
     <!-- When overriding native methods, add @phpcsSuppress SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint -->
     <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint" />
-    
+
     <!-- Constants MUST not have a docblock -->
     <rule ref="SlevomatCodingStandard.TypeHints.UselessConstantTypeHint" />
-    
+
     <!-- Throwable interface over Exception in throws -->
     <rule ref="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly" />
-    
+
     <!-- Force strict types -->
     <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
         <properties>
-            <property name="newlinesCountBetweenOpenTagAndDeclare" value="0" />
-            <property name="newlinesCountAfterDeclare" value="2" />
-            <property name="spacesCountAroundEqualsSign" value="1" />
+            <property name="newlinesCountBetweenOpenTagAndDeclare" value="1" />
+            <property name="newlinesCountAfterDeclare" value="1" />
+            <property name="spacesCountAroundEqualsSign" value="0" />
         </properties>
     </rule>
-    
+
     <!-- Disallows assignments in if, elseif and do-while loop conditions -->
     <rule ref="SlevomatCodingStandard.ControlStructures.AssignmentInCondition" />
-    
+
     <!-- Requires use of null coalesce operator when possible -->
     <rule ref="SlevomatCodingStandard.ControlStructures.RequireNullCoalesceOperator" />
-    
+
     <!-- Requires use of early exit -->
     <rule ref="SlevomatCodingStandard.ControlStructures.EarlyExit">
         <properties>
@@ -192,49 +192,49 @@
             <property name="ignoreTrailingIfWithOneInstruction" value="true" />
         </properties>
     </rule>
-    
+
     <!-- Reports closures not using $this that are not declared static -->
     <rule ref="SlevomatCodingStandard.Functions.StaticClosure" />
-    
+
     <!-- Disallows using loose == and != comparison operators -->
     <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators" />
-    
+
     <!-- Looks for unused inherited variables passed to closure via -->
     <rule ref="SlevomatCodingStandard.Functions.UnusedInheritedVariablePassedToClosure" />
-    
+
     <!-- Looks for unused parameters -->
     <rule ref="SlevomatCodingStandard.Functions.UnusedParameter" />
-    
+
     <!-- Looks for useless parameter default value -->
     <rule ref="SlevomatCodingStandard.Functions.UselessParameterDefaultValue" />
-    
+
     <!-- Looks for unused imports from other namespaces -->
     <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses" />
-    
+
     <!-- Looks for use alias that is same as unqualified name -->
     <rule ref="SlevomatCodingStandard.Namespaces.UselessAlias" />
-    
+
     <!-- Looks for useless parentheses -->
     <rule ref="SlevomatCodingStandard.PHP.UselessParentheses">
         <properties>
             <property name="ignoreComplexTernaryConditions" value="true" />
         </properties>
     </rule>
-    
+
     <!-- Looks for useless semicolons -->
     <rule ref="SlevomatCodingStandard.PHP.UselessSemicolon" />
-    
+
     <!-- Looks for unused variables -->
     <rule ref="SlevomatCodingStandard.Variables.UnusedVariable">
         <properties>
             <property name="ignoreUnusedValuesWhenOnlyKeysAreUsedInForeach" value="true" />
         </properties>
     </rule>
-    
+
     <!-- Looks for useless variables -->
     <rule ref="SlevomatCodingStandard.Variables.UselessVariable" />
-    
+
     <!-- Enforces trailing commas in multi-line arrays and requires short array syntax [] -->
     <rule ref="SlevomatCodingStandard.Arrays.TrailingArrayComma" />
-    
+
 </ruleset>
