@@ -8,6 +8,7 @@ use Illuminate\Support\Str as BaseStr;
 
 class Str extends BaseStr
 {
+    /** @SuppressWarnings(PHPMD.ShortMethodName) */
     public static function of($string): Stringable
     {
         return new Stringable(value: $string);
