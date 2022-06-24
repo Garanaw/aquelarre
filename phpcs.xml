@@ -105,9 +105,9 @@
     <rule ref="Squiz.Arrays.ArrayDeclaration.KeyNotAligned">
         <severity>0</severity>
     </rule>
-    <rule ref="Squiz.Arrays.ArrayDeclaration.ValueNotAligned">
-        <severity>0</severity>
-    </rule>
+<!--    <rule ref="Squiz.Arrays.ArrayDeclaration.ValueNotAligned">-->
+<!--        <severity>0</severity>-->
+<!--    </rule>-->
     <rule ref="Squiz.Arrays.ArrayDeclaration.CloseBraceNotAligned">
         <severity>0</severity>
     </rule>
