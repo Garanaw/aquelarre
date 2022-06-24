@@ -43,7 +43,7 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        /** @SuppressWarnings(PHPMD.UnusedLocalVariable) */
+        /** @SuppressWarnings(PHPMD.UnusedFormalParameter) */
         $this->reportable(reportUsing: function (Throwable $e) {
             //
         });

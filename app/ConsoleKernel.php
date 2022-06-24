@@ -12,7 +12,7 @@ class ConsoleKernel extends Kernel
     /**
      * @param Schedule $schedule
      * @return void
-     * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     protected function schedule(Schedule $schedule)
     {
