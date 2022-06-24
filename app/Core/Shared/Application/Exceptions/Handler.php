@@ -40,10 +40,10 @@ class Handler extends ExceptionHandler
      * Register the exception handling callbacks for the application.
      *
      * @return void
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function register()
     {
-        /** @SuppressWarnings(PHPMD.UnusedFormalParameter) */
         $this->reportable(reportUsing: function (Throwable $e) {
             //
         });
