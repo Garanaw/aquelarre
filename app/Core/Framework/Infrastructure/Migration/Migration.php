@@ -15,6 +15,7 @@ use Illuminate\Support\Collection;
 
 abstract class Migration extends BaseMigration
 {
+    /** @SuppressWarnings(PHPMD.ShortVariable) */
     protected Connection $db;
     protected Builder $schema;
     protected array $seeders = [];
@@ -50,6 +51,7 @@ abstract class Migration extends BaseMigration
         );
     }
 
+    /** @SuppressWarnings(PHPMD.ShortMethodName) */
     public abstract function up(): void;
 
     public abstract function down(): void;
