@@ -94,6 +94,7 @@ class MakeUserCommand extends Command
         }
     }
 
+    /** @SuppressWarnings(PHPMD.ExitExpression) */
     private function quit(): never
     {
         $this->info('Bye!');
