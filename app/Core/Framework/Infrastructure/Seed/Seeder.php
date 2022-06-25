@@ -43,8 +43,7 @@ abstract class Seeder extends BaseSeeder
         }
 
         $this->db->table(table: $table)->delete();
-        // phpcs:ignore Squiz.Strings.ConcatenationSpacing.PaddingFound -- baseline
-        $resetAutoIncrementStm = 'ALTER TABLE '.$table.' AUTO_INCREMENT = 1;';
+        $resetAutoIncrementStm = sprintf('ALTER TABLE %s AUTO_INCREMENT = 1;', $table);
         $this->db->statement(query: $resetAutoIncrementStm);
         $this->note(message: '<info>Table reset</info>: ' . $table);
     }
