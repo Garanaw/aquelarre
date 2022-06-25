@@ -22,6 +22,7 @@ class HttpKernel extends Kernel
      *
      * @var array<int, class-string|string>
      */
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint -- baseline
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
         TrustProxies::class,
@@ -37,6 +38,7 @@ class HttpKernel extends Kernel
      *
      * @var array<string, array<int, class-string|string>>
      */
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint -- baseline
     protected $middlewareGroups = [
         'web' => [
             EncryptCookies::class,
@@ -61,6 +63,7 @@ class HttpKernel extends Kernel
      *
      * @var array<string, class-string|string>
      */
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint -- baseline
     protected $routeMiddleware = [
         'auth' => Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

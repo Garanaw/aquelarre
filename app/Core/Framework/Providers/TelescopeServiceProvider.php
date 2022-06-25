@@ -17,7 +17,7 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
         EntryType::MODEL,
     ];
 
-    public function register()
+    public function register(): void
     {
         Telescope::night();
 

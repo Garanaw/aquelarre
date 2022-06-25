@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing -- baseline
 
 return [
 
@@ -44,14 +44,17 @@ return [
             'timeout' => null,
         ],
 
+        // phpcs:ignore Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
         'ses' => [
             'transport' => 'ses',
         ],
 
+        // phpcs:ignore Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
         'mailgun' => [
             'transport' => 'mailgun',
         ],
 
+        // phpcs:ignore Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
         'postmark' => [
             'transport' => 'postmark',
         ],
@@ -66,6 +69,7 @@ return [
             'channel' => env('MAIL_LOG_CHANNEL'),
         ],
 
+        // phpcs:ignore Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
         'array' => [
             'transport' => 'array',
         ],

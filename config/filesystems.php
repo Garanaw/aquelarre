@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing -- baseline
 
 return [
 
@@ -39,6 +39,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
+            // phpcs:ignore Squiz.Strings.ConcatenationSpacing.PaddingFound -- baseline
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
             'throw' => false,

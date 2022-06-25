@@ -21,18 +21,23 @@ class Writer
 
     public function create(NewUser $data): User
     {
-        return $this->db->transaction(function () use ($data) {
+        return $this->db->transaction(callback: function () use ($data) {
             $userData = [
                 'name' => $data->name,
                 'email' => $data->email,
                 'password' => $this->hashManager->make($data->password),
+                // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps -- baseline
                 'email_verified_at' => $data->email_verified_at,
             ];
 
-            return tap($this->user->newQuery()->create($userData), function (User $user) use ($data) {
-                $user->assignRole($data->role_name);
-                $user->profile()->save(new UserProfile());
-            });
+            return tap(
+                value: $this->user->newQuery()->create($userData),
+                callback: static function (User $user) use ($data): void {
+                    // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps -- baseline
+                    $user->assignRole($data->role_name);
+                    $user->profile()->save(new UserProfile());
+                }
+            );
         });
     }
 }

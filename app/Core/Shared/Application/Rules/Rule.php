@@ -10,7 +10,9 @@ use Laravel\Fortify\Rules\Password;
 
 class Rule extends BaseRule
 {
-
+    /**
+     * @return string[]
+     */
     public static function nameRules(): array
     {
         return [
@@ -30,6 +32,9 @@ class Rule extends BaseRule
             ->requireNumeric();
     }
 
+    /**
+     * @return mixed[]
+     */
     public static function passwordRules(): array
     {
         return [
@@ -40,6 +45,9 @@ class Rule extends BaseRule
         ];
     }
 
+    /**
+     * @return string[]
+     */
     public static function emailRules(): array
     {
         return [

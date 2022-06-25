@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Aquelarre\Core\Shared\Application\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\TrimStrings as Middleware;
@@ -11,6 +13,7 @@ class TrimStrings extends Middleware
      *
      * @var array<int, string>
      */
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint -- baseline
     protected $except = [
         'current_password',
         'password',

@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing -- baseline
 
 namespace Tests\Unit;
 
@@ -11,6 +11,7 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint -- baseline
     public function test_that_true_is_true()
     {
         $this->assertTrue(true);

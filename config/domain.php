@@ -1,7 +1,8 @@
-<?php
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing -- baseline
 
 return [
     'available_domains' => [
+        // phpcs:ignore Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
         'core' => [
             'user',
         ],
@@ -17,6 +18,7 @@ return [
             Aquelarre\Core\Framework\Providers\TelescopeServiceProvider::class,
             Aquelarre\Core\Framework\Providers\ViewServiceProvider::class,
         ],
+        // phpcs:ignore Squiz.Arrays.ArrayDeclaration.SpaceInEmptyArray -- baseline
         'exclude_for_other_domains' => [
         ],
     ],

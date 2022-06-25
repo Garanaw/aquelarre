@@ -8,6 +8,7 @@ use Illuminate\Support\Stringable as BaseStringable;
 
 class Stringable extends BaseStringable
 {
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingAnyTypeHint -- baseline
     public function sprintf(string $format, ?int $index = null, ...$args): Stringable
     {
         if (count(value: $args) === 0) {
@@ -25,6 +26,7 @@ class Stringable extends BaseStringable
                 if ($index === $args[0]) {
                     $newArgs[] = $this->value();
                     break;
+                // phpcs:ignore Squiz.WhiteSpace.ControlStructureSpacing.NoLineAfterClose -- baseline
                 }
                 $newArgs[] = $arg;
                 $targetIndex++;

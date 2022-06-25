@@ -9,15 +9,11 @@ use Illuminate\Support\ServiceProvider;
 
 class BroadcastServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
+    public function boot(): void
     {
         Broadcast::routes();
 
+        // phpcs:ignore PEAR.Files.IncludingFile.UseInclude -- baseline
         require base_path('routes/channels.php');
     }
 }

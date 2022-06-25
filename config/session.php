@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing -- baseline
 
 use Illuminate\Support\Str;
 
@@ -113,6 +113,7 @@ return [
     |
     */
 
+    // phpcs:ignore Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed -- baseline
     'lottery' => [2, 100],
 
     /*
@@ -128,6 +129,7 @@ return [
 
     'cookie' => env(
         'SESSION_COOKIE',
+        // phpcs:ignore Squiz.Strings.ConcatenationSpacing.PaddingFound -- baseline
         Str::slug(env('APP_NAME', 'laravel'), '_').'_session'
     ),
 
