@@ -43,8 +43,7 @@ abstract class Seeder extends BaseSeeder
         }
 
         $this->db->table(table: $table)->delete();
-        $resetAutoIncrementStm = sprintf('ALTER TABLE %s AUTO_INCREMENT = 1;', $table);
-        $this->db->statement(query: $resetAutoIncrementStm);
+        $this->db->statement(query: sprintf('ALTER TABLE `%s` AUTO_INCREMENT = 1;', $table));
         $this->note(message: '<info>Table reset</info>: ' . $table);
     }
 
