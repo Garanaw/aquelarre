@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+use Aquelarre\Core\Framework\Infrastructure\Migration\Blueprint;
+use Aquelarre\Core\Framework\Infrastructure\Migration\Migration;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        $this->schema->create('{{ table }}', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        $this->schema->dropIfExists('{{ table }}');
+    }
+};
