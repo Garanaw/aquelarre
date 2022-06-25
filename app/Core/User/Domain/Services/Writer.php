@@ -44,11 +44,7 @@ class Writer
         $this->writer->addBookToUser($user, $book);
     }
 
-    /**
-     * @param User $user
-     * @param Collection<int, Book> $books
-     * @return void
-     */
+    /** @param Collection<int, Book> $books */
     public function addBooksToUser(User $user, Collection $books): void
     {
         $this->writer->addBooksToUser($user, $books);
