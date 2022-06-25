@@ -52,6 +52,7 @@ class Writer
         $user->books()->attach($book);
     }
 
+    /** @param Collection<int, Book> $books */
     public function addBooksToUser(User $user, Collection $books): void
     {
         $user->books()->attach(
