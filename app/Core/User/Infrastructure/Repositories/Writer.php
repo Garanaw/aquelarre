@@ -21,7 +21,7 @@ class Writer
 
     public function create(NewUser $data): User
     {
-        return $this->db->transaction(function () use ($data) {
+        return $this->db->transaction(callback: function () use ($data) {
             $userData = [
                 'name' => $data->name,
                 'email' => $data->email,
@@ -29,10 +29,13 @@ class Writer
                 'email_verified_at' => $data->email_verified_at,
             ];
 
-            return tap($this->user->newQuery()->create($userData), function (User $user) use ($data) {
-                $user->assignRole($data->role_name);
-                $user->profile()->save(new UserProfile());
-            });
+            return tap(
+                value: $this->user->newQuery()->create($userData),
+                callback: static function (User $user) use ($data): void {
+                    $user->assignRole($data->role_name);
+                    $user->profile()->save(new UserProfile());
+                }
+            );
         });
     }
 }

@@ -14,8 +14,16 @@ use Illuminate\Validation\Factory;
 
 class MakeUserCommand extends Command
 {
+    /**
+     * @var string
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
+     */
     protected $signature = 'make:user {name}';
 
+    /**
+     * @var string
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
+     */
     protected $description = 'Create a new user';
 
     private readonly Factory $validator;
