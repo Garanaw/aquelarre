@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Aquelarre\Core\User\Infrastructure\Models;
 
+use Aquelarre\Core\Books\Infrastructure\ModelRelations\BelongsToManyBooks;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -17,6 +18,7 @@ class User extends Authenticatable
     use HasFactory;
     use HasRoles;
     use Notifiable;
+    use BelongsToManyBooks;
 
     /**
      * The attributes that are mass assignable.
@@ -28,6 +30,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'email_verified_at',
     ];
 
     /**
@@ -46,7 +49,7 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
-    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint, Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint -- baseline
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
