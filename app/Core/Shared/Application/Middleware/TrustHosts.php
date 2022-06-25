@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Aquelarre\Core\Shared\Application\Middleware;
 
 use Illuminate\Http\Middleware\TrustHosts as Middleware;
@@ -11,6 +13,7 @@ class TrustHosts extends Middleware
      *
      * @return array<int, string|null>
      */
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint -- baseline
     public function hosts()
     {
         return [

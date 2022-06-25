@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing -- baseline
 
 use Aquelarre\Core\Framework\Providers\RouteServiceProvider;
 use Aquelarre\Core\User\Application\Middleware\ServiceProviderLoader;

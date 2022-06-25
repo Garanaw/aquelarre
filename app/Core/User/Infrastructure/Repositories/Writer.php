@@ -26,12 +26,14 @@ class Writer
                 'name' => $data->name,
                 'email' => $data->email,
                 'password' => $this->hashManager->make($data->password),
+                // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps -- baseline
                 'email_verified_at' => $data->email_verified_at,
             ];
 
             return tap(
                 value: $this->user->newQuery()->create($userData),
                 callback: static function (User $user) use ($data): void {
+                    // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps -- baseline
                     $user->assignRole($data->role_name);
                     $user->profile()->save(new UserProfile());
                 }

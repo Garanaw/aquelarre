@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing -- baseline
 
 use Illuminate\Support\Facades\Broadcast;
 
@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
+// phpcs:ignore SlevomatCodingStandard.Functions.StaticClosure.ClosureNotStatic -- baseline
 Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });

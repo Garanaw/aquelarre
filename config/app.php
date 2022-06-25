@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing -- baseline
 
 use Illuminate\Support\Facades\Facade;
 
@@ -138,6 +138,7 @@ return [
     |
     */
 
+    // phpcs:ignore Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
     'maintenance' => [
         'driver' => 'file',
         // 'store'  => 'redis',
@@ -206,6 +207,7 @@ return [
     |
     */
 
+    // phpcs:ignore Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),

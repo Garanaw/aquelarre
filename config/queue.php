@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing -- baseline
 
 return [
 
@@ -30,6 +30,7 @@ return [
 
     'connections' => [
 
+        // phpcs:ignore Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
         'sync' => [
             'driver' => 'sync',
         ],

@@ -17,7 +17,7 @@ class ServiceProviderLoader extends BaseServiceProviderLoader
         $selfProviders = $config[self::SUBDOMAIN_NAME]['providers'];
         $excluded = $config[self::DOMAIN_NAME]['exclude_for_other_domains'];
         $sharedProviders = parent::getProviders()->reject(
-            fn(string $provider) => in_array($provider, $excluded)
+            callback: static fn(string $provider) => in_array($provider, $excluded)
         );
 
         return $sharedProviders->merge($selfProviders);

@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing -- baseline
 
 use Aquelarre\Core\User\Infrastructure\Models\Permission;
 use Aquelarre\Core\User\Infrastructure\Models\Role;

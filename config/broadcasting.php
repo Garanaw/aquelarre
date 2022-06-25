@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing -- baseline
 
 return [
 
@@ -39,6 +39,7 @@ return [
                 'cluster' => env('PUSHER_APP_CLUSTER'),
                 'useTLS' => true,
             ],
+            // phpcs:ignore Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
             'client_options' => [
                 // Guzzle client options: https://docs.guzzlephp.org/en/stable/request-options.html
             ],
@@ -54,10 +55,12 @@ return [
             'connection' => 'default',
         ],
 
+        // phpcs:ignore Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
         'log' => [
             'driver' => 'log',
         ],
 
+        // phpcs:ignore Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
         'null' => [
             'driver' => 'null',
         ],

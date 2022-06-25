@@ -21,7 +21,6 @@ class FortifyServiceProvider extends ServiceProvider
         $this->defineActions();
         $this->defineRateLimits();
         $this->defineViews();
-
     }
 
     private function defineActions(): void
@@ -37,6 +36,7 @@ class FortifyServiceProvider extends ServiceProvider
         RateLimiter::for('login', static function (Request $request) {
             $email = (string) $request->email;
 
+            // phpcs:ignore Squiz.Strings.ConcatenationSpacing.PaddingFound -- baseline
             return Limit::perMinute(5)->by($email.$request->ip());
         });
 

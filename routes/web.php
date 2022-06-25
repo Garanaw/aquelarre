@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing -- baseline
 
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// phpcs:ignore SlevomatCodingStandard.Functions.StaticClosure.ClosureNotStatic -- baseline
 Route::get('/', function () {
     return view('welcome');
 });

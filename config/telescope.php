@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing -- baseline
 
 use Laravel\Telescope\Http\Middleware\Authorize;
 use Laravel\Telescope\Watchers;
@@ -91,14 +91,17 @@ return [
     |
     */
 
+    // phpcs:ignore Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
     'only_paths' => [
         // 'api/*'
     ],
 
+    // phpcs:ignore Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
     'ignore_paths' => [
         'nova-api*',
     ],
 
+    // phpcs:ignore Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
     'ignore_commands' => [
         //
     ],

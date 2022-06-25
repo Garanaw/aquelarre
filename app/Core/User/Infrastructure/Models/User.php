@@ -23,6 +23,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint -- baseline
     protected $fillable = [
         'name',
         'email',
@@ -34,6 +35,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint -- baseline
     protected $hidden = [
         'password',
         'remember_token',
@@ -44,6 +46,7 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint, Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];

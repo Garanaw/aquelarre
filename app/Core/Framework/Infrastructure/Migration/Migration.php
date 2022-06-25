@@ -17,8 +17,11 @@ abstract class Migration extends BaseMigration
 {
     /** @SuppressWarnings(PHPMD.ShortVariable) */
     protected Connection $db;
+    // phpcs:ignore Squiz.WhiteSpace.MemberVarSpacing.Incorrect -- baseline
     protected Builder $schema;
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingTraversableTypeHintSpecification, Squiz.WhiteSpace.MemberVarSpacing.Incorrect -- baseline
     protected array $seeders = [];
+    // phpcs:ignore Squiz.WhiteSpace.MemberVarSpacing.Incorrect -- baseline
     protected ?string $table = null;
 
     public function __construct()
@@ -47,12 +50,15 @@ abstract class Migration extends BaseMigration
     protected function setBlueprint(string $blueprint): void
     {
         $this->schema->blueprintResolver(
+            // phpcs:ignore SlevomatCodingStandard.Functions.StaticClosure.ClosureNotStatic -- baseline
             resolver: fn (string $table, ?Closure $callback = null): Blueprint => new $blueprint($table, $callback)
         );
     }
 
     /** @SuppressWarnings(PHPMD.ShortMethodName) */
+    // phpcs:ignore PSR2.Methods.MethodDeclaration.AbstractAfterVisibility -- baseline
     public abstract function up(): void;
 
+    // phpcs:ignore PSR2.Methods.MethodDeclaration.AbstractAfterVisibility -- baseline
     public abstract function down(): void;
 }

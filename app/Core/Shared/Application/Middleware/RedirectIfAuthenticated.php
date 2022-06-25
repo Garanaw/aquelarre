@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Aquelarre\Core\Shared\Application\Middleware;
 
 use Aquelarre\Core\Framework\Providers\RouteServiceProvider;
@@ -9,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
 {
+    // phpcs:disable SlevomatCodingStandard.TypeHints.ParameterTypeHint.UselessAnnotation -- baseline
     /**
      * Handle an incoming request.
      *
@@ -17,7 +20,9 @@ class RedirectIfAuthenticated
      * @param  string|null  ...$guards
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, ...$guards)
+    // phpcs:enable SlevomatCodingStandard.TypeHints.ParameterTypeHint.UselessAnnotation -- baseline
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint -- baseline
+    public function handle(Request $request, Closure $next, ...$guards): mixed
     {
         $guards = empty($guards) ? [null] : $guards;
 

@@ -13,6 +13,7 @@ class BroadcastServiceProvider extends ServiceProvider
     {
         Broadcast::routes();
 
+        // phpcs:ignore PEAR.Files.IncludingFile.UseInclude -- baseline
         require base_path('routes/channels.php');
     }
 }

@@ -13,6 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @var array<class-string, class-string>
      */
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint, Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
     ];
@@ -22,6 +23,7 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @return void
      */
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint -- baseline
     public function boot()
     {
         $this->registerPolicies();

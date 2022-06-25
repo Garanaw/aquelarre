@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing -- baseline
 
 use Illuminate\Support\Str;
 
@@ -33,6 +33,7 @@ return [
 
     'stores' => [
 
+        // phpcs:ignore Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
         'apc' => [
             'driver' => 'apc',
         ],
@@ -61,6 +62,7 @@ return [
                 env('MEMCACHED_USERNAME'),
                 env('MEMCACHED_PASSWORD'),
             ],
+            // phpcs:ignore Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
             'options' => [
                 // Memcached::OPT_CONNECT_TIMEOUT => 2000,
             ],
@@ -88,6 +90,7 @@ return [
             'endpoint' => env('DYNAMODB_ENDPOINT'),
         ],
 
+        // phpcs:ignore Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
         'octane' => [
             'driver' => 'octane',
         ],
@@ -105,6 +108,7 @@ return [
     |
     */
 
+    // phpcs:ignore Squiz.Strings.ConcatenationSpacing.PaddingFound -- baseline
     'prefix' => env('CACHE_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_cache_'),
 
 ];

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb620e2f9164dbca72038fd08d3bf146",
+    "content-hash": "322a1b8f93a0bf936a02650b3f23bd02",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -6567,6 +6567,55 @@
                 "source": "https://github.com/hamcrest/hamcrest-php/tree/v2.0.1"
             },
             "time": "2020-07-09T08:09:16+00:00"
+        },
+        {
+            "name": "isaac/php-code-sniffer-baseliner",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/isaaceindhoven/php-code-sniffer-baseliner.git",
+                "reference": "7120f37f45e5ead1ff91ec3a5275b95a7a0ea650"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/isaaceindhoven/php-code-sniffer-baseliner/zipball/7120f37f45e5ead1ff91ec3a5275b95a7a0ea650",
+                "reference": "7120f37f45e5ead1ff91ec3a5275b95a7a0ea650",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-json": "*",
+                "ext-simplexml": "*",
+                "php": "~7.3.0 || ~7.4.0 || ~8.0.0 || ~8.1.0",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "require-dev": {
+                "isaac/php-code-sniffer-standard": "^27.0",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan": "^1.6.8",
+                "phpstan/phpstan-phpunit": "^1.1.1",
+                "phpstan/phpstan-strict-rules": "^1.2.3",
+                "phpunit/phpunit": "^9.5"
+            },
+            "bin": [
+                "bin/phpcs-baseliner"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ISAAC\\CodeSnifferBaseliner\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "ISAAC PHP Code Sniffer Baseliner",
+            "support": {
+                "issues": "https://github.com/isaaceindhoven/php-code-sniffer-baseliner/issues",
+                "source": "https://github.com/isaaceindhoven/php-code-sniffer-baseliner/tree/v2.2.0"
+            },
+            "time": "2022-05-23T08:12:19+00:00"
         },
         {
             "name": "laravel/sail",

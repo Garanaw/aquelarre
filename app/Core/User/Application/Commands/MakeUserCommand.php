@@ -18,15 +18,18 @@ class MakeUserCommand extends Command
      * @var string
      * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      */
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint -- baseline
     protected $signature = 'make:user {name}';
 
     /**
      * @var string
      * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      */
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint -- baseline
     protected $description = 'Create a new user';
 
     private readonly Factory $validator;
+    // phpcs:ignore Squiz.WhiteSpace.MemberVarSpacing.Incorrect -- baseline
     private readonly array $roleNames;
 
     public function handle(Writer $creator, Role $role, Factory $validator): void
@@ -39,6 +42,7 @@ class MakeUserCommand extends Command
         $creator->create($userDto);
     }
 
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification -- baseline
     private function getData(): array
     {
         return [
@@ -90,6 +94,7 @@ class MakeUserCommand extends Command
         return $roleName;
     }
 
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification -- baseline
     private function validate(array $data, array $rules): bool
     {
         return $this->validator->make($data, $rules)->passes();

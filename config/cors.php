@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing -- baseline
 
 return [
 
@@ -15,6 +15,7 @@ return [
     |
     */
 
+    // phpcs:ignore Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed -- baseline
     'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
     'allowed_methods' => ['*'],

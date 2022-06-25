@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Aquelarre\Core\Framework\Providers;
 
 use Illuminate\Cache\RateLimiting\Limit;
@@ -10,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
+    // phpcs:disable SlevomatCodingStandard.TypeHints.UselessConstantTypeHint.UselessVarAnnotation -- baseline
     /**
      * The path to the "home" route for your application.
      *
@@ -17,13 +20,15 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
+    // phpcs:enable SlevomatCodingStandard.TypeHints.UselessConstantTypeHint.UselessVarAnnotation -- baseline
     public const HOME = '/home';
 
     public function boot(): void
     {
         $this->configureRateLimiting();
 
-        $this->routes(function () {
+        // phpcs:ignore SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint -- baseline
+        $this->routes(static function () {
             Route::middleware('api')
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
@@ -33,15 +38,11 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 
-    /**
-     * Configure the rate limiters for the application.
-     *
-     * @return void
-     */
     protected function configureRateLimiting(): void
     {
-        RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+        // phpcs:ignore SlevomatCodingStandard.Functions.StaticClosure.ClosureNotStatic -- baseline
+        RateLimiter::for(name: 'api', callback: static function (Request $request) {
+            return Limit::perMinute(maxAttempts: 60)->by(key:$request->user()?->id ?: $request->ip());
         });
     }
 }

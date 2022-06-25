@@ -17,6 +17,7 @@ class EventServiceProvider extends ServiceProvider
      *
      * @var array<class-string, array<int, class-string>>
      */
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint -- baseline
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
@@ -26,11 +27,6 @@ class EventServiceProvider extends ServiceProvider
         ],
     ];
 
-    /**
-     * Determine if events and listeners should be automatically discovered.
-     *
-     * @return bool
-     */
     public function shouldDiscoverEvents(): bool
     {
         return false;

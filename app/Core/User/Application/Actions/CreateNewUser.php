@@ -20,6 +20,7 @@ class CreateNewUser implements CreatesNewUsers
     ) {
     }
 
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification, SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingAnyTypeHint -- baseline
     public function create(array $input)
     {
         $data = $this->validator->make(
@@ -32,6 +33,7 @@ class CreateNewUser implements CreatesNewUsers
         );
     }
 
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification -- baseline
     private function mapDataToDto(array $input): NewUser
     {
         return new NewUser(
@@ -42,6 +44,7 @@ class CreateNewUser implements CreatesNewUsers
         );
     }
 
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification -- baseline
     private function rules(): array
     {
         return [

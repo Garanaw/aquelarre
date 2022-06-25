@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Aquelarre\Core\Shared\Application\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -12,24 +14,23 @@ class Handler extends ExceptionHandler
      *
      * @var array<class-string<Throwable>, \Psr\Log\LogLevel::*>
      */
-    protected $levels = [
-        //
-    ];
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint -- baseline
+    protected $levels = [];
 
     /**
      * A list of the exception types that are not reported.
      *
      * @var array<int, class-string<Throwable>>
      */
-    protected $dontReport = [
-        //
-    ];
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint -- baseline
+    protected $dontReport = [];
 
     /**
      * A list of the inputs that are never flashed for validation exceptions.
      *
      * @var array<int, string>
      */
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint -- baseline
     protected $dontFlash = [
         'current_password',
         'password',
@@ -39,12 +40,12 @@ class Handler extends ExceptionHandler
     /**
      * Register the exception handling callbacks for the application.
      *
-     * @return void
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function register()
+    public function register(): void
     {
-        $this->reportable(reportUsing: function (Throwable $e) {
+        // phpcs:ignore SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter -- baseline
+        $this->reportable(reportUsing: static function (Throwable $e): void {
             //
         });
     }
