@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Aquelarre\Core\User\Domain\Enum;
 
+/**
+ * @SuppressWarnings(PHPMD)
+ */
 enum Role: string
 {
     case SuperAdmin = 'super-admin';
