@@ -75,12 +75,12 @@ workflows:
   build:
     jobs:
       - setup
-      - phpmd:
-          requires:
-            - setup
-#      - phpcs:
+#      - phpmd:
 #          requires:
 #            - setup
+      - phpcs:
+          requires:
+            - setup
       - tests:
           requires:
             - setup
