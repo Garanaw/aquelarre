@@ -78,9 +78,9 @@ workflows:
       - phpmd:
           requires:
             - setup
-      - phpcs:
-          requires:
-            - setup
+#      - phpcs:
+#          requires:
+#            - setup
       - tests:
           requires:
             - setup
