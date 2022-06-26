@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Book extends Model
 {
+    /** @var array<string, mixed> $books */
     protected $casts = [
         'id' => 'int',
     ];

@@ -6,6 +6,7 @@ namespace Aquelarre\Core\User\Infrastructure\Repositories;
 
 use Aquelarre\Core\Books\Infrastructure\Models\Book;
 use Aquelarre\Core\User\Domain\Dto\NewUser;
+use Aquelarre\Core\User\Infrastructure\Models\Role;
 use Aquelarre\Core\User\Infrastructure\Models\User;
 use Aquelarre\Core\User\Infrastructure\Models\UserProfile;
 use Illuminate\Database\DatabaseManager;
@@ -42,6 +43,7 @@ class Writer
         });
     }
 
+    /** @param Collection<int, Role|int> $roles */
     public function addRolesToUser(User $user, array $roles): void
     {
         $user->assignRole($roles);
