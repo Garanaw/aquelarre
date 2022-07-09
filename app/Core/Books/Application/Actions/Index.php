@@ -8,8 +8,9 @@ use Aquelarre\Core\Books\Domain\Services\Reader;
 
 class Index
 {
-    public function __invoke(Reader $reader)
+    // phpcs:disable
+    public function __invoke(Reader $reader): never
     {
-
+        dd('not implemented yet');
     }
 }
