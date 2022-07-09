@@ -23,7 +23,6 @@ return new class extends Migration
             $table->string('latin', 15)->nullable();
             $table->boolean('primary')->index('index_characteristic_primary');
             $table->text('description');
-            $table->timestamps();
         });
     }
 
