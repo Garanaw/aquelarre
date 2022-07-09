@@ -75,9 +75,9 @@ workflows:
   build:
     jobs:
       - setup
-      - phpmd:
-          requires:
-            - setup
+#      - phpmd:
+#          requires:
+#            - setup
       - phpcs:
           requires:
             - setup

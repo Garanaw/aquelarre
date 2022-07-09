@@ -7,6 +7,9 @@ namespace Aquelarre\Core\User\Domain\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
 
+/**
+ * @deprecated Use Aquelarre\Core\User\Domain\Providers\ViewServiceProvider instead.
+ */
 class BladeServiceProvider extends ServiceProvider
 {
     private const USER_NAMESPACE = 'Aquelarre\\Core\\User\\Presentation\\Components';

@@ -1,10 +1,12 @@
-<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing -- baseline
+<?php
+
+declare(strict_types=1);
 
 return [
     'available_domains' => [
-        // phpcs:ignore Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed -- baseline
         'core' => [
             'user',
+            'books',
         ],
     ],
     'core' => [
@@ -24,9 +26,20 @@ return [
     ],
     'user' => [
         'providers' => [
-            Aquelarre\Core\User\Domain\Providers\BladeServiceProvider::class,
             Aquelarre\Core\User\Domain\Providers\FortifyServiceProvider::class,
             Aquelarre\Core\User\Domain\Providers\ViewServiceProvider::class,
+        ],
+        'routes' => [],
+    ],
+
+    'books' => [
+        'providers' => [
+            Aquelarre\Core\Books\Domain\Providers\ViewServiceProvider::class,
+        ],
+        'routes' => [
+            'file' => 'app/Core/Books/Application/routes.php',
+            'prefix' => 'books',
+            'middleware' => Aquelarre\Core\Books\Application\Middleware\ServiceProviderLoader::class,
         ],
     ],
 ];

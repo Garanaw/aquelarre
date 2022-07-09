@@ -57,6 +57,7 @@
         <exclude name="Squiz.Arrays.ArrayDeclaration.DoubleArrowNotAligned"/>
         <exclude name="Squiz.Arrays.ArrayDeclaration.KeyNotAligned"/>
         <exclude name="Squiz.Arrays.ArrayDeclaration.ValueNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed"/>
     </rule>
     <rule ref="Squiz.ControlStructures.ControlSignature"/>
     <rule ref="Squiz.ControlStructures.ElseIfDeclaration"/>
