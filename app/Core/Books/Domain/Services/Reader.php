@@ -7,7 +7,6 @@ namespace Aquelarre\Core\Books\Domain\Services;
 use Aquelarre\Core\Books\Domain\Dto\Search;
 use Aquelarre\Core\Books\Domain\Dto\SearchResult;
 use Aquelarre\Core\Books\Infrastructure\Repositories\Reader as Repository;
-use Illuminate\Database\Eloquent\Collection;
 
 class Reader
 {
