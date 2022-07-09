@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Aquelarre\Core\Framework\Providers;
 
-use Aquelarre\Core\Books\Application\Middleware\ServiceProviderLoader as BooksServiceProviderLoader;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
