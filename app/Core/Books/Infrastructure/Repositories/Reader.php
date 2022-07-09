@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Aquelarre\Core\Books\Infrastructure\Repositories;
 
+use Aquelarre\Core\Books\Domain\Dto\Search;
+use Aquelarre\Core\Books\Domain\Dto\SearchResult;
 use Aquelarre\Core\Books\Infrastructure\Models\Book;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -32,5 +34,13 @@ class Reader
     public function getAll(): Collection
     {
         return $this->book->query()->get();
+    }
+
+    public function search(Search $search): SearchResult
+    {
+        return new SearchResult(
+            books: new Collection(),
+            search: $search
+        );
     }
 }
