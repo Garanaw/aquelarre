@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Aquelarre\Core\Framework\Infrastructure\Seed;
 
+use Aquelarre\Core\Framework\Infrastructure\Seed\Loaders\Loader;
 use Illuminate\Cache\Repository as Cache;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Database\Seeder as BaseSeeder;
 use Illuminate\Support\Carbon;
@@ -18,6 +20,7 @@ abstract class Seeder extends BaseSeeder
         protected readonly DatabaseManager $db,
         protected readonly ConsoleOutput $output,
         protected readonly Cache $cache,
+        protected readonly Application $app
     ) {
         $this->now = Carbon::now();
     }
@@ -54,6 +57,11 @@ abstract class Seeder extends BaseSeeder
         } catch (\Throwable) {
             return;
         }
+    }
+
+    protected function getLoader(string $class): Loader
+    {
+        return $this->app->make(abstract: $class);
     }
 
     // phpcs:ignore PSR2.Methods.MethodDeclaration.AbstractAfterVisibility -- baseline
