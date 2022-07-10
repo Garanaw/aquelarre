@@ -29,7 +29,7 @@ class BookLoader implements Loader
             callback: fn(): Collection => $this->db->table('books')
                 ->select('id', 'name')
                 ->get()
-                ->mapWithKeys(callback: static fn (Book $book) => [
+                ->mapWithKeys(callback: static fn (object $book) => [
                     Str::slug($book->name) => $book->getId(),
                 ])
         );

@@ -29,7 +29,7 @@ class CharacteristicsLoader implements Loader
             callback: fn(): Collection => $this->db->table('characteristics')
                 ->select('id', 'prefix')
                 ->get()
-                ->mapWithKeys(callback: static fn (Characteristic $characteristic) => [
+                ->mapWithKeys(callback: static fn (object $characteristic) => [
                     Str::lower($characteristic->prefix) => $characteristic->getId(),
                 ])
         );
