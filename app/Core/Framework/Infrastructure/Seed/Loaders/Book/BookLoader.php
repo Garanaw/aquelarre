@@ -48,6 +48,6 @@ class BookLoader implements Loader
 
     public function daemonolatreia(): int
     {
-        return $this->getBookIdByName('Daemonolatreia');
+        return $this->getBookIdByName(name: 'Daemonolatreia');
     }
 }
