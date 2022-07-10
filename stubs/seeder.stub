@@ -8,13 +8,13 @@ use Aquelarre\Core\Framework\Infrastructure\Seed\Seeder;
 
 class {{ class }} extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+    public function run(): void
     {
         //
+    }
+
+    public function getData(): array
+    {
+        return [];
     }
 }
