@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Aquelarre\Core\Framework\Infrastructure\Seed\Loaders\Characteristic;
 
+use Aquelarre\Core\Characteristics\Infrastructure\Models\Characteristic;
 use Aquelarre\Core\Framework\Infrastructure\Seed\Loaders\Loader;
 use Aquelarre\Core\Shared\Domain\Support\Str;
 use Illuminate\Cache\Repository;
@@ -28,8 +29,8 @@ class CharacteristicsLoader implements Loader
             callback: fn(): Collection => $this->db->table('characteristics')
                 ->select('id', 'prefix')
                 ->get()
-                ->mapWithKeys(callback: fn ($characteristic) => [
-                    Str::lower($characteristic->prefix) => $characteristic->id,
+                ->mapWithKeys(callback: static fn (Characteristic $characteristic) => [
+                    Str::lower($characteristic->prefix) => $characteristic->getId(),
                 ])
         );
     }
@@ -62,11 +63,6 @@ class CharacteristicsLoader implements Loader
     public function ability(): int
     {
         return $this->characteristic('hab');
-    }
-
-    public function resistence(): int
-    {
-        return $this->characteristic('res');
     }
 
     public function communication(): int
