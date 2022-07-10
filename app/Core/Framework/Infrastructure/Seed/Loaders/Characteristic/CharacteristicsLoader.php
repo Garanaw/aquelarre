@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Aquelarre\Core\Framework\Infrastructure\Seed\Loaders\Characteristic;
 
-use Aquelarre\Core\Characteristics\Infrastructure\Models\Characteristic;
 use Aquelarre\Core\Framework\Infrastructure\Seed\Loaders\Loader;
 use Aquelarre\Core\Shared\Domain\Support\Str;
 use Illuminate\Cache\Repository;
@@ -30,7 +29,7 @@ class CharacteristicsLoader implements Loader
                 ->select('id', 'prefix')
                 ->get()
                 ->mapWithKeys(callback: static fn (object $characteristic) => [
-                    Str::lower($characteristic->prefix) => $characteristic->getId(),
+                    Str::lower($characteristic->prefix) => $characteristic->id,
                 ])
         );
     }

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Aquelarre\Core\Framework\Infrastructure\Seed\Loaders\Book;
 
-use Aquelarre\Core\Books\Infrastructure\Models\Book;
 use Aquelarre\Core\Framework\Infrastructure\Seed\Loaders\Loader;
 use Aquelarre\Core\Shared\Domain\Support\Str;
 use Illuminate\Cache\Repository;
@@ -30,7 +29,7 @@ class BookLoader implements Loader
                 ->select('id', 'name')
                 ->get()
                 ->mapWithKeys(callback: static fn (object $book) => [
-                    Str::slug($book->name) => $book->getId(),
+                    Str::slug($book->name) => $book->id,
                 ])
         );
     }
