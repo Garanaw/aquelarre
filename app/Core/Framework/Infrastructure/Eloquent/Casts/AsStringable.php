@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace Aquelarre\Core\Framework\Infrastructure\Eloquent\Casts;
 
 use Aquelarre\Core\Shared\Domain\Support\Str;
+use Aquelarre\Core\Shared\Domain\Support\Stringable;
 use Illuminate\Contracts\Database\Eloquent\Castable;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 
+// phpcs:disable
 class AsStringable implements Castable
 {
     /** @param array<int, mixed> $arguments */
@@ -15,11 +17,13 @@ class AsStringable implements Castable
     {
         return new class implements CastsAttributes
         {
+            /** @return Stringable|null */
             public function get($model, $key, $value, $attributes)
             {
                 return isset($value) ? Str::of($value) : null;
             }
 
+            /** @return string|null */
             public function set($model, $key, $value, $attributes)
             {
                 return isset($value) ? (string) $value : null;
