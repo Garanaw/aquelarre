@@ -13,7 +13,7 @@ class Kingdom extends Model
     use HasFactory;
 
     /** @var array<string, mixed> */
-    // phpcs:ignore-next-line
+    // phpcs:disable SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint
     protected $casts = [
         'name' => AsStringable::class,
         'peninsular' => 'boolean',
