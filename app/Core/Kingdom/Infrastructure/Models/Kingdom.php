@@ -12,6 +12,7 @@ class Kingdom extends Model
 {
     use HasFactory;
 
+    /** @var array<string, mixed> */
     protected $casts = [
         'name' => AsStringable::class,
         'peninsular' => 'boolean',
