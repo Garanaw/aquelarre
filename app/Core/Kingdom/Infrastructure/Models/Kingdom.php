@@ -13,7 +13,8 @@ class Kingdom extends Model
     use HasFactory;
 
     /** @var array<string, mixed> */
-    protected $casts = [ // phpcs:ignore-line
+    // phpcs:ignore-next-line
+    protected $casts = [
         'name' => AsStringable::class,
         'peninsular' => 'boolean',
         'description' => AsStringable::class,
