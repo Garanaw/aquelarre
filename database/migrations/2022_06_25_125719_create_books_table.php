@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Aquelarre\Core\Framework\Infrastructure\Migration\Blueprint;
 use Aquelarre\Core\Framework\Infrastructure\Migration\Migration;
-use Database\Seeders\Book\BooksTableSeeder;
+use Database\Seeders\Core\Book\BooksTableSeeder;
 
 return new class extends Migration
 {

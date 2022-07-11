@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Database\Seeders\Characteristic;
+namespace Database\Seeders\Core\Characteristic;
 
 use Aquelarre\Core\Framework\Infrastructure\Seed\Seeder;
 

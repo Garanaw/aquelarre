@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Database\Seeders\Competences;
+namespace Database\Seeders\Core\Competences;
 
 use Aquelarre\Core\Framework\Infrastructure\Seed\Loaders\Book\BookLoader;
 use Aquelarre\Core\Framework\Infrastructure\Seed\Loaders\Characteristic\CharacteristicsLoader;

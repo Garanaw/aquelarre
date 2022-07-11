@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Database\Seeders\User;
+namespace Database\Seeders\Core\User;
 
 use Aquelarre\Core\Framework\Infrastructure\Seed\Seeder;
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Aquelarre\Core\Framework\Infrastructure\Migration\Blueprint;
 use Aquelarre\Core\Framework\Infrastructure\Migration\Migration;
-use Database\Seeders\Competences\CompetenceSeeder;
+use Database\Seeders\Core\Competences\CompetenceSeeder;
 
 return new class extends Migration
 {
