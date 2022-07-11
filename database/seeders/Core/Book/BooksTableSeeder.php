@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Database\Seeders\Book;
+namespace Database\Seeders\Core\Book;
 
 use Aquelarre\Core\Framework\Infrastructure\Seed\Seeder;
 use Illuminate\Support\Carbon;
