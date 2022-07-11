@@ -10,7 +10,7 @@ use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 
 class AsStringable implements Castable
 {
-
+    /** @param array<int, mixed> $arguments */
     public static function castUsing(array $arguments)
     {
         return new class implements CastsAttributes
