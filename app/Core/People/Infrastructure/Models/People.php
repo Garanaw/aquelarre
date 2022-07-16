@@ -11,5 +11,6 @@ class People extends Model
 {
     use HasFactory;
 
+    // phpcs:ignore-next-line
     protected $table = 'people';
 }
