@@ -12,7 +12,7 @@ trait FindsSocialPosition
     {
         try {
             return $this->socialPositions->first(
-                callback: fn(object $socialPosition): bool => Str::slugsMatch(
+                callback: static fn(object $socialPosition): bool => Str::slugsMatch(
                     first: $socialPosition->name,
                     second: $name,
                 ),

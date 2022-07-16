@@ -25,7 +25,6 @@ class SocialPositionLoader implements Loader
         $this->cache->forget('seed-muslim-social-positions');
     }
 
-
     public function load(): Collection
     {
         return $this->socialPositions = $this->cache->remember(
