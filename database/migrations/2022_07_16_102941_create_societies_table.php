@@ -24,11 +24,11 @@ return new class extends Migration
 
     private function createTheologies(): void
     {
-        $this->schema->create('theologies', function (Blueprint $table) {
+        $this->schema->create(table: 'theologies', callback: static function (Blueprint $table) {
             $table->id();
-            $table->string('name')->index();
-            $table->text('description')->nullable();
-            $table->foreignId('book_id')->constrained('books');
+            $table->string(column: 'name')->index();
+            $table->text(column: 'description')->nullable();
+            $table->foreignId(column: 'book_id')->constrained(table: 'books');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -36,12 +36,12 @@ return new class extends Migration
 
     private function createSocieties(): void
     {
-        $this->schema->create($this->table, function (Blueprint $table) {
+        $this->schema->create(table: $this->table, callback: static function (Blueprint $table) {
             $table->id();
-            $table->string('name')->index();
-            $table->text('description')->nullable();
-            $table->foreignId('theology_id')->constrained('theologies');
-            $table->foreignId('book_id')->constrained('books');
+            $table->string(column: 'name')->index();
+            $table->text(column: 'description')->nullable();
+            $table->foreignId(column: 'theology_id')->constrained(table: 'theologies');
+            $table->foreignId(column: 'book_id')->constrained(table: 'books');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -49,6 +49,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        $this->schema->dropIfExists($this->table);
+        $this->schema->dropIfExists(table: $this->table);
     }
 };
