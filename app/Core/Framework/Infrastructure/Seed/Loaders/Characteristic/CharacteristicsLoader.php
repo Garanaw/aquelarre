@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Aquelarre\Core\Framework\Infrastructure\Seed\Loaders\Characteristic;
 
+use Aquelarre\Core\Framework\Domain\Enum\TimesInSeconds;
 use Aquelarre\Core\Framework\Infrastructure\Seed\Loaders\Loader;
 use Aquelarre\Core\Shared\Domain\Support\Str;
 use Illuminate\Cache\Repository;
@@ -16,15 +17,15 @@ class CharacteristicsLoader implements Loader
 
     public function __construct(
         private readonly DatabaseManager $db,
-        private readonly Repository $cache
+        private readonly Repository $cache,
     ) {
     }
 
     public function load(): Collection
     {
         return $this->characteristics = $this->cache->remember(
-            key: 'characteristics',
-            ttl: 60,
+            key: 'seed-characteristics',
+            ttl: TimesInSeconds::FiveMinutes->value,
             callback: fn(): Collection => $this->db->table('characteristics')
                 ->select('id', 'prefix')
                 ->get()

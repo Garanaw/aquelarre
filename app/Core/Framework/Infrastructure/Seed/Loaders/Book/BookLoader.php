@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Aquelarre\Core\Framework\Infrastructure\Seed\Loaders\Book;
 
+use Aquelarre\Core\Framework\Domain\Enum\TimesInSeconds;
 use Aquelarre\Core\Framework\Infrastructure\Seed\Loaders\Loader;
 use Aquelarre\Core\Shared\Domain\Support\Str;
 use Illuminate\Cache\Repository;
@@ -23,8 +24,8 @@ class BookLoader implements Loader
     public function load(): Collection
     {
         return $this->books = $this->cache->remember(
-            key: 'books',
-            ttl: 60,
+            key: 'seed-books',
+            ttl: TimesInSeconds::FiveMinutes->value,
             callback: fn(): Collection => $this->db->table('books')
                 ->select('id', 'name')
                 ->get()
@@ -49,5 +50,10 @@ class BookLoader implements Loader
     public function daemonolatreia(): int
     {
         return $this->getBookIdByName(name: 'Daemonolatreia');
+    }
+
+    public function arsMalefica(): int
+    {
+        return $this->getBookIdByName('Ars Maléfica');
     }
 }
