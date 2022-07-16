@@ -26,7 +26,7 @@ class SocietyLoader implements Loader
         return $this->societies = $this->cache->remember(
             key: 'seed-societies',
             ttl: TimesInSeconds::FiveMinutes->value,
-            callback: fn(): Collection => $this->db->table('theologies')
+            callback: fn(): Collection => $this->db->table(table: 'societies')
                 ->select('id', 'name')
                 ->get()
                 ->mapWithKeys(callback: static fn (object $society) => [
@@ -44,16 +44,16 @@ class SocietyLoader implements Loader
 
     public function christian(): int
     {
-        return $this->getSocietyIdByName(name: 'cristianismo');
+        return $this->getSocietyIdByName(name: 'cristiana');
     }
 
     public function judaic(): int
     {
-        return $this->getSocietyIdByName(name: 'judaismo');
+        return $this->getSocietyIdByName(name: 'judía');
     }
 
     public function muslim(): int
     {
-        return $this->getSocietyIdByName(name: 'islamismo');
+        return $this->getSocietyIdByName(name: 'islámica');
     }
 }

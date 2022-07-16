@@ -20,4 +20,9 @@ class Str extends BaseStr
     {
         return new Stringable(value: sprintf($format, ...$args));
     }
+
+    public static function slugsMatch(string $first, string $second): bool
+    {
+        return Str::slug($first) === Str::slug($second);
+    }
 }
