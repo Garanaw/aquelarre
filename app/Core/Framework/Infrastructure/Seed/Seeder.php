@@ -64,6 +64,14 @@ abstract class Seeder extends BaseSeeder
         return $this->app->make(abstract: $class);
     }
 
+    protected function getLoadedLoader(string $class): Loader
+    {
+        return tap(
+            value: $this->getLoader(class: $class),
+            callback: fn (Loader $loader) => $loader->load()
+        );
+    }
+
     // phpcs:ignore PSR2.Methods.MethodDeclaration.AbstractAfterVisibility -- baseline
     public abstract function run(): void;
 
