@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Seeders\Core\FamiliarSituation;
 
-use Aquelarre\Core\FamiliarSituation\Domain\Enum\ParentsSituation;
+use Aquelarre\Core\FamiliarSituation\Domain\Enum\FamiliarSituation;
 use Aquelarre\Core\Framework\Infrastructure\Seed\Seeder;
 
 class FamiliarSituationSeeder extends Seeder
@@ -21,8 +21,8 @@ class FamiliarSituationSeeder extends Seeder
         return [
             [
                 'name' => 'Bastardo, padres desconocidos',
-                'father' => ParentsSituation::UNKNOWN->value,
-                'mother' => ParentsSituation::UNKNOWN->value,
+                'father' => FamiliarSituation::UNKNOWN->value,
+                'mother' => FamiliarSituation::UNKNOWN->value,
                 'siblings' => false,
                 'bastard' => true,
                 'tutor' => true,
@@ -30,8 +30,8 @@ class FamiliarSituationSeeder extends Seeder
             ],
             [
                 'name' => 'Fornecido',
-                'father' => ParentsSituation::ALIVE->value,
-                'mother' => ParentsSituation::ALIVE->value,
+                'father' => FamiliarSituation::ALIVE->value,
+                'mother' => FamiliarSituation::ALIVE->value,
                 'siblings' => false,
                 'bastard' => true,
                 'tutor' => true,
@@ -39,8 +39,8 @@ class FamiliarSituationSeeder extends Seeder
             ],
             [
                 'name' => 'Espurio',
-                'father' => ParentsSituation::UNKNOWN->value,
-                'mother' => ParentsSituation::ALIVE->value,
+                'father' => FamiliarSituation::UNKNOWN->value,
+                'mother' => FamiliarSituation::ALIVE->value,
                 'siblings' => true,
                 'bastard' => true,
                 'tutor' => false,
@@ -48,8 +48,8 @@ class FamiliarSituationSeeder extends Seeder
             ],
             [
                 'name' => 'Manssur',
-                'father' => ParentsSituation::UNKNOWN->value,
-                'mother' => ParentsSituation::ALIVE->value,
+                'father' => FamiliarSituation::UNKNOWN->value,
+                'mother' => FamiliarSituation::ALIVE->value,
                 'siblings' => false,
                 'bastard' => true,
                 'tutor' => false,
@@ -57,8 +57,8 @@ class FamiliarSituationSeeder extends Seeder
             ],
             [
                 'name' => 'Natural',
-                'father' => ParentsSituation::ALIVE->value,
-                'mother' => ParentsSituation::ALIVE->value,
+                'father' => FamiliarSituation::ALIVE->value,
+                'mother' => FamiliarSituation::ALIVE->value,
                 'siblings' => true,
                 'bastard' => true,
                 'tutor' => false,
@@ -66,8 +66,8 @@ class FamiliarSituationSeeder extends Seeder
             ],
             [
                 'name' => 'Nato',
-                'father' => ParentsSituation::ALIVE->value,
-                'mother' => ParentsSituation::ALIVE->value,
+                'father' => FamiliarSituation::ALIVE->value,
+                'mother' => FamiliarSituation::ALIVE->value,
                 'siblings' => true,
                 'bastard' => true,
                 'tutor' => false,
@@ -75,8 +75,8 @@ class FamiliarSituationSeeder extends Seeder
             ],
             [
                 'name' => 'Padres vivos',
-                'father' => ParentsSituation::ALIVE->value,
-                'mother' => ParentsSituation::ALIVE->value,
+                'father' => FamiliarSituation::ALIVE->value,
+                'mother' => FamiliarSituation::ALIVE->value,
                 'siblings' => true,
                 'bastard' => false,
                 'tutor' => false,
@@ -84,8 +84,8 @@ class FamiliarSituationSeeder extends Seeder
             ],
             [
                 'name' => 'Padre muerto',
-                'father' => ParentsSituation::DEAD->value,
-                'mother' => ParentsSituation::ALIVE->value,
+                'father' => FamiliarSituation::DEAD->value,
+                'mother' => FamiliarSituation::ALIVE->value,
                 'siblings' => true,
                 'bastard' => false,
                 'tutor' => false,
@@ -93,8 +93,8 @@ class FamiliarSituationSeeder extends Seeder
             ],
             [
                 'name' => 'Madre muerta',
-                'father' => ParentsSituation::ALIVE->value,
-                'mother' => ParentsSituation::DEAD->value,
+                'father' => FamiliarSituation::ALIVE->value,
+                'mother' => FamiliarSituation::DEAD->value,
                 'siblings' => true,
                 'bastard' => false,
                 'tutor' => false,
@@ -102,8 +102,8 @@ class FamiliarSituationSeeder extends Seeder
             ],
             [
                 'name' => 'Padres muertos',
-                'father' => ParentsSituation::DEAD->value,
-                'mother' => ParentsSituation::DEAD->value,
+                'father' => FamiliarSituation::DEAD->value,
+                'mother' => FamiliarSituation::DEAD->value,
                 'siblings' => true,
                 'bastard' => false,
                 'tutor' => false,
