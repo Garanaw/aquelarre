@@ -46,11 +46,13 @@ class ProfessionFluent extends Fluent
         );
     }
 
+    /** @return array<string, mixed> */
     public function toArray()
     {
         return $this->toDbData();
     }
 
+    /** @return array<string, mixed> */
     public function toDbData(): array
     {
         return [

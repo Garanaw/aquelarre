@@ -68,7 +68,7 @@ abstract class Seeder extends BaseSeeder
     {
         return tap(
             value: $this->getLoader(class: $class),
-            callback: fn (Loader $loader) => $loader->load()
+            callback: static fn (Loader $loader) => $loader->load()
         );
     }
 
