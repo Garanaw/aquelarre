@@ -47,6 +47,7 @@ class ProfessionFluent extends Fluent
     }
 
     /** @return array<string, mixed> */
+    // phpcs:ignore-next-line
     public function toArray()
     {
         return $this->toDbData();
