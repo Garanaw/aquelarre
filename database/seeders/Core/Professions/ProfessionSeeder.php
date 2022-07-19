@@ -8,6 +8,7 @@ use Aquelarre\Core\Framework\Infrastructure\Seed\Seeder;
 use Database\Seeders\Contracts\DataProvider;
 use Database\Seeders\Core\Professions\DataProviders\BasicProfessionsDataProvider;
 use Database\Seeders\Core\Professions\DataProviders\DaemonolatreiaProfessionDataProvider;
+use Database\Seeders\Core\Professions\DataProviders\DecameronProfessionsDataProvider;
 
 class ProfessionSeeder extends Seeder
 {
@@ -16,6 +17,7 @@ class ProfessionSeeder extends Seeder
     protected array $dataProviders = [
         BasicProfessionsDataProvider::class,
         DaemonolatreiaProfessionDataProvider::class,
+        DecameronProfessionsDataProvider::class,
     ];
 
     public function run(): void
