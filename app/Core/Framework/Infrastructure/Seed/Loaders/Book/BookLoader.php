@@ -56,4 +56,9 @@ class BookLoader implements Loader
     {
         return $this->getBookIdByName('Ars Maléfica');
     }
+
+    public function decameron(): int
+    {
+        return $this->getBookIdByName('Decameron');
+    }
 }
