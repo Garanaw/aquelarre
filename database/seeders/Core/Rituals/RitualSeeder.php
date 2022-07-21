@@ -14,9 +14,10 @@ class RitualSeeder extends Seeder
 {
     protected string $table = 'rituals';
 
-    public function run(): void
+    public function run(): bool
     {
         $this->db->table(table: $this->table)->insert($this->getData());
+        return true;
     }
 
     public function getData(): array

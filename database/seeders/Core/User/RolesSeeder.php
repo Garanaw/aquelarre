@@ -10,9 +10,10 @@ class RolesSeeder extends Seeder
 {
     protected string $table = 'roles';
 
-    public function run(): void
+    public function run(): bool
     {
         $this->db->table('roles')->insert($this->getData());
+        return true;
     }
 
     protected function getData(): array

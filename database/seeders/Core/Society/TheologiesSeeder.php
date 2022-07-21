@@ -13,9 +13,10 @@ class TheologiesSeeder extends Seeder
 {
     protected string $table = 'theologies';
 
-    public function run(): void
+    public function run(): bool
     {
         $this->db->table($this->table)->insert($this->getData());
+        return true;
     }
 
     protected function getData(): array

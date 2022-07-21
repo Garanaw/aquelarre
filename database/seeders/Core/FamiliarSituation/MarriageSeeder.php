@@ -11,9 +11,10 @@ class MarriageSeeder extends Seeder
 {
     protected ?string $table = 'marriages';
 
-    public function run(): void
+    public function run(): bool
     {
         $this->db->table($this->table)->insert($this->getData());
+        return true;
     }
 
     public function getData(): array

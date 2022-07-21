@@ -11,10 +11,11 @@ class BooksTableSeeder extends Seeder
 {
     protected string $table = 'books';
 
-    public function run(): void
+    public function run(): bool
     {
         $this->resetTable();
         $this->db->table($this->table)->insert($this->getData());
+        return true;
     }
 
     protected function getData(): array

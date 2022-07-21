@@ -11,9 +11,10 @@ class TitleSeeder extends Seeder
 {
     protected string $table = 'titles';
 
-    public function run(): void
+    public function run(): bool
     {
         $this->db->table(table: $this->table)->insert(values: $this->getData());
+        return true;
     }
 
     /** @SuppressWarnings(PHPMD.ExcessiveMethodLength) */

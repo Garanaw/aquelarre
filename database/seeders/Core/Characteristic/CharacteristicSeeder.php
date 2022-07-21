@@ -10,10 +10,11 @@ class CharacteristicSeeder extends Seeder
 {
     protected string $table = 'characteristics';
 
-    public function run(): void
+    public function run(): bool
     {
         $this->resetTable();
         $this->db->table($this->table)->insert($this->getData());
+        return true;
     }
 
     public function getData(): array
