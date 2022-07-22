@@ -14,9 +14,10 @@ class SocietiesSeeder extends Seeder
 {
     protected string $table = 'societies';
 
-    public function run(): void
+    public function run(): bool
     {
         $this->db->table($this->table)->insert($this->getData());
+        return true;
     }
 
     protected function getData(): array

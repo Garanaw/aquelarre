@@ -12,9 +12,10 @@ class PeopleSeeder extends Seeder
 {
     protected string $table = 'people';
 
-    public function run(): void
+    public function run(): bool
     {
         $this->db->table(table: $this->table)->insert(values: $this->getData());
+        return true;
     }
 
     protected function getData(): array

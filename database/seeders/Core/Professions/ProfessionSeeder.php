@@ -20,9 +20,10 @@ class ProfessionSeeder extends Seeder
         DecameronProfessionsDataProvider::class,
     ];
 
-    public function run(): void
+    public function run(): bool
     {
         $this->db->table(table: $this->table)->insert($this->getData());
+        return true;
     }
 
     public function getData(): array

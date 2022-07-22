@@ -73,7 +73,7 @@ abstract class Seeder extends BaseSeeder
     }
 
     // phpcs:ignore PSR2.Methods.MethodDeclaration.AbstractAfterVisibility -- baseline
-    public abstract function run(): void;
+    public abstract function run(): bool;
 
     // phpcs:ignore PSR2.Methods.MethodDeclaration.AbstractAfterVisibility, SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification -- baseline
     protected abstract function getData(): array;

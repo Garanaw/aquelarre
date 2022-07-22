@@ -11,9 +11,10 @@ class SocialPositionSeeder extends Seeder
 {
     protected string $table = 'social_positions';
 
-    public function run(): void
+    public function run(): bool
     {
         $this->db->table(table: $this->table)->insert(values: $this->getData());
+        return true;
     }
 
     public function getData(): array
