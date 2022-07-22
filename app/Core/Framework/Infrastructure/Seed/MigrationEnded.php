@@ -49,7 +49,7 @@ class MigrationEnded
             $this->write(
                 Task::class,
                 sprintf('Running seeder %s', Str::of($name)->explode(delimiter: '\\')->last()),
-                fn () => $seeder->run()
+                static fn () => $seeder->run()
             );
         });
     }

@@ -15,6 +15,7 @@ use Illuminate\Support\Fluent;
  */
 class PeopleLanguageFluent extends Fluent
 {
+    /** @inheritDoc */
     public function toArray()
     {
         return [
