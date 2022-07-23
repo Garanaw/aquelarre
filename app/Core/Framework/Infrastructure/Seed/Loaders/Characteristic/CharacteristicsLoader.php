@@ -74,4 +74,14 @@ class CharacteristicsLoader implements Loader
     {
         return $this->characteristic('asp');
     }
+
+    public function resistence(): int
+    {
+        return $this->characteristic('res');
+    }
+
+    public function luck(): int
+    {
+        return $this->characteristic('sue');
+    }
 }
