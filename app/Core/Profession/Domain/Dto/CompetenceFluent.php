@@ -26,6 +26,7 @@ class CompetenceFluent extends Fluent
         return new self(['profession' => $id]);
     }
 
+    /** @inheritDoc */
     public function toArray()
     {
         return [
