@@ -19,10 +19,6 @@ class SocialPositionLoader implements Loader
         private readonly DatabaseManager $db,
         private readonly Repository $cache
     ) {
-        $this->cache->forget('seed-social-positions');
-        $this->cache->forget('seed-christian-social-positions');
-        $this->cache->forget('seed-judaic-social-positions');
-        $this->cache->forget('seed-muslim-social-positions');
     }
 
     public function load(): Collection

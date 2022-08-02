@@ -10,15 +10,11 @@ trait FindsSocialPosition
 {
     public function socialPosition(string $name): int
     {
-        try {
-            return $this->socialPositions->first(
-                callback: static fn(object $socialPosition): bool => Str::slugsMatch(
-                    first: $socialPosition->name,
-                    second: $name,
-                ),
-            )->id;
-        } catch (\Throwable) {
-            dd($name, $this);
-        }
+        return $this->socialPositions->first(
+            callback: static fn(object $socialPosition): bool => Str::slugsMatch(
+                first: $socialPosition->name,
+                second: $name,
+            ),
+        )->id;
     }
 }
