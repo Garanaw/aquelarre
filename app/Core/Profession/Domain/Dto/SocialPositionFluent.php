@@ -22,6 +22,7 @@ class SocialPositionFluent extends Fluent
         ]);
     }
 
+    /** @inheritDoc */
     public function toArray()
     {
         return [
