@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Aquelarre\Core\Profession\Domain\Dto;
 
-use Aquelarre\Core\Framework\Domain\Enum\Multiplier; // phpcs:ignore-line
-use Aquelarre\Core\Framework\Domain\Enum\Operation; // phpcs-ignore-line
+// phpcs-disable
+use Aquelarre\Core\Framework\Domain\Enum\Multiplier;
+use Aquelarre\Core\Framework\Domain\Enum\Operation;
 use Illuminate\Support\Fluent;
+// phpcs-enable
 
 /**
  * @method static socialPosition(int $value)
