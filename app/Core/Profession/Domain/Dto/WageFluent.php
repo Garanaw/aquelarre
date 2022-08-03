@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Aquelarre\Core\Profession\Domain\Dto;
 
-use Aquelarre\Core\Framework\Domain\Enum\Multiplier; // phpccs:ignore-line
+use Aquelarre\Core\Framework\Domain\Enum\Multiplier; // phpcs:ignore-line
 use Aquelarre\Core\Framework\Domain\Enum\Operation; // phpcs-ignore-line
 use Illuminate\Support\Fluent;
 
