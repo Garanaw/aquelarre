@@ -37,15 +37,8 @@ class CompetencesLoader implements Loader
 
     public function get(string $name): int
     {
-        $key = Str::slug(title: $name, separator: '_');
-        $id = $this->competences->get(
-            key: $key,
+        return $this->competences->get(
+            key: Str::slug(title: $name, separator: '_'),
         );
-
-        if ($id === null) {
-            dd($key, $id, $this->competences);
-        }
-
-        return $id;
     }
 }

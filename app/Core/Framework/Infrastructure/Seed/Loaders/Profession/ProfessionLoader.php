@@ -45,4 +45,9 @@ class ProfessionLoader implements Loader
     {
         return $this->professions->get(key: Str::slug(title: $name, separator: '_'));
     }
+
+    public function get(string $name): int
+    {
+        return $this->profession($name);
+    }
 }
