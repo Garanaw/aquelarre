@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Wage extends Model
 {
+    /** @inheritdoc  */
     protected $casts = [
         'operation' => Operation::class,
         'multiplier' => Multiplier::class,

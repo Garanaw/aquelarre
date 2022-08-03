@@ -33,7 +33,7 @@ class TitlesLoader implements Loader
                 ])
                 ->get()
                 ->mapWithKeys(callback: static fn (object $title) => [
-                    Str::slug(title: $title->name, separator: '_') => $title->id
+                    Str::slug(title: $title->name, separator: '_') => $title->id,
                 ])
         );
     }
