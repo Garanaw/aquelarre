@@ -6,6 +6,7 @@ namespace Aquelarre;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel;
+use Illuminate\Support\Arr;
 
 class ConsoleKernel extends Kernel
 {
@@ -29,14 +30,14 @@ class ConsoleKernel extends Kernel
 
         collect(value: $this->app['config']['domain.available_domains'])
             // phpcs:ignore SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint -- baseline
-            ->each(function (?array $subdomains, string $domain) {
+            ->each(function (array|string $subdomains, string $domain): void {
                 $this->registerDomainCommands(domain: $domain);
 
                 if (empty($subdomains)) {
                     return;
                 }
 
-                collect(value: $subdomains)->each(
+                collect(value: Arr::wrap($subdomains))->each(
                     callback: fn (string $subdomain) => $this->registerDomainCommands(domain: $domain, subdomain: $subdomain)
                 );
             });
