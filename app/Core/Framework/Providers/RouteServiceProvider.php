@@ -34,9 +34,6 @@ class RouteServiceProvider extends ServiceProvider
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
 
-            Route::middleware('web')
-                ->group(base_path('routes/web.php'));
-
             $this->mapRoutes();
         });
     }
@@ -45,18 +42,10 @@ class RouteServiceProvider extends ServiceProvider
     {
         /** @var Router $router */
         $router = $this->app->make(abstract: Router::class);
-        $domains = collect($this->app['config']['domain.available_domains']);
 
-        $domains->each(function (string|array $domain) use ($router): void {
-            if (is_string($domain)) {
-                $this->mapDomainRoutes(router: $router, domainName: $domain);
-                return;
-            }
-
-            collect($domain)->each(function (string $domainName) use ($router): void {
-                $this->mapDomainRoutes(router: $router, domainName: $domainName);
-            });
-        });
+        collect($this->app['config']['domain.available_domains'])
+            ->flatten(depth: 1)
+            ->each(callback: fn (string $domain) => $this->mapDomainRoutes(router: $router, domainName: $domain));
     }
 
     private function mapDomainRoutes(Router $router, string $domainName): void
@@ -67,9 +56,13 @@ class RouteServiceProvider extends ServiceProvider
             return;
         }
 
-        $router->middleware($domainRoutes['middleware'] ?? [])
-            ->prefix(prefix: $domainRoutes['prefix'] ?? '')
-            ->group(base_path(path: $domainRoutes['file']));
+        $routeRegistrar = $router->middleware($domainRoutes['middleware'] ?? []);
+
+        if (isset($domainRoutes['prefix'])) {
+            $routeRegistrar->prefix(prefix: $domainRoutes['prefix']);
+        }
+
+        $routeRegistrar->group(base_path(path: $domainRoutes['file']));
     }
 
     protected function configureRateLimiting(): void
