@@ -8,5 +8,5 @@ use Illuminate\Routing\Router;
 /** @var Router $router */
 $router = app(Router::class);
 
-$router->get(uri: '/', action: Index::class);
-$router->post(uri: '/', action: Index::class);
+$router->get('/', Index::class);
+$router->post('/', Index::class);

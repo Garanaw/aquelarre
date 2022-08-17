@@ -9,3 +9,5 @@ mix.js('resources/js/app.js', 'public/js')
         require('tailwindcss'),
         require('autoprefixer'),
     ]);
+
+mix.ts('resources/js/menu/menu.ts', 'public/js/menu.js');
