@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Aquelarre\Core\User\Domain\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use Aquelarre\Core\Framework\Providers\ViewServiceProvider as SharedViewServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
 
-class ViewServiceProvider extends ServiceProvider
+class ViewServiceProvider extends SharedViewServiceProvider
 {
     private const USER_NAMESPACE = 'Aquelarre\\Core\\User\\Presentation\\Components';
     private const USER_ANONYMOUS_NAMESPACE = 'Core/User/Presentation/Resources/views';
@@ -15,9 +15,13 @@ class ViewServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        if (parent::isBooted() === false) {
+            parent::boot();
+        }
+
         $this->loadViewsFrom(
-            app_path('Core/User/Presentation/Resources/views'),
-            'user'
+            path: app_path(path: self::USER_ANONYMOUS_NAMESPACE),
+            namespace: self::USER_PREFIX
         );
 
         /** @var BladeCompiler $bladeCompiler */
