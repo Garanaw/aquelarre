@@ -8,6 +8,7 @@ use Illuminate\Support\AggregateServiceProvider;
 
 class UserServiceProvider extends AggregateServiceProvider
 {
+    /** @var string[] */
     protected $providers = [
         ViewServiceProvider::class,
     ];
