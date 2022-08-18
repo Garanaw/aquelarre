@@ -44,7 +44,7 @@
             </div>
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 @auth
-                    <x-shared::auth.auth-menu />
+                    <x-shared::auth.auth-menu :user="auth()->user()"/>
                 @else
                     <x-shared::auth.guest-menu />
                 @endauth

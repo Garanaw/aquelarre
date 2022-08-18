@@ -7,7 +7,7 @@
     >
         <span class="sr-only">Open user menu</span>
         <img class="mr-2 w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo">
-        Bonnie Green
+        {{ $user->name }}
         <x-shared::icons.caret />
     </button>
 
