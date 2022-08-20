@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/static/favicon.ico') }}">
 
     <title>Laravel</title>
 
@@ -15,7 +16,7 @@
 </head>
 <body class="antialiased">
 <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 py-4">
-    <x-shared::layouts.page-header />
+    <x-shared::navbar.navbar />
 
     <div class="w-full mx-auto h-screen bg-gray-100 dark:bg-gray-900">
         <!-- Page Content -->
