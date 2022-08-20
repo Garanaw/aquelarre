@@ -13,22 +13,12 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    // phpcs:disable SlevomatCodingStandard.TypeHints.UselessConstantTypeHint.UselessVarAnnotation -- baseline
-    /**
-     * The path to the "home" route for your application.
-     *
-     * This is used by Laravel authentication to redirect users after login.
-     *
-     * @var string
-     */
-    // phpcs:enable SlevomatCodingStandard.TypeHints.UselessConstantTypeHint.UselessVarAnnotation -- baseline
-    public const HOME = '/home';
+    public const HOME = '/';
 
     public function boot(): void
     {
         $this->configureRateLimiting();
 
-        // phpcs:ignore SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint -- baseline
         $this->routes(function (): void {
             Route::middleware('api')
                 ->prefix('api')
