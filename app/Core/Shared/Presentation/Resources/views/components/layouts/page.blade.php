@@ -15,7 +15,6 @@
 </head>
 <body class="antialiased">
 <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 py-4">
-{{--    <x-shared::layouts.page-header />--}}
     <x-shared::navbar.navbar />
 
     <div class="w-full mx-auto h-screen bg-gray-100 dark:bg-gray-900">
