@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Aquelarre\Character\Domain\Providers;
 
 use Aquelarre\Core\Framework\Providers\ViewServiceProvider as SharedViewServiceProvider;

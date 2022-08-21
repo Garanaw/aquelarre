@@ -6,7 +6,7 @@ namespace Aquelarre\Character\Application\Actions;
 
 class Create
 {
-    public function __invoke()
+    public function __invoke(): never
     {
         dd('Create');
     }

@@ -49,8 +49,9 @@ class RouteServiceProvider extends ServiceProvider
         }
 
         $routeRegistrar = new RouteRegistrar(router: $router);
+        $middleware = Arr::wrap($domainRoutes['middleware'] ?? []);
 
-        if ($middleware = Arr::wrap($domainRoutes['middleware'] ?? [])) {
+        if (empty($middleware) === false) {
             $routeRegistrar->middleware($middleware);
         }
 
