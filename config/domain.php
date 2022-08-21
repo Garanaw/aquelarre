@@ -21,6 +21,7 @@ return [
             'user',
         ],
         'static',
+        'character',
     ],
     'core' => [
         'providers' => [
@@ -62,6 +63,17 @@ return [
             'file' => 'app/Static/Application/routes.php',
             // 'prefix' => null,
             'middleware' => Aquelarre\Static\Application\Middleware\ServiceProviderLoader::class,
+        ],
+    ],
+    'character' => [
+        'providers' => [
+            Aquelarre\Character\Domain\Providers\ViewServiceProvider::class,
+        ],
+        'prefix' => 'character',
+        'routes' => [
+            'file' => 'app/Character/Application/routes.php',
+            'prefix' => 'character',
+            'middleware' => Aquelarre\Character\Application\Middleware\ServiceProviderLoader::class,
         ],
     ],
 ];
