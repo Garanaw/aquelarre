@@ -12,14 +12,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
+    <script src="{{ mix('js/menu.js') }}" defer></script>
     <script src="{{ mix('js/app.js') }}" defer></script>
 
     @stack('scripts')
 </head>
-<body class="antialiased">
+<body class="antialiased dark">
 <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 py-4">
     <x-shared::navbar.navbar />
 

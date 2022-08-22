@@ -13,8 +13,9 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <script src="{{ mix('js/menu.js') }}" defer></script>
 </head>
-<body class="antialiased">
+<body class="antialiased dark">
 <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 py-4">
     <x-shared::navbar.navbar />
 
