@@ -8,6 +8,8 @@ use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
+use Illuminate\Routing\RouteRegistrar;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
@@ -46,10 +48,15 @@ class RouteServiceProvider extends ServiceProvider
             return;
         }
 
-        $routeRegistrar = $router->middleware($domainRoutes['middleware'] ?? []);
+        $routeRegistrar = new RouteRegistrar(router: $router);
+        $middleware = Arr::wrap($domainRoutes['middleware'] ?? []);
+
+        if (empty($middleware) === false) {
+            $routeRegistrar->middleware($middleware);
+        }
 
         if (isset($domainRoutes['prefix'])) {
-            $routeRegistrar->prefix(prefix: $domainRoutes['prefix']);
+            $routeRegistrar->prefix($domainRoutes['prefix']);
         }
 
         $routeRegistrar->group(base_path(path: $domainRoutes['file']));

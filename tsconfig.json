@@ -17,12 +17,28 @@
         // "strictNullChecks": true,              /* Enable strict null checks. */
         // "noImplicitThis": true,                /* Raise error on 'this' expressions with an implied 'any' type. */
         // "alwaysStrict": true,                  /* Parse in strict mode and emit "use strict" for each source file. */
-        "allowUnreachableCode": true
+        "allowUnreachableCode": true,
+
+        "importHelpers": true,
+        "esModuleInterop": true,
+        "skipDefaultLibCheck": true,
+        "allowSyntheticDefaultImports": true,
+        //"isolatedModules": true,
     },
+    "include": [
+        "resources/js/**/*.ts",
+        "resources/js/**/*.tsx",
+        "resources/js/**/*.vue",
+        "tests/**/*.ts",
+        "tests/**/*.tsx"
+    ],
     "exclude": [
         "node_modules",
         "**/*.d.ts",
         "vendor",
         "public",
     ],
+    "files": [
+        "resources/js/shims-vue.d.ts",
+    ]
 }
