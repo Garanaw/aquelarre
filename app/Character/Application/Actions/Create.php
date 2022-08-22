@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace Aquelarre\Character\Application\Actions;
 
+use Illuminate\Contracts\View\View;
+use Illuminate\View\Factory;
+
 class Create
 {
-    public function __invoke(): never
+    public function __invoke(Factory $view): View
     {
-        dd('Create');
+        return $view->make('character::create');
     }
 }

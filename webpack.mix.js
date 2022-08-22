@@ -11,3 +11,5 @@ mix.js('resources/js/app.js', 'public/js')
     ]);
 
 mix.ts('resources/js/menu/menu.ts', 'public/js/menu.js');
+
+mix.ts('resources/js/app/character/create/classic.ts', 'public/js/character/create/classic.js');
