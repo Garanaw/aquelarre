@@ -7,13 +7,14 @@ const container: Application = new Application();
 
 // @ts-ignore
 container.errorHandler(ErrorHandler);
+const dice = new DiceRoller();
 
 const createMyApp = (options: {}) => {
     const app = createApp(options)
 
     app.config.errorHandler = (error: any, vm: any, info: any) => container.vueError(error, vm, info);
-    app.config.globalProperties.$container = container;
-    app.config.globalProperties.$dice = new DiceRoller();
+    app.provide('$container', container);
+    app.provide('$dice', dice);
 
     return app
 }
