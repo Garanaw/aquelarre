@@ -6,6 +6,19 @@ export default class Application extends Container {
     }
 
     vueError(error: any, vm: any, info: any) {
-        super._errorHandler.vue(error, vm, info);
+        super._errorHandler?.vue(error, vm, info);
+        console.error(error, vm, info);
+    }
+
+    errorHandler(errorHandler: any) {
+        super.errorHandler(errorHandler);
+    }
+
+    register(serviceProvider: any) {
+        super.register(serviceProvider);
+    }
+
+    bootProviders() {
+        super.bootProviders();
     }
 }

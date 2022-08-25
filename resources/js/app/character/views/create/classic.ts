@@ -1,4 +1,4 @@
-import createApp from '../../../framework/createApp';
+import createApp from '../../../../framework/createApp';
 
 import App from './classic/App.vue';
 

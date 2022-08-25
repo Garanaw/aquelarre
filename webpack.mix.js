@@ -1,4 +1,22 @@
 const mix = require('laravel-mix');
+require('laravel-micro.js/src/mix');
+const [laravelMicroReserved] = require('./laravel-micro.reserved');
+const inProduction = mix.inProduction();
+
+mix
+    .micro(laravelMicroReserved, inProduction === false)
+    .options({
+        terser: {
+            terserOptions: {
+                compress: { warnings: false },
+                output: { comments: false },
+                mangle: {
+                    keep_fnames: true,
+                    keep_classnames: true
+                },
+            }
+        }
+    });
 
 mix.js('resources/js/app.js', 'public/js')
     .vue({
@@ -7,7 +25,7 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.ts('resources/js/menu/menu.ts', 'public/js/menu.js');
 
-mix.ts('resources/js/app/character/create/classic.ts', 'public/js/character/create/classic.js');
+mix.ts('resources/js/app/character/views/create/classic.ts', 'public/js/character/create/classic.js');
 
 mix.postCss('resources/css/app.css', 'public/css', [
     require('postcss-import'),
