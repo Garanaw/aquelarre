@@ -1,6 +1,7 @@
 import Container from 'laravel-micro.js/src/Container';
 
-export default class Application extends Container {
+export default class Application extends Container
+{
     constructor() {
         super();
     }
@@ -20,5 +21,9 @@ export default class Application extends Container {
 
     bootProviders() {
         super.bootProviders();
+    }
+
+    resolveProvider(provider: any) {
+        return new provider(this);
     }
 }
