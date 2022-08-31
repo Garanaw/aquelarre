@@ -1,7 +1,7 @@
-import { Exception as BaseException } from 'laravel-micro.js/src/Exceptions/Exception';
+import BaseException from 'laravel-micro.js/src/Exceptions/Exception';
 
 export default class Exception extends BaseException {
-    constructor(message: string, code: number) {
+    constructor(message: string, code: number = 500) {
         super(message, code);
 
         Object.defineProperty(this, 'message', {
