@@ -15,5 +15,5 @@ import { Character as CharacterType } from '../../../domain/types/Character';
 import CharacterFactory from '../../../infrastructure/factories/CharacterFactory';
 
 //@ts-ignore
-let character = reactive<Character>(CharacterFactory.forCreation()) as CharacterType;
+let character = reactive<Character & CharacterType>(CharacterFactory.forCreation());
 </script>
