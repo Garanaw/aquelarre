@@ -10,12 +10,12 @@
 <script setup lang="ts">
 import Character from '../../../../infrastructure/models/Character';
 import Name from '../../../../../shared/components/form/Name.vue';
+import { Character as CharacterType } from '../../../../domain/types/Character';
 
-const props = defineProps<{ character: Character }>();
+const props = defineProps<{ character: Character & CharacterType }>();
 const { character } = props;
 
 function updateName(name) {
-    //@ts-ignore
     character.name = name;
 }
 </script>
