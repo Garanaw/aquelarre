@@ -3,7 +3,7 @@ import { DiceRoller } from '@dice-roller/rpg-dice-roller';
 import Application from './Application';
 import ErrorHandler from './Exceptions/Handler';
 import { Store } from 'jeloquent';
-import EloquentServiceProvider from './eloquent/domain/EloquentServiceProvider';
+import EloquentServiceProvider from './database/eloquent/domain/EloquentServiceProvider';
 
 const container: Application = new Application();
 

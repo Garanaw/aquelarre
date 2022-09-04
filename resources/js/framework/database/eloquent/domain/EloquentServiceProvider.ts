@@ -1,6 +1,6 @@
 import ServiceProvider from 'laravel-micro.js/src/Support/ServiceProvider';
 import { Database, Model } from 'jeloquent';
-import Character from '../../../app/character/infrastructure/models/Character';
+import Character from '../../../../app/character/infrastructure/models/Character';
 
 export default class EloquentServiceProvider extends ServiceProvider
 {

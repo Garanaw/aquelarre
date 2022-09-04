@@ -23,6 +23,7 @@
         "@dice-roller/rpg-dice-roller": "^5.1.0",
         "autoprefixer": "^10.4.7",
         "collect.js": "^4.34.3",
+        "dayjs": "^1.11.5",
         "jeloquent": "^3.2.1",
         "laravel-micro.js": "^1.5.3",
         "ts-loader": "^9.3.1",

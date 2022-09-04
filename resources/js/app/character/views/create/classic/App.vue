@@ -11,7 +11,9 @@
 import { reactive } from 'vue';
 import Basic from './basic/Basic.vue';
 import Character from '../../../infrastructure/models/Character';
+import { Character as CharacterType } from '../../../domain/types/Character';
 import CharacterFactory from '../../../infrastructure/factories/CharacterFactory';
 
-let character: Character = reactive(CharacterFactory.forCreation());
+//@ts-ignore
+let character = reactive<Character>(CharacterFactory.forCreation()) as Character & CharacterType;
 </script>

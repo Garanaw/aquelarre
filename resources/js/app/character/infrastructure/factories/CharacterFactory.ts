@@ -4,6 +4,11 @@ export default class CharacterFactory
 {
     public static forCreation(): Character
     {
-        return  new Character();
+        const character = new Character({
+            name: '',
+        });
+
+        console.log('creating', character);
+        return character;
     }
 }
