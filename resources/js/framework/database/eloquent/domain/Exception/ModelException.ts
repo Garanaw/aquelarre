@@ -3,18 +3,18 @@ import Model from "../../Model";
 
 export default class ModelException extends Exception
 {
-    private model: Model | null = null;
+    private model: Model<any> | null = null;
 
-    constructor(message: string, code: number = 500, model: Model | null = null) {
+    constructor(message: string, code: number = 500, model: Model<any> | null = null) {
         super(message, code);
         this.model = model;
     }
 
-    getModel(): Model | null {
+    getModel(): Model<any> | null {
         return this.model;
     }
 
-    setModel(model: Model | null): this {
+    setModel(model: Model<any> | null): this {
         this.model = model;
         return this;
     }

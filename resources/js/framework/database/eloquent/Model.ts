@@ -18,7 +18,7 @@ import {
 } from '../../types/types';
 //import Route from 'http/Route';
 
-export default abstract class Model
+export default abstract class Model<T>
 {
     protected type!: string | null;
 
@@ -779,7 +779,7 @@ export default abstract class Model
         return false;
     }
 
-    resolveModel (model, relation, data): Model {
+    resolveModel (model, relation, data): Model<T> {
         // We assume that the relation is not polymorphic, therefore return the model
         if (relation instanceof Model) {
             return relation;
@@ -800,7 +800,7 @@ export default abstract class Model
         for (const key in candidates) {
             // @ts-ignore
             if (candidates[key].type === target) {
-                return candidates[key] as Model;
+                return candidates[key] as Model<T>;
             }
         }
 

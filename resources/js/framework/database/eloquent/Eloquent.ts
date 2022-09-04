@@ -19,7 +19,7 @@ const get = (target, prop, receiver) => {
     }
 };
 
-const set = (target: Model, prop, value) => {
+const set = <T>(target: Model<T>, prop, value) => {
     target.setAttribute(prop, value);
     return true;
 };

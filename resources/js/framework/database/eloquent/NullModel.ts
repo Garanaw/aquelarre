@@ -1,6 +1,6 @@
 import Model from './Model';
 
-export default class NullModel extends Model
+export default class NullModel extends Model<any>
 {
     resourceName() {
         return 'NullModel';
