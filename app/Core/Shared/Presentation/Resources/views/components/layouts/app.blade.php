@@ -20,7 +20,7 @@
 
     @stack('scripts')
 </head>
-<body class="antialiased dark">
+<body class="antialiased subpixel-antialiased dark">
 <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 py-4">
     <x-shared::navbar.navbar />
 
