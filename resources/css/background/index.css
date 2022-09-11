@@ -1,0 +1,12 @@
+@layer utilities {
+    /* This will be the background */
+    .bg-img-scroll {
+        background-image: url("../images/background/bg-scroll.jpg");
+    }
+
+    .bg-primary-scroll {
+        background-image: url("../images/background/bg-primary-scroll.png");
+        /*box-shadow: -5px 10px 20px #0b0b0b;*/
+        @apply shadow-3xl;
+    }
+}
