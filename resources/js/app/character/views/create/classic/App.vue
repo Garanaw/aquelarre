@@ -1,7 +1,6 @@
 <template>
-    <div class="flex items-center justify-center">
+    <div class="flex w-4/6 items-center bg-primary-scroll p-5">
         <Basic
-            class="w-4/6"
             :character="character"
         />
     </div>

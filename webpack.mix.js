@@ -15,7 +15,8 @@ mix
                     keep_classnames: true
                 },
             }
-        }
+        },
+        processCssUrls: false,
     })
     .webpackConfig({
         stats: {

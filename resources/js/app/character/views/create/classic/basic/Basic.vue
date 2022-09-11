@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div class="flex justify-center py-5">
+    <div class="w-full">
+        <div class="w-full flex justify-center py-5">
             <Title>Básico</Title>
         </div>
         <div class="grid grid-cols-4">
