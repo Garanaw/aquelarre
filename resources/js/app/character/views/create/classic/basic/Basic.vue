@@ -1,15 +1,23 @@
 <template>
     <div>
-        <Name
-            v-model="character.name"
-            @update:name="updateName"
-        />
+        <div class="flex justify-center py-5">
+            <Title>Básico</Title>
+        </div>
+        <div class="grid grid-cols-4">
+            <div>
+                <Name
+                    v-model="character.name"
+                    @update:name="updateName"
+                />
+            </div>
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import Character from '../../../../infrastructure/models/Character';
 import Name from '../../../../../shared/components/form/Name.vue';
+import Title from '../../../../../shared/components/typography/Title.vue';
 import { Character as CharacterType } from '../../../../domain/types/Character';
 
 const props = defineProps<{ character: Character & CharacterType }>();

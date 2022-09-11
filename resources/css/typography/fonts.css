@@ -1,0 +1,7 @@
+
+@layer utilities {
+    @font-face {
+        font-family: 'Aquelarre';
+        src: url('../fonts/black-letter.ttf') format('truetype');
+    }
+}

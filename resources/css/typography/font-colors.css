@@ -1,0 +1,7 @@
+
+@layer utilities {
+    h1.title.font-aquelarre::first-letter,
+    h2.title.font-aquelarre::first-letter {
+        color: #be1722;
+    }
+}
