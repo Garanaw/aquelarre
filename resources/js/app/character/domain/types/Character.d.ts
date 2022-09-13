@@ -1,4 +1,7 @@
+import Sex from '../../../shared/enum/alive/Sex';
+
 export type Character = {
-    id: number,
+    id: number | null,
     name: string,
+    sex: Sex,
 }
