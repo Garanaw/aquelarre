@@ -17,11 +17,12 @@ abstract class Migration extends BaseMigration
 {
     /** @SuppressWarnings(PHPMD.ShortVariable) */
     protected Connection $db;
-    // phpcs:ignore Squiz.WhiteSpace.MemberVarSpacing.Incorrect -- baseline
+
     protected Builder $schema;
-    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingTraversableTypeHintSpecification, Squiz.WhiteSpace.MemberVarSpacing.Incorrect -- baseline
+
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingTraversableTypeHintSpecification
     protected array $seeders = [];
-    // phpcs:ignore Squiz.WhiteSpace.MemberVarSpacing.Incorrect -- baseline
+
     protected ?string $table = null;
 
     public function __construct()
@@ -50,8 +51,7 @@ abstract class Migration extends BaseMigration
     protected function setBlueprint(string $blueprint): void
     {
         $this->schema->blueprintResolver(
-            // phpcs:ignore SlevomatCodingStandard.Functions.StaticClosure.ClosureNotStatic -- baseline
-            resolver: fn (string $table, ?Closure $callback = null): Blueprint => new $blueprint($table, $callback)
+            resolver: static fn (string $table, ?Closure $callback = null): Blueprint => new $blueprint($table, $callback)
         );
     }
 
