@@ -8,7 +8,7 @@ use Database\Seeders\Core\Kingdom\RollsSeeder;
 
 return new class extends Migration
 {
-    protected ?string $table = 'kingdom_roll';
+    protected ?string $table = 'kingdom_rolls';
 
     protected array $seeders = [
         RollsSeeder::class,

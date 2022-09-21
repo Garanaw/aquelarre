@@ -11,7 +11,7 @@ class RollsSeeder extends Seeder
 {
     public function run(): bool
     {
-        $this->db->table(table: 'kingdom_roll')->insert(values: $this->getData());
+        $this->db->table(table: 'kingdom_rolls')->insert(values: $this->getData());
         return true;
     }
 
