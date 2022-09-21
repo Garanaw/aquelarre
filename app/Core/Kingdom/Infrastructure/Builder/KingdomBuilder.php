@@ -13,9 +13,9 @@ class KingdomBuilder extends Builder
     {
         return $this->whereHas(
             relation: 'roll',
-            callback: fn (Builder $query) => $query->where([
-                ['min_roll', '<=', $roll->getRoll()],
-                ['max_roll', '>=', $roll->getRoll()],
+            callback: static fn (Builder $query) => $query->where([
+                ['min_roll', '<=', $roll->getRoll()], // phpcs:ignore Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed
+                ['max_roll', '>=', $roll->getRoll()], // phpcs:ignore Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed
             ]),
         );
     }

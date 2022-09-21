@@ -9,11 +9,11 @@ use Jenssegers\Optimus\Optimus;
 
 class OptimusServiceProvider extends ServiceProvider
 {
-    public function register()
+    public function register(): void
     {
         $config = $this->app['config']['optimus'];
 
-        $this->app->singleton(abstract: Optimus::class, concrete: fn () =>  new Optimus(
+        $this->app->singleton(abstract: Optimus::class, concrete: static fn () =>  new Optimus(
             prime: (int)$config['prime'],
             inverse: (int)$config['random'],
             xor: (int)$config['inverse'],

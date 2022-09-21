@@ -7,6 +7,7 @@ namespace Aquelarre\Core\Kingdom\Application\Responses;
 use Aquelarre\Core\Kingdom\Application\Transformers\KingdomTransformer;
 use Aquelarre\Core\Kingdom\Infrastructure\Models\Kingdom;
 use Illuminate\Contracts\Support\Responsable;
+use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class ItemResponse implements Responsable
@@ -16,7 +17,11 @@ class ItemResponse implements Responsable
     ) {
     }
 
-    public function toResponse($request)
+    /**
+     * @param Request $request
+     * @return Response
+     */
+    public function toResponse($request): Response // phpcs:ignore
     {
         return fractal()
             ->item($this->item)
