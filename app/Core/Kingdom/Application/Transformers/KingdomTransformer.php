@@ -12,6 +12,9 @@ class KingdomTransformer extends TransformerAbstract
 {
     use EncodesIds;
 
+    /**
+     * @return array<string, mixed>
+     */
     public function transform(Kingdom $kingdom): array
     {
         return [
