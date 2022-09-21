@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Aquelarre\Core\Shared\Domain\Dice;
 
@@ -30,10 +30,10 @@ final class DiceGroup
 
     public function roll() : int
     {
-        $sum = 0;
-        foreach ($this->dice as $dice) {
-            $sum += $dice->roll();
-        }
-        return $sum;
+        return array_reduce(
+            array: $this->dice,
+            callback: static fn(int $carry, Dice $dice): int => $carry + $dice->roll(),
+            initial: 0
+        );
     }
 }

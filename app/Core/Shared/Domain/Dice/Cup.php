@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Aquelarre\Core\Shared\Domain\Dice;
 
@@ -22,7 +22,7 @@ final class Cup
     public function roll() : int
     {
         return collect(value: $this->groups)->sum(
-            callback: fn(DiceGroup $group): int => $group->roll()
+            callback: static fn(DiceGroup $group): int => $group->roll()
         );
     }
 }
