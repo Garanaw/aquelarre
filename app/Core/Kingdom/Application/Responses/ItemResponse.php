@@ -19,8 +19,9 @@ class ItemResponse implements Responsable
 
     /**
      * @param Request $request
+     * @phpcs:ignore SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      */
-    public function toResponse($request): Response // phpcs:ignore-line
+    public function toResponse($request): Response
     {
         return fractal()
             ->item($this->item)
