@@ -184,6 +184,7 @@ return [
         /* Package Service Providers... */
         Aquelarre\Core\Framework\Providers\TelescopeServiceProvider::class,
         Aquelarre\Core\User\Domain\Providers\FortifyServiceProvider::class,
+        Aquelarre\Core\Framework\Providers\OptimusServiceProvider::class,
 
         /* Application Service Providers... */
         Aquelarre\Core\Framework\Providers\AppServiceProvider::class,
@@ -193,7 +194,6 @@ return [
 
         /* Routes... */
         Aquelarre\Core\Framework\Providers\RouteServiceProvider::class,
-
     ],
 
     /*
