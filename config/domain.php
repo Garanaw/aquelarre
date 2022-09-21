@@ -20,6 +20,7 @@ return [
             'theology',
             'user',
         ],
+        // phpcs:ignore Squiz.Arrays.ArrayDeclaration.NoKeySpecified -- baseline
         'static',
         'character',
     ],

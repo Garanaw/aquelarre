@@ -16,8 +16,8 @@ class ItemResponse implements Responsable
     ) {
     }
 
-    // phpcs:ignore SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
-    public function toResponse($request): Response // phpcs:ignore SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
+    // phpcs:ignore SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter, SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingAnyTypeHint -- baseline
+    public function toResponse($request): Response
     {
         return fractal()
             ->item($this->item)

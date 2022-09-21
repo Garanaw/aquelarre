@@ -31,7 +31,7 @@ class Kingdom extends Model
         'description' => AsStringable::class,
     ];
 
-    // phpcs:ignore SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingAnyTypeHint -- baseline
     public function newEloquentBuilder($query): KingdomBuilder
     {
         return new KingdomBuilder($query);
