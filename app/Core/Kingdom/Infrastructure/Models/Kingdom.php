@@ -6,7 +6,7 @@ namespace Aquelarre\Core\Kingdom\Infrastructure\Models;
 
 use Aquelarre\Core\Framework\Infrastructure\Eloquent\Casts\AsStringable;
 use Aquelarre\Core\Kingdom\Infrastructure\Builder\KingdomBuilder;
-use Aquelarre\Core\Shared\Domain\Support\Stringable;
+use Aquelarre\Core\Shared\Domain\Support\Stringable; // phpcs:ignore SlevomatCodingStandard.Namespaces.UnusedUses
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -31,6 +31,7 @@ class Kingdom extends Model
         'description' => AsStringable::class,
     ];
 
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint
     public function newEloquentBuilder($query): KingdomBuilder
     {
         return new KingdomBuilder($query);
