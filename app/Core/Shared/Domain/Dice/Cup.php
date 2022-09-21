@@ -19,7 +19,7 @@ final class Cup
         return $this;
     }
 
-    public function roll() : int
+    public function roll(): int
     {
         return collect(value: $this->groups)->sum(
             callback: static fn(DiceGroup $group): int => $group->roll()

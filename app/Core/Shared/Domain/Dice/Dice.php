@@ -8,6 +8,7 @@ use OutOfRangeException;
 
 final class Dice
 {
+    /** @var array<int, int> */
     private array $rolls = [];
 
     public function __construct(private readonly int $sides)

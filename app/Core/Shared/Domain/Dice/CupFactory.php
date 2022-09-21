@@ -10,7 +10,7 @@ final class CupFactory
     {
         $cup = new Cup();
 
-        if ('' === $pAsked) {
+        if ($pAsked === '') {
             return $cup;
         }
 

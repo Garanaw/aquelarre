@@ -28,7 +28,7 @@ final class DiceGroup
         }
     }
 
-    public function roll() : int
+    public function roll(): int
     {
         return array_reduce(
             array: $this->dice,
