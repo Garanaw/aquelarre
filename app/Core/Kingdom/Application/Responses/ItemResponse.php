@@ -7,7 +7,7 @@ namespace Aquelarre\Core\Kingdom\Application\Responses;
 use Aquelarre\Core\Kingdom\Application\Transformers\KingdomTransformer;
 use Aquelarre\Core\Kingdom\Infrastructure\Models\Kingdom;
 use Illuminate\Contracts\Support\Responsable;
-use Illuminate\Http\Request; // phpcs:ignore-line
+use Illuminate\Http\Request; // phpcs:ignore SlevomatCodingStandard.Namespaces.UnusedUses
 use Symfony\Component\HttpFoundation\Response;
 
 class ItemResponse implements Responsable
@@ -20,7 +20,7 @@ class ItemResponse implements Responsable
     /**
      * @param Request $request
      */
-    public function toResponse($request): Response // phpcs:ignore SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
+    public function toResponse($request): Response // phpcs:ignore SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
     {
         return fractal()
             ->item($this->item)
