@@ -73,6 +73,8 @@ jobs:
       - run: php artisan config:clear
       - run: cp .env.testing.example .env
       - run: php artisan key:generate
+      - run: php artisan migrate
+      - run: php artisan test
       - *save_repo
 #      - run: touch database/testing.sqlite
 #      - run: php artisan migrate --env=testing --database=sqlite --force
