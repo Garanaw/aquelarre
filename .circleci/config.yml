@@ -9,6 +9,12 @@ references:
         environment:
           APP_NAME: TEST
           APP_ENV: testing
+      - image: cimg/mysql:8.0
+        environment:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: testing
+          MYSQL_USER: test
+          MYSQL_PASSWORD: secret
   restore_repo: &restore_repo
     restore_cache:
       keys:
@@ -56,19 +62,32 @@ jobs:
       - *save_repo
       - run:
           name: Run PHP Code Sniffer
-          command: ./vendor/bin/phpcs ./app --standard=phpcs.xml
+          command: ./vendor/bin/phpcs -v ./app --standard=phpcs.xml
   tests:
     <<: *defaults
     steps:
       - checkout
       - *restore_repo
-      - run: composer install -n --prefer-dist
-      - run: npm ci && npm run prod
-      - run: php artisan config:clear
+      - run:
+          name: Composer
+          command: composer install -n --prefer-dist
+      - run:
+          name: NPM
+          command: npm ci && npm run prod
+      - run:
+          name: Artisan
+          command: |
+            cp .env.testing.example .env
+            php artisan config:clear
+            php artisan key:generate
+            php artisan migrate
+      - run:
+          name: Tests
+          command: php artisan test
       - *save_repo
-      - run: touch database/testing.sqlite
-      - run: php artisan migrate --env=testing --database=sqlite --force
-      - run: ./vendor/bin/phpunit
+#      - run: touch database/testing.sqlite
+#      - run: php artisan migrate --env=testing --database=sqlite --force
+#      - run: ./vendor/bin/phpunit
 
 workflows:
   version: 2

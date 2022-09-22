@@ -20,6 +20,7 @@ return [
             'theology',
             'user',
         ],
+        // phpcs:ignore Squiz.Arrays.ArrayDeclaration.NoKeySpecified -- baseline
         'static',
         'character',
     ],
@@ -33,9 +34,7 @@ return [
             Aquelarre\Core\Framework\Providers\TelescopeServiceProvider::class,
             Aquelarre\Core\Framework\Providers\ViewServiceProvider::class,
         ],
-        // phpcs:ignore Squiz.Arrays.ArrayDeclaration.SpaceInEmptyArray -- baseline
-        'exclude_for_other_domains' => [
-        ],
+        'exclude_for_other_domains' => [],
     ],
     'user' => [
         'providers' => [
@@ -44,7 +43,6 @@ return [
         ],
         'routes' => [],
     ],
-
     'books' => [
         'providers' => [
             Aquelarre\Core\Books\Domain\Providers\ViewServiceProvider::class,
@@ -53,6 +51,14 @@ return [
             'file' => 'app/Core/Books/Application/routes.php',
             'prefix' => 'books',
             'middleware' => Aquelarre\Core\Books\Application\Middleware\ServiceProviderLoader::class,
+        ],
+    ],
+    'kingdom' => [
+        'providers' => [],
+        'routes' => [
+            'file' => 'app/Core/Kingdom/routes.php',
+            'prefix' => 'kingdom',
+            'middleware' => Aquelarre\Core\Kingdom\Application\Middleware\ServiceProviderLoader::class,
         ],
     ],
     'static' => [
