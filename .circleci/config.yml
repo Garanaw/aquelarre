@@ -14,7 +14,7 @@ references:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: testing
           MYSQL_USER: test
-          MYSQL_PASSWORD: test
+          MYSQL_PASSWORD: secret
   restore_repo: &restore_repo
     restore_cache:
       keys:
@@ -68,13 +68,22 @@ jobs:
     steps:
       - checkout
       - *restore_repo
-      - run: composer install -n --prefer-dist
-      - run: npm ci && npm run prod
-      - run: php artisan config:clear
-      - run: cp .env.testing.example .env
-      - run: php artisan key:generate
-      - run: php artisan migrate
-      - run: php artisan test
+      - run:
+          name: Composer
+          command: composer install -n --prefer-dist
+      - run:
+          name: NPM
+          command: npm ci && npm run prod
+      - run:
+          name: Artisan
+          command: |
+            cp .env.testing.example .env
+            php artisan config:clear
+            php artisan key:generate
+            php artisan migrate
+      - run:
+          name: Tests
+          command: php artisan test
       - *save_repo
 #      - run: touch database/testing.sqlite
 #      - run: php artisan migrate --env=testing --database=sqlite --force
