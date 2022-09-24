@@ -8,7 +8,7 @@
                 <Name v-model="character.name" @update:name="updateName" />
             </div>
             <div>
-                <Sex v-model="character.sex" @update:sex="updateSex" />
+                <Sex v-model="character.sex" @update:sex="updateSex" @set:sex="setSex" />
             </div>
         </div>
     </div>
@@ -30,5 +30,9 @@ function updateName(name) {
 
 function updateSex(sex) {
     character.sex = sex;
+}
+
+function setSex(sex) {
+    updateSex(sex);
 }
 </script>
