@@ -15,12 +15,15 @@
         >
             <FontAwesomeIcon :icon="['fas', 'venus']" />Mujer
         </RadioGroupOption>
+
+        <Check @checked="setSex" />
     </RadioGroup>
 </template>
 
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import Sex from '../../enum/alive/Sex';
+import Check from '../button/Check.vue';
 import {
     RadioGroup,
     RadioGroupLabel,
@@ -29,8 +32,13 @@ import {
 
 const emit = defineEmits({
     'update:sex': value => [Sex.MAN, Sex.WOMAN].includes(value),
+    'set:sex': value => [Sex.MAN, Sex.WOMAN].includes(value),
 });
 let sex = ref<string | null>(null);
 
 watch(sex, (newSex) => emit('update:sex', newSex));
+
+function setSex() {
+    emit('set:sex', sex);
+}
 </script>
