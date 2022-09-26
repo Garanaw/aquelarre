@@ -14,14 +14,19 @@ window.globalThis = {
 
 container.errorHandler(ErrorHandler);
 container.register(EloquentServiceProvider);
-container.bootProviders();
 
 const dice = new DiceRoller();
 
-const createMyApp = (options: {}) => {
+const createMyApp = (options: {}, providers: any[] = []) => {
     const app = createApp(options)
 
     app.config.errorHandler = (error: any, vm: any, info: any) => container.vueError(error, vm, info);
+
+    providers.forEach((provider: any) => {
+        container.register(provider);
+    });
+
+    container.bootProviders();
     app.provide('$container', container);
     app.provide('$dice', dice);
 

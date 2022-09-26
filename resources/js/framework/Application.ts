@@ -1,5 +1,9 @@
 import Container from 'laravel-micro.js/src/Container';
 
+/**
+ * @template T
+ * @method T make(string name)
+ */
 export default class Application extends Container
 {
     constructor() {

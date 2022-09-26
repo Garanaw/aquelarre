@@ -31,7 +31,6 @@ const call = (target, prop, args) => {
 export default function Eloquent(constructor: Function) {
     return new Proxy(constructor, {
         construct: <T>(cls: T, args: any[] = []): T => {
-            console.log('will construct', cls, args);
             // @ts-ignore
             const $class = Reflect.construct(cls, ...args);
 

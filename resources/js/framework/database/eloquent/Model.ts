@@ -28,14 +28,28 @@ export default abstract class Model<T>
 
     protected $attributes: AnyObject = {};
 
+    protected $original: AnyObject = {};
+
     constructor(attributes = {}) {
-        //this.selfValidate();
         this.type = this.resourceName();
         this.links = {};
         //this.setBaseUrl();
         //this._initProperties();
         //this.setProperties = new Collection([]);
+        this.syncOriginal();
         this.fill(attributes);
+    }
+
+    public syncOriginal(): T
+    {
+        this.$original = this.getAttributes();
+        // @ts-ignore
+        return this;
+    }
+
+    public getAttributes(): AnyObject
+    {
+        return this.$attributes;
     }
 
     // _initProperties() {
@@ -508,15 +522,31 @@ export default abstract class Model<T>
             return;
         }
 
-        forEach(attributes, (value, key) => {
-            this.$attributes[key] = value;
-        });
-        // let fields = this.fields().concat(Object.keys(this.relationships()));
-        // fields.forEach(field => {
-        //     if (field in attributes) {
-        //         this[field] = attributes[field];
-        //     }
-        // });
+        for (const [key, value] of Object.entries(attributes)) {
+            this.setAttribute(key, value);
+        }
+    }
+
+    public getAttribute(name) {
+        return this.$attributes[name];
+    }
+
+    public setAttribute(key, value) {
+        if (this.hasSetMutator(key)) {
+            return this.setMutatedAttributeValue(key, value);
+        }
+
+        this.$attributes[key] = value;
+    }
+
+    hasSetMutator(key) {
+        const method = 'set' + key.charAt(0).toUpperCase() + key.slice(1) + 'Attribute';
+        return typeof this[method] === 'function';
+    }
+
+    setMutatedAttributeValue(key, value) {
+        const method = 'set' + key.charAt(0).toUpperCase() + key.slice(1) + 'Attribute';
+        this[method](value);
     }
 
     hydrate (data) {
@@ -806,14 +836,6 @@ export default abstract class Model<T>
 
         // @ts-ignore
         return makeNullModel();
-    }
-
-    public getAttribute(name) {
-        return this.$attributes[name];
-    }
-
-    public setAttribute(name, value) {
-        this.$attributes[name] = value;
     }
 
     // deserialize (data) {
