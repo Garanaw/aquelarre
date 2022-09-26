@@ -7,6 +7,6 @@
 }
 
 .btn-dark {
-    @apply text-white bg-gray-800 hover:bg-gray-900;
+    @apply text-white bg-gray-800 hover:bg-gray-900 disabled:opacity-70;
 }
 
