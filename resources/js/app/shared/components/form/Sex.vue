@@ -5,6 +5,7 @@
             v-slot="{ checked }"
             :value="Sex.MAN"
             class="border-2 border-gray-500 rounded-lg cursor-pointer p-4 ui-checked:bg-white/75 ui-checked:border-black"
+            :disabled="props.disabled"
         >
             <FontAwesomeIcon :icon="['fas', 'mars']" />Hombre
         </RadioGroupOption>
@@ -12,15 +13,19 @@
             v-slot="{ checked }"
             :value="Sex.WOMAN"
             class="border-2 border-gray-500 rounded-lg cursor-pointer p-4 ui-checked:bg-white/75 ui-checked:border-black"
+            :disabled="props.disabled"
         >
             <FontAwesomeIcon :icon="['fas', 'venus']" />Mujer
         </RadioGroupOption>
+
+        <Check @checked="setSex" :disabled="props.disabled" />
     </RadioGroup>
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 import Sex from '../../enum/alive/Sex';
+import Check from '../button/Check.vue';
 import {
     RadioGroup,
     RadioGroupLabel,
@@ -28,9 +33,13 @@ import {
 } from '@headlessui/vue';
 
 const emit = defineEmits({
-    'update:sex': value => [Sex.MAN, Sex.WOMAN].includes(value),
+    'set:sex': value => [Sex.MAN, Sex.WOMAN].includes(value.value),
 });
+const props = defineProps<{ disabled: boolean }>();
+
 let sex = ref<string | null>(null);
 
-watch(sex, (newSex) => emit('update:sex', newSex));
+function setSex() {
+    emit('set:sex', sex);
+}
 </script>

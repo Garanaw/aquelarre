@@ -9,8 +9,10 @@ use Illuminate\View\Factory;
 
 class Create
 {
-    public function __invoke(Factory $view): View
+    public function __invoke(Factory $view, string $method): View
     {
-        return $view->make('character::create');
+        return $view->make('character::create', [
+            'method' => $method,
+        ]);
     }
 }
