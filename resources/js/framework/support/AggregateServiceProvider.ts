@@ -14,9 +14,8 @@ export default class AggregateServiceProvider extends ServiceProvider
     }
 
     public provides(): Array<string> {
-        return this.providers.map(provider => {
-            // @ts-ignore
-            return this.app.resolveProvider(provider).provides();
-        });
+        return this.providers.reduce((acc: Array<string>, provider: ServiceProvider) => {
+            return acc.concat(super.app.resolveProvider(provider).provides());
+        }, []);
     }
 }
