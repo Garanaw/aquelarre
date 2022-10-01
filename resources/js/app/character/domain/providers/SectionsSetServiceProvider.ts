@@ -7,27 +7,28 @@ import SectionElements from '../../views/create/shared/domain/enum/SectionElemen
 export default class SectionsSetServiceProvider extends ServiceProvider {
     register() {
         // @ts-ignore
-        this.app.singleton('SetElements', () => {
-            // @ts-ignore
-            const areSet = Object.keys(Elements).reduce((acc: Map<string, boolean>, key: string) => {
-                acc.set(Elements[key], false);
-                return acc;
-            }, new Map());
+        this.app.setInstance('SetElements', this.getElementsTracker(), true);
+    }
 
-            // @ts-ignore
-            const setSections = Object.keys(Sections).reduce((acc: Map<string, boolean>, key: string) => {
-                acc.set(Sections[key], false);
-                return acc;
-            }, new Map());
+    private getElementsTracker() {
+        const areSet = Object.keys(Elements).reduce((acc: Map<string, boolean>, key: string) => {
+            acc.set(Elements[key], false);
+            return acc;
+        }, new Map());
 
-            return new SetElements(
-                areSet,
-                setSections,
-                // @ts-ignore
-                new Map([SectionElements]),
-                new Map()
-            );
-        });
+        // @ts-ignore
+        const setSections = Object.keys(Sections).reduce((acc: Map<string, boolean>, key: string) => {
+            acc.set(Sections[key], false);
+            return acc;
+        }, new Map());
+
+        return new SetElements(
+            areSet,
+            setSections,
+            // @ts-ignore
+            new Map([SectionElements]),
+            new Map()
+        );
     }
 
     get provides() {
