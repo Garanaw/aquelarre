@@ -4,6 +4,8 @@ const reserved = [
     'Application',
     'Model',
     'store',
+    'SetElement',
+    'Config',
 ];
 
 module.exports = [reserved];
