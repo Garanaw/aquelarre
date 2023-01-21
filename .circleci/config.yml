@@ -5,7 +5,7 @@ version: 2
 references:
   defaults: &defaults
     docker:
-      - image: cimg/php:8.1-node
+      - image: cimg/php:8.2-node
         environment:
           APP_NAME: TEST
           APP_ENV: testing
