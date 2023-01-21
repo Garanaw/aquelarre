@@ -2,15 +2,9 @@ import { createApp } from 'vue';
 import { DiceRoller } from '@dice-roller/rpg-dice-roller';
 import Application from './Application';
 import ErrorHandler from './Exceptions/Handler';
-import { Store } from 'jeloquent';
 import EloquentServiceProvider from './database/eloquent/domain/EloquentServiceProvider';
 
 const container: Application = new Application();
-
-// @ts-ignore
-window.globalThis = {
-    Store: new Store(),
-}
 
 container.errorHandler(ErrorHandler);
 container.register(EloquentServiceProvider);
