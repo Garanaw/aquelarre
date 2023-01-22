@@ -6,6 +6,7 @@ namespace Aquelarre\Core\Framework\Infrastructure\Seed;
 
 use Aquelarre\Core\Framework\Infrastructure\Seed\Loaders\Loader;
 use Illuminate\Cache\Repository as Cache;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Database\Seeder as BaseSeeder;
@@ -59,11 +60,21 @@ abstract class Seeder extends BaseSeeder
         }
     }
 
+    /**
+     * @template T
+     * @param class-string<T> $class
+     * @return T
+     */
     protected function getLoader(string $class): Loader
     {
         return $this->app->make(abstract: $class);
     }
 
+    /**
+     * @template T
+     * @param class-string<T> $class
+     * @return T
+     */
     protected function getLoadedLoader(string $class): Loader
     {
         return tap(

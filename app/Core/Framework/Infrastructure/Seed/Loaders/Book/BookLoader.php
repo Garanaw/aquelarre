@@ -13,6 +13,7 @@ use Illuminate\Support\Collection;
 
 class BookLoader implements Loader
 {
+    /** @var Collection<string, int>|null */
     private ?Collection $books = null;
 
     public function __construct(
