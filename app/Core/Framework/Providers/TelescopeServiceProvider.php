@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Aquelarre\Core\Framework\Providers;
 
+use Illuminate\Http\Request;
 use Laravel\Telescope\EntryType;
 use Laravel\Telescope\IncomingEntry;
 use Laravel\Telescope\Telescope;
@@ -46,8 +47,8 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
 
     protected function authorization(): void
     {
-        Telescope::auth(
-            callback: static fn ($request): bool => $request->user()?->isAuthorized() ?? false
-        );
+        Telescope::auth(callback: static function (Request $request): bool {
+            return $request->user()?->isAuthorized() ?? false;
+        });
     }
 }

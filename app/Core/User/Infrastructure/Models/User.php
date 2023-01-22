@@ -58,4 +58,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(related: UserProfile::class);
     }
+
+    public function isAuthorized(): bool
+    {
+        return $this->hasRole(roles: 'admin');
+    }
 }

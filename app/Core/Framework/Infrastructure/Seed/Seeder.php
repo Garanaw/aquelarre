@@ -59,11 +59,21 @@ abstract class Seeder extends BaseSeeder
         }
     }
 
+    /**
+     * @template T
+     * @param class-string<T> $class
+     * @return T
+     */
     protected function getLoader(string $class): Loader
     {
         return $this->app->make(abstract: $class);
     }
 
+    /**
+     * @template T
+     * @param class-string<T> $class
+     * @return T
+     */
     protected function getLoadedLoader(string $class): Loader
     {
         return tap(
