@@ -8,11 +8,8 @@ use Aquelarre\Core\Framework\Infrastructure\Seed\Loaders\Book\BookLoader;
 use Aquelarre\Core\Framework\Infrastructure\Seed\Loaders\Spell\FormLoader;
 use Aquelarre\Core\Framework\Infrastructure\Seed\Loaders\Spell\NatureLoader;
 use Aquelarre\Core\Framework\Infrastructure\Seed\Loaders\Spell\OriginLoader;
-use Aquelarre\Core\Shared\Domain\Support\Str;
 use Aquelarre\Spell\Domain\Enum\Vis;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Fluent;
-use Illuminate\Support\Pluralizer;
 
 /**
  * @property string $name

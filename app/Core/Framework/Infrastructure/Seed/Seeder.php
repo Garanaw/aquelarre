@@ -6,7 +6,6 @@ namespace Aquelarre\Core\Framework\Infrastructure\Seed;
 
 use Aquelarre\Core\Framework\Infrastructure\Seed\Loaders\Loader;
 use Illuminate\Cache\Repository as Cache;
-use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Database\Seeder as BaseSeeder;
