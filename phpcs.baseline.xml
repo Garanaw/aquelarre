@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpcs-baseline version="3.7.1">
+<violation file="Core/Shared/Application/Middleware/ProvidesServiceProviders.php" sniff="SlevomatCodingStandard.Namespaces.UnusedUses.UnusedUse" signature="086c759c916400a6c11d2811660252dc9963077e"/>
+<violation file="Core/Shared/Application/Middleware/ProvidesServiceProviders.php" sniff="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification" signature="fa73943fe8c7a1dbe79b8f475d35b7b97c8be6db"/>
+<violation file="Core/Shared/Domain/Support/Stringable.php" sniff="SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter" signature="a8f0656c37c4dcd06cf7d9d6ef3b536e9d0c001a"/>
+<violation file="Core/Shared/Domain/Support/Stringable.php" sniff="SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter" signature="df66a4aa1528495cf5ab4f2c2af5b3eca4bb2991"/>
+<violation file="Core/Shared/Domain/Support/Stringable.php" sniff="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingAnyTypeHint" signature="a8f0656c37c4dcd06cf7d9d6ef3b536e9d0c001a"/>
+<violation file="Core/Shared/Domain/Support/Stringable.php" sniff="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingAnyTypeHint" signature="df66a4aa1528495cf5ab4f2c2af5b3eca4bb2991"/>
+<violation file="Core/Shared/Domain/Support/Stringable.php" sniff="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification" signature="a8f0656c37c4dcd06cf7d9d6ef3b536e9d0c001a"/>
+<violation file="Core/Shared/Domain/Support/Stringable.php" sniff="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification" signature="df66a4aa1528495cf5ab4f2c2af5b3eca4bb2991"/>
+<violation file="Core/Shared/Domain/Support/Stringable.php" sniff="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingAnyTypeHint" signature="a8f0656c37c4dcd06cf7d9d6ef3b536e9d0c001a"/>
+<violation file="Core/Shared/Domain/Support/Stringable.php" sniff="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingAnyTypeHint" signature="df66a4aa1528495cf5ab4f2c2af5b3eca4bb2991"/>
+<violation file="Core/User/Infrastructure/Models/User.php" sniff="SlevomatCodingStandard.Namespaces.UnusedUses.UnusedUse" signature="6952e138ece97069cdb99a04cd7644dc4c6a630b"/>
+<violation file="Spell/Application/Responses/IndexResponse.php" sniff="SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter" signature="ba01496c9e14db3d94b660409f95c636de9d4930"/>
+<violation file="Spell/Domain/SearchResults/IndexResult.php" sniff="SlevomatCodingStandard.Namespaces.UnusedUses.UnusedUse" signature="2f3fb17c7c7ad8ae1585787b0cdebcd8ab47aec2"/>
+<violation file="Spell/Domain/SearchResults/IndexResult.php" sniff="SlevomatCodingStandard.Namespaces.UnusedUses.UnusedUse" signature="91286ae75177fd7f982d4f30403ed8c6526cea92"/>
+<violation file="Spell/Domain/SearchResults/IndexResult.php" sniff="SlevomatCodingStandard.Namespaces.UnusedUses.UnusedUse" signature="aa869a0468c4eefb04d865d7e7b8da6ae7b94ca5"/>
+<violation file="Spell/Domain/SearchResults/IndexResult.php" sniff="SlevomatCodingStandard.Namespaces.UnusedUses.UnusedUse" signature="ce48965bdbc9089fe2328a5827e301cd393cf8cd"/>
+<violation file="Spell/Domain/SearchResults/IndexResult.php" sniff="SlevomatCodingStandard.Namespaces.UnusedUses.UnusedUse" signature="ddda74d4f63c3f3b2c8aba779aeaa67e9ff45fe2"/>
+<violation file="Spell/Domain/Services/SpellFinder.php" sniff="SlevomatCodingStandard.Namespaces.UnusedUses.UnusedUse" signature="fa1975881a62f263052fe96cbf6ba8281d4741b9"/>
+<violation file="Spell/Infrastructure/Models/Spell.php" sniff="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint" signature="1ec9144dd237cb810adceb6bd00153a4f47f543c"/>
+<violation file="Spell/Infrastructure/Models/Spell.php" sniff="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint" signature="36cbda8fa4a0bb5d746195c8cb5e50ef2f938cf8"/>
+<violation file="Spell/Infrastructure/Models/SpellForm.php" sniff="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint" signature="36cbda8fa4a0bb5d746195c8cb5e50ef2f938cf8"/>
+<violation file="Spell/Infrastructure/Models/SpellNature.php" sniff="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingAnyTypeHint" signature="e2df6ffed5949d394d7fc76953ddcc25e97131dc"/>
+<violation file="Spell/Infrastructure/Models/SpellOrigin.php" sniff="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingAnyTypeHint" signature="e2df6ffed5949d394d7fc76953ddcc25e97131dc"/>
+</phpcs-baseline>
+
