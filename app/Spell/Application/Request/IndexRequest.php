@@ -11,6 +11,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class IndexRequest extends FormRequest implements Searchable
 {
+    /** @return mixed[] */
     public function rules(): array
     {
         return [
