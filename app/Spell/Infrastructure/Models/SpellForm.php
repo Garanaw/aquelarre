@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class SpellForm extends Model
 {
+    /** @var string[] */
     protected $casts = [
         'name' => Stringable::class,
         'latin' => Stringable::class,
