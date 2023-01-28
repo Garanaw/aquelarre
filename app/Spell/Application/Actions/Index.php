@@ -21,7 +21,7 @@ class Index
     ): IndexResponse {
         $result = tap(
             $spellFinder->paginate($request->getSearcher()),
-            fn (IndexResult $result) => $result->setBooks($bookFinder->allForUser($request->user()))
+            static fn (IndexResult $result) => $result->setBooks($bookFinder->allForUser($request->user()))
         );
 
         return new IndexResponse(

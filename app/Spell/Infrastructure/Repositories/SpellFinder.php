@@ -31,12 +31,12 @@ readonly class SpellFinder
     {
         $spells = $this->spell->newQuery()
             ->with(['form', 'origin', 'nature', 'book'])
-            ->when($searcher->name, fn (SpellBuilder $query) => $query->where('name', 'like', "%{$searcher->name}%"))
-            ->when($searcher->form, fn (SpellBuilder $query) => $query->inFormId($searcher->form))
-            ->when($searcher->origin, fn (SpellBuilder $query) => $query->inOriginId($searcher->origin))
-            ->when($searcher->nature, fn (SpellBuilder $query) => $query->inNatureId($searcher->nature))
-            ->when($searcher->vis, fn (SpellBuilder $query) => $query->inVis($searcher->vis))
-            ->when($searcher->book, fn (SpellBuilder $query) => $query
+            ->when($searcher->name, static fn (SpellBuilder $query) => $query->where('name', 'like', "%{$searcher->name}%"))
+            ->when($searcher->form, static fn (SpellBuilder $query) => $query->inFormId($searcher->form))
+            ->when($searcher->origin, static fn (SpellBuilder $query) => $query->inOriginId($searcher->origin))
+            ->when($searcher->nature, static fn (SpellBuilder $query) => $query->inNatureId($searcher->nature))
+            ->when($searcher->vis, static fn (SpellBuilder $query) => $query->inVis($searcher->vis))
+            ->when($searcher->book, static fn (SpellBuilder $query) => $query
                 ->where(fn () => $query
                     ->where('book_id', '=', $searcher->book)
                     ->inUsersBooks($searcher->user)
