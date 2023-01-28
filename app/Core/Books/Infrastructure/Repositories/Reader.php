@@ -15,7 +15,8 @@ readonly class Reader
 {
     public function __construct(
         private Book $book
-    ) {}
+    ) {
+    }
 
     public function find(string $id): Book | Model
     {
