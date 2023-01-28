@@ -9,11 +9,13 @@ use Illuminate\Support\Stringable as BaseStringable;
 
 class Stringable extends BaseStringable implements CastsAttributes
 {
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingAnyTypeHint Generic.CodeAnalysis.UnusedFunctionParameter -- baseline
     public function get($model, string $key, $value, array $attributes)
     {
         return new static($value);
     }
 
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingAnyTypeHint Generic.CodeAnalysis.UnusedFunctionParameter -- baseline
     public function set($model, string $key, $value, array $attributes)
     {
         return $value->toString();
