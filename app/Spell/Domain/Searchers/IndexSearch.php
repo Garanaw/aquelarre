@@ -19,10 +19,16 @@ use Spatie\DataTransferObject\DataTransferObject;
 class IndexSearch extends DataTransferObject implements Searcher
 {
     public readonly User $user;
+
     public readonly ?string $name;
+
     public readonly ?int $book;
+
     public readonly ?int $form;
+
     public readonly ?int $origin;
+
     public readonly ?int $nature;
+
     public readonly ?int $vis;
 }
