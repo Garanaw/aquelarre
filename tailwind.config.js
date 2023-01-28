@@ -4,6 +4,7 @@ module.exports = {
       './app/**/Presentation/Resources/views/**/*.blade.php',
       './resources/**/*.{js,ts}',
       './resources/**/*.vue',
+      './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
   ],
   darkMode: 'class', // or 'media'
   theme: {
@@ -13,6 +14,9 @@ module.exports = {
           },
           boxShadow: {
               '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.6)',
+          },
+          colors: {
+              'thunderbird': 'rgb(190, 23, 34)',
           }
       },
   },

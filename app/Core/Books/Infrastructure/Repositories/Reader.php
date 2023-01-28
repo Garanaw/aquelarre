@@ -7,15 +7,15 @@ namespace Aquelarre\Core\Books\Infrastructure\Repositories;
 use Aquelarre\Core\Books\Domain\Dto\Search;
 use Aquelarre\Core\Books\Domain\Dto\SearchResult;
 use Aquelarre\Core\Books\Infrastructure\Models\Book;
+use Aquelarre\Core\User\Infrastructure\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
-class Reader
+readonly class Reader
 {
     public function __construct(
-        private readonly Book $book
-    ) {
-    }
+        private Book $book
+    ) {}
 
     public function find(string $id): Book | Model
     {
@@ -34,6 +34,13 @@ class Reader
     public function getAll(): Collection
     {
         return $this->book->query()->get();
+    }
+
+    public function allForUser(User $user): Collection
+    {
+        return $this->book->query()
+            ->whereBelongsTo($user)
+            ->get();
     }
 
     public function search(Search $search): SearchResult

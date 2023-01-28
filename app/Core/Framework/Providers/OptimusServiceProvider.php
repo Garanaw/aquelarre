@@ -14,9 +14,10 @@ class OptimusServiceProvider extends ServiceProvider
         $config = $this->app['config']['optimus'];
 
         $this->app->singleton(abstract: Optimus::class, concrete: static fn () =>  new Optimus(
-            prime: (int)$config['prime'],
-            inverse: (int)$config['random'],
-            xor: (int)$config['inverse'],
+            prime: $config['prime'],
+            inverse: $config['random'],
+            xor: $config['inverse'],
+            size: $config['bit_length'],
         ));
     }
 }

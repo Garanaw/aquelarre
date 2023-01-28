@@ -28,6 +28,7 @@
         "spatie/laravel-permission": "^5.5"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.7",
         "fakerphp/faker": "^1.9.1",
         "isaac/php-code-sniffer-baseliner": "^2.2",
         "laravel/sail": "^1.0.1",
@@ -39,6 +40,9 @@
         "spatie/laravel-ignition": "^1.0"
     },
     "autoload": {
+        "files": [
+            "app/Core/Framework/Domain/Helpers/helpers.php"
+        ],
         "psr-4": {
             "Aquelarre\\": "app/",
             "Database\\Factories\\": "database/factories/",

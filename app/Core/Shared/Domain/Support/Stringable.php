@@ -4,10 +4,21 @@ declare(strict_types=1);
 
 namespace Aquelarre\Core\Shared\Domain\Support;
 
+use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Support\Stringable as BaseStringable;
 
-class Stringable extends BaseStringable
+class Stringable extends BaseStringable implements CastsAttributes
 {
+    public function get($model, string $key, $value, array $attributes)
+    {
+        return new static($value);
+    }
+
+    public function set($model, string $key, $value, array $attributes)
+    {
+        return $value->toString();
+    }
+
     // phpcs:ignore SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingAnyTypeHint -- baseline
     public function sprintf(string $format, ?int $index = null, ...$args): Stringable
     {

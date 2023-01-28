@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Aquelarre\Core\User\Infrastructure\Models;
 
 use Aquelarre\Core\Books\Infrastructure\ModelRelations\BelongsToManyBooks;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -12,6 +13,13 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property UserProfile $profile
+ * @property Collection $books
+ */
 class User extends Authenticatable
 {
     use HasApiTokens;

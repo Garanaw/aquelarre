@@ -21,7 +21,7 @@
 
     <div class="w-full mx-auto h-screen bg-gray-100 dark:bg-gray-900">
         <!-- Page Content -->
-        <main>
+        <main class="mt-28 flex justify-center">
             {{ $slot }}
         </main>
 
