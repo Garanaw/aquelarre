@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace Aquelarre\Core\Shared\Application\Middleware;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\ServiceProvider;
 
 trait ProvidesServiceProviders
 {
+    /** @return <int, ServiceProvider> */
     protected function prepareServiceProviders(
         array $domainConfig,
         Collection $sharedProviders,
