@@ -10,8 +10,6 @@ use Aquelarre\Spell\Domain\Enum\Vis;
 use Aquelarre\Spell\Infrastructure\Database\Builder\SpellBuilder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Query\Builder;
-use Illuminate\Support\Carbon;
 
 /**
  * @property int $id
@@ -32,8 +30,8 @@ use Illuminate\Support\Carbon;
  * @property string $components
  * @property string $preparation
  * @property string $description
- * @property Carbon $created_at
- * @property Carbon $updated_at
+ * @property \Illuminate\Support\Carbon $created_at
+ * @property \Illuminate\Support\Carbon $updated_at
  * @method static SpellBuilder|Spell newQuery()
  */
 class Spell extends Model
@@ -50,7 +48,7 @@ class Spell extends Model
         'preparation' => Stringable::class,
     ];
 
-    /** @param Builder $query */
+    /** @param \Illuminate\Database\Query\Builder $query */
     public function newEloquentBuilder($query): SpellBuilder
     {
         return new SpellBuilder($query);

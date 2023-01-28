@@ -13,8 +13,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property Stringable $name
  * @property Stringable $latin
  * @property Stringable $description
- * @property string $created_at
- * @property string $updated_at
+ * @property \Illuminate\Support\Carbon $created_at
+ * @property \Illuminate\Support\Carbon $updated_at
  */
 class SpellForm extends Model
 {
