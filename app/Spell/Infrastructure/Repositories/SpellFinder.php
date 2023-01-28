@@ -37,12 +37,12 @@ readonly class SpellFinder
             ->when($searcher->nature, static fn (SpellBuilder $query) => $query->inNatureId($searcher->nature))
             ->when($searcher->vis, static fn (SpellBuilder $query) => $query->inVis($searcher->vis))
             ->when($searcher->book, static fn (SpellBuilder $query) => $query
-                ->where(fn () => $query
+                ->where(static fn () => $query
                     ->where('book_id', '=', $searcher->book)
                     ->inUsersBooks($searcher->user)
                 )
             )
-            ->when(!$searcher->book, fn (SpellBuilder $query) => $query->inUsersBooks($searcher->user));
+            ->when(!$searcher->book, static fn (SpellBuilder $query) => $query->inUsersBooks($searcher->user));
 
         return new IndexResult(
             searcher: $searcher,

@@ -16,6 +16,9 @@ readonly class IndexResponse implements Responsable
     ) {
     }
 
+    /**
+     * @inheritDoc
+     */
     public function toResponse($request)
     {
         return $this->view->make('spell::index', [
