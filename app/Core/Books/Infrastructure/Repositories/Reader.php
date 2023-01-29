@@ -40,7 +40,7 @@ readonly class Reader
     public function allForUser(User $user): Collection
     {
         return $this->book->query()
-            ->whereBelongsTo($user)
+            ->whereIn(column: 'id', values: $user->books->pluck('id'))
             ->get();
     }
 

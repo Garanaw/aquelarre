@@ -29,7 +29,7 @@ class IndexResult extends DataTransferObject implements SearchResult
     public readonly array $vises;
 
     /** @var Collection|<int, \Aquelarre\Core\Books\Infrastructure\Models\Book> */
-    public readonly Collection $books;
+    public readonly ?Collection $books;
 
     public function getSearcher(): Searcher
     {

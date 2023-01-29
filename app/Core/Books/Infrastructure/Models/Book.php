@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Aquelarre\Core\Books\Infrastructure\Models;
 
+use Aquelarre\Core\User\Infrastructure\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * @property int $id
@@ -21,5 +23,10 @@ class Book extends Model
     public function getId(): int
     {
         return $this->id;
+    }
+
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
     }
 }
