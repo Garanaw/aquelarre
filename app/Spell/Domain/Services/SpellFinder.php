@@ -6,7 +6,6 @@ namespace Aquelarre\Spell\Domain\Services;
 
 use Aquelarre\Core\Framework\Domain\Search\Searcher;
 use Aquelarre\Core\Framework\Domain\SearchResult\SearchResult;
-use Aquelarre\Spell\Domain\Searchers\IndexSearch;
 use Aquelarre\Spell\Infrastructure\Repositories\SpellFinder as SpellFinderRepository;
 
 readonly class SpellFinder
