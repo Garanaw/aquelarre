@@ -23,6 +23,7 @@ return [
         // phpcs:ignore Squiz.Arrays.ArrayDeclaration.NoKeySpecified -- baseline
         'static',
         'character',
+        'spell',
     ],
     'core' => [
         'providers' => [
@@ -80,6 +81,17 @@ return [
             'file' => 'app/Character/Application/routes.php',
             'prefix' => 'character',
             'middleware' => Aquelarre\Character\Application\Middleware\ServiceProviderLoader::class,
+        ],
+    ],
+    'spell' => [
+        'providers' => [
+            Aquelarre\Spell\Domain\Providers\SpellServiceProvider::class,
+        ],
+        'prefix' => 'spell',
+        'routes' => [
+            'file' => 'app/Spell/Application/routes.php',
+            'prefix' => 'spell',
+            'middleware' => Aquelarre\Spell\Application\Middleware\ServiceProviderLoader::class,
         ],
     ],
 ];

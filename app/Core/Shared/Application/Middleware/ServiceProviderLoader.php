@@ -35,4 +35,9 @@ class ServiceProviderLoader
             )
         );
     }
+
+    protected function getCoreDomainName(): string
+    {
+        return self::DOMAIN_NAME;
+    }
 }

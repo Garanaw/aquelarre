@@ -12,6 +12,13 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property UserProfile $profile
+ * @property \Illuminate\Database\Eloquent\Collection $books
+ */
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -20,11 +27,7 @@ class User extends Authenticatable
     use Notifiable;
     use BelongsToManyBooks;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    /** @var array<int, string> */
     // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint -- baseline
     protected $fillable = [
         'name',
@@ -33,11 +36,7 @@ class User extends Authenticatable
         'email_verified_at',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
+    /** @var array<int, string> */
     // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint -- baseline
     protected $hidden = [
         'password',

@@ -13,4 +13,12 @@ enum Vis: int
     case QUINTA = 5;
     case SEXTA = 6;
     case SEPTIMA = 7;
+
+    /**
+     * @return array<int, Vis>
+     */
+    public static function getIterable(): array
+    {
+        return Vis::cases();
+    }
 }

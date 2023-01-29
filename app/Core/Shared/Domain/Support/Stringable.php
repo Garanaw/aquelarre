@@ -4,10 +4,24 @@ declare(strict_types=1);
 
 namespace Aquelarre\Core\Shared\Domain\Support;
 
+use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Support\Stringable as BaseStringable;
 
-class Stringable extends BaseStringable
+// phpcs:disable
+class Stringable extends BaseStringable implements CastsAttributes
 {
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingAnyTypeHint SlevomatCodingStandard.Functions.UnusedParameter -- baseline
+    public function get($model, string $key, $value, array $attributes)
+    {
+        return new static($value);
+    }
+
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingAnyTypeHint SlevomatCodingStandard.Functions.UnusedParameter -- baseline
+    public function set($model, string $key, $value, array $attributes)
+    {
+        return $value->toString();
+    }
+
     // phpcs:ignore SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingAnyTypeHint -- baseline
     public function sprintf(string $format, ?int $index = null, ...$args): Stringable
     {
@@ -42,3 +56,4 @@ class Stringable extends BaseStringable
         return Str::sprintf($format, ...$args);
     }
 }
+// phpcs:enable
