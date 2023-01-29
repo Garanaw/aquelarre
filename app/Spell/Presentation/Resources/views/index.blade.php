@@ -5,12 +5,12 @@
 $spells = $result->paginator->items();
 @endphp
 <x-shared::layouts.page>
-    <div class="w-7/12">
-        <x-shared::typography.aq-title>
-            Hechizos
+    <div class="w-7/12 bg-primary-scroll rounded-b-2xl shadow-lg -mt-8 px-10 pb-8">
+        <x-shared::typography.aq-title class="mt-10">
+            {{ __('spell/spell.title') }}
         </x-shared::typography.aq-title>
 
-        <div class="overflow-x-auto shadow-md rounded-lg">
+        <div class="overflow-x-auto rounded-lg mt-5">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <caption class="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
                     <x-spell::index.spell-search :result="$result" />
@@ -32,10 +32,10 @@ $spells = $result->paginator->items();
                 @endforeach
                 </tbody>
             </table>
-        </div>
 
-        <div class="mt-5">
-            {{ $result->paginator->links() }}
+            <div class="mt-5">
+                {{ $result->paginator->links() }}
+            </div>
         </div>
     </div>
 </x-shared::layouts.page>

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'title'     => 'Hechizos',
     'spell'     => 'Hechizo|Hechizos',
     'form'      => 'Forma',
     'nature'    => 'Naturaleza',

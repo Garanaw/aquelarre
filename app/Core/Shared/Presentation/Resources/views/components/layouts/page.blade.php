@@ -15,11 +15,11 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <script src="{{ mix('js/menu.js') }}" defer></script>
 </head>
-<body class="antialiased dark">
+<body class="antialiased  subpixel-antialiased dark">
 <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 py-4">
     <x-shared::navbar.navbar />
 
-    <div class="w-full mx-auto h-screen bg-gray-100 dark:bg-gray-900">
+    <div class="w-full mx-auto h-screen bg-gray-100 dark:bg-gray-900 bg-img-scroll">
         <!-- Page Content -->
         <main class="mt-28 flex justify-center">
             {{ $slot }}
