@@ -37,6 +37,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Spell extends Model
 {
     /** @var string[] */
+    // phpcs:ignore
     protected $casts = [
         'name' => Stringable::class,
         'latin' => Stringable::class,
@@ -49,6 +50,7 @@ class Spell extends Model
     ];
 
     /** @param \Illuminate\Database\Query\Builder $query */
+    // phpcs:ignore
     public function newEloquentBuilder($query): SpellBuilder
     {
         return new SpellBuilder($query);
