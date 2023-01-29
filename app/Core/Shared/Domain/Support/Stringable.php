@@ -7,6 +7,7 @@ namespace Aquelarre\Core\Shared\Domain\Support;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Support\Stringable as BaseStringable;
 
+// phpcs:disable
 class Stringable extends BaseStringable implements CastsAttributes
 {
     // phpcs:ignore SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingAnyTypeHint SlevomatCodingStandard.Functions.UnusedParameter -- baseline
@@ -55,3 +56,4 @@ class Stringable extends BaseStringable implements CastsAttributes
         return Str::sprintf($format, ...$args);
     }
 }
+// phpcs:enable
