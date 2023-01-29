@@ -8,13 +8,15 @@ use Aquelarre\Core\Books\Domain\Dto\Search;
 use Aquelarre\Core\Books\Domain\Dto\SearchResult;
 use Aquelarre\Core\Books\Infrastructure\Models\Book;
 use Aquelarre\Core\User\Infrastructure\Models\User;
+use Illuminate\Cache\Repository;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 readonly class Reader
 {
     public function __construct(
-        private Book $book
+        private Book $book,
+        private Repository $cache,
     ) {
     }
 
@@ -39,9 +41,12 @@ readonly class Reader
 
     public function allForUser(User $user): Collection
     {
-        return $this->book->query()
-            ->whereIn(column: 'id', values: $user->books->pluck('id'))
-            ->get();
+        return $this->cache->rememberForever(
+            key: sprintf('books:allForUser:%d', $user->id),
+            callback: fn() => $this->book->query()
+                ->whereIn(column: 'id', values: $user->books->pluck('id'))
+                ->get()
+        );
     }
 
     public function search(Search $search): SearchResult
