@@ -13,12 +13,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property Stringable $name
  * @property Stringable $latin
  * @property Stringable $description
+ * @property \Illuminate\Database\Eloquent\Collection $spells
  * @property \Illuminate\Support\Carbon $created_at
  * @property \Illuminate\Support\Carbon $updated_at
  */
 class SpellForm extends Model
 {
     /** @var string[] */
+    // phpcs:ignore
     protected $casts = [
         'name' => Stringable::class,
         'latin' => Stringable::class,
