@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Aquelarre\Core\User\Infrastructure\Models;
 
 use Aquelarre\Core\Books\Infrastructure\ModelRelations\BelongsToManyBooks;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -18,7 +17,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string $name
  * @property string $email
  * @property UserProfile $profile
- * @property Collection $books
+ * @property \Illuminate\Database\Eloquent\Collection $books
  */
 class User extends Authenticatable
 {
@@ -28,11 +27,7 @@ class User extends Authenticatable
     use Notifiable;
     use BelongsToManyBooks;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    /** @var array<int, string> */
     // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint -- baseline
     protected $fillable = [
         'name',
@@ -41,11 +36,7 @@ class User extends Authenticatable
         'email_verified_at',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
+    /** @var array<int, string> */
     // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint -- baseline
     protected $hidden = [
         'password',
