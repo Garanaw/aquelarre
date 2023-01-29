@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class SpellNature extends Model
 {
+    /** @var string[] */
     protected $casts = [
         'name' => Stringable::class,
         'description' => Stringable::class,
