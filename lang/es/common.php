@@ -5,4 +5,5 @@ return [
     'search' => 'Buscar',
     'action' => 'Acción|Acciones',
     'description' => 'Descripción',
+    'watch' => 'Ver',
 ];
