@@ -11,8 +11,8 @@
     <td class="px-6 py-4">{{ $spell->vis }}</td>
     <td class="px-6 py-4">{{ $spell->book->name }}</td>
     <td class="px-6 py-4">
-{{--        <a class="btn" href="{{ route('spells.show', ['spell' => $helper->id($spell->getId())]) }}">--}}
-{{--            {{ __('common.watch') }}--}}
-{{--        </a>--}}
+        <a class="btn" href="{{ route('spell.show', ['spell' => $spell->id]) }}">
+            {{ __('common.watch') }}
+        </a>
     </td>
 </tr>

@@ -7,4 +7,9 @@ return [
     'nature'    => 'Naturaleza',
     'origin'    => 'Origen',
     'vis'       => 'Vis',
+
+    'expiration' => 'Caducidad',
+    'duration'   => 'Duración',
+    'components' => 'Componentes',
+    'preparation' => 'Preparación',
 ];
