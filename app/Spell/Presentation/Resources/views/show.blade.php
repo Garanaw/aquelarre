@@ -5,13 +5,18 @@
 @endphp
 <x-shared::layouts.page>
     <div class="w-7/12 bg-primary-scroll rounded-b-2xl shadow-lg -mt-8 px-10 pb-8">
-        <x-shared::typography.aq-title class="mt-10">
-            {{ $spell->name }}
-        </x-shared::typography.aq-title>
+        <div>
+            <a href="{{ route('spell.index') }}">
+                <x-shared::icons.arrow class="flex inline-flex w-10 h-10 -rotate-45 relative float-left" />
+            </a>
+            <x-shared::typography.aq-title class="mt-10">
+                {{ $spell->name }}
+            </x-shared::typography.aq-title>
+        </div>
         <hr class="bg-thunderbird">
 
-        <div class="grid grid-cols-4">
-            <div>
+        <div class="grid grid-cols-3">
+            <div class="flex text-left">
                 <x-shared::typography.aq-subtitle class="mt-10">
                     {{ __('spell/spell.form') }}:
                     <span class="font-sans text-base font-normal">
@@ -19,7 +24,7 @@
                     </span>
                 </x-shared::typography.aq-subtitle>
             </div>
-            <div>
+            <div class="flex text-left">
                 <x-shared::typography.aq-subtitle class="mt-10">
                     {{ __('spell/spell.origin') }}:
                     <span class="font-sans text-base font-normal">
@@ -27,7 +32,7 @@
                     </span>
                 </x-shared::typography.aq-subtitle>
             </div>
-            <div>
+            <div class="flex text-left">
                 <x-shared::typography.aq-subtitle class="mt-10">
                     {{ __('spell/spell.nature') }}:
                     <span class="font-sans text-base font-normal">
@@ -35,7 +40,11 @@
                     </span>
                 </x-shared::typography.aq-subtitle>
             </div>
-            <div>
+        </div>
+        <hr>
+
+        <div class="grid grid-cols-3">
+            <div class="flex text-left">
                 <x-shared::typography.aq-subtitle class="mt-10">
                     {{ __('spell/spell.vis') }}:
                     <span class="font-sans text-base font-normal">
@@ -43,11 +52,7 @@
                     </span>
                 </x-shared::typography.aq-subtitle>
             </div>
-        </div>
-        <hr>
-
-        <div class="grid grid-cols-2">
-            <div>
+            <div class="flex text-left">
                 <x-shared::typography.aq-subtitle class="mt-10">
                     {{ __('spell/spell.expiration') }}:
                     <span class="font-sans text-base font-normal">
@@ -55,7 +60,7 @@
                 </span>
                 </x-shared::typography.aq-subtitle>
             </div>
-            <div>
+            <div class="flex text-left">
                 <x-shared::typography.aq-subtitle class="mt-10">
                     {{ __('spell/spell.duration') }}:
                     <span class="font-sans text-base font-normal">
@@ -66,7 +71,7 @@
         </div>
         <hr>
 
-        <div>
+        <div class="flex text-left">
             <x-shared::typography.aq-subtitle class="mt-10">
                 {{ __('spell/spell.components') }}:
                 <span class="font-sans text-base font-normal">
@@ -76,7 +81,7 @@
         </div>
         <hr>
 
-        <div>
+        <div class="flex text-left">
             <x-shared::typography.aq-subtitle class="mt-10">
                 {{ __('spell/spell.preparation') }}:
                 <span class="font-sans text-base font-normal">
@@ -86,7 +91,7 @@
         </div>
         <hr>
 
-        <div>
+        <div class="flex text-left">
             <x-shared::typography.aq-subtitle class="mt-10">
                 {{ __('common.description') }}:
                 <span class="font-sans text-base font-normal">
