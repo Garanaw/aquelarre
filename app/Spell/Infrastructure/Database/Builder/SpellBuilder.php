@@ -19,7 +19,7 @@ class SpellBuilder extends Builder
 
     public function inOriginId(int $origin): static
     {
-        return $this->where('origin_id', '=', $origin);
+        return $this->where('spell_origin_id', '=', $origin);
     }
 
     public function inOrigin(SpellOrigin $origin): static
@@ -29,7 +29,7 @@ class SpellBuilder extends Builder
 
     public function inNatureId(int $nature): static
     {
-        return $this->where('nature_id', '=', $nature);
+        return $this->where('spell_nature_id', '=', $nature);
     }
 
     public function inNature(SpellNature $nature): static
@@ -39,7 +39,7 @@ class SpellBuilder extends Builder
 
     public function inFormId(int $form): static
     {
-        return $this->where('form_id', '=', $form);
+        return $this->where('spell_form_id', '=', $form);
     }
 
     public function inForm(SpellForm $form): static
