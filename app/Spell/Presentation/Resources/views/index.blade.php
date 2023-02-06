@@ -34,7 +34,7 @@ $spells = $result->paginator->items();
             </table>
 
             <div class="mt-5">
-                {{ $result->paginator->links() }}
+                {{ $result->paginator->withQueryString()->links() }}
             </div>
         </div>
     </div>

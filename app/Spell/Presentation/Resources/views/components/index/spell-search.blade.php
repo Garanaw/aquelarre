@@ -3,7 +3,7 @@
  * @var \Aquelarre\Spell\Domain\SearchResults\IndexResult $result
  */
 @endphp
-<form action="{{ route('spell.index') }}" method="POST">
+<form action="{{ route('spell.index') }}" method="GET">
     @csrf
     <div class="grid grid-cols-6 gap-4">
         <div>
