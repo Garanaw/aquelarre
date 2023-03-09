@@ -44,9 +44,17 @@ class IndexRequest extends FormRequest implements Searchable
 
     public function getSearcher(): Searcher
     {
-        return new IndexSearch(
-            ...$this->validated(),
-            user: $this->user()
+        return new IndexSearch([
+            ...$this->castValidated(),
+            ...['user' => $this->user()]
+        ]);
+    }
+
+    private function castValidated(): array
+    {
+        return array_map(
+            static fn ($value) => is_numeric($value) ? (int) $value : $value,
+            $this->validated()
         );
     }
 }
