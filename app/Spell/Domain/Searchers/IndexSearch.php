@@ -5,30 +5,17 @@ declare(strict_types=1);
 namespace Aquelarre\Spell\Domain\Searchers;
 
 use Aquelarre\Core\Framework\Domain\Search\Searcher;
-use Aquelarre\Core\User\Infrastructure\Models\User;
-use Spatie\DataTransferObject\DataTransferObject;
+use Illuminate\Support\Fluent;
 
 /**
- * @property User $user
+ * @property \Aquelarre\Core\User\Infrastructure\Models\User $user
  * @property ?int $book
  * @property ?int $form
  * @property ?int $origin
  * @property ?int $nature
  * @property ?string $name
+ * @property ?int $vis
  */
-class IndexSearch extends DataTransferObject implements Searcher
+class IndexSearch extends Fluent implements Searcher
 {
-    public readonly User $user;
-
-    public readonly ?string $name;
-
-    public readonly ?int $book;
-
-    public readonly ?int $form;
-
-    public readonly ?int $origin;
-
-    public readonly ?int $nature;
-
-    public readonly ?int $vis;
 }

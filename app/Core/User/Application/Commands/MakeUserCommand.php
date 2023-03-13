@@ -49,8 +49,8 @@ class MakeUserCommand extends Command
             'name' => $this->argument(key: 'name'),
             'email' => $this->askForEmail(),
             'password' => $this->askForPassword(),
-            'email_verified_at' => Carbon::now(),
-            'role_name' => $this->askForRole(),
+            'emailVerifiedAt' => Carbon::now(),
+            'roleName' => $this->askForRole(),
         ];
     }
 

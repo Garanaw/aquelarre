@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Aquelarre\Core\Books\Domain\Dto;
 
-use Aquelarre\Core\User\Infrastructure\Models\User;
-use Spatie\DataTransferObject\DataTransferObject;
+use Illuminate\Support\Fluent;
 
-class Search extends DataTransferObject
+/**
+ * @property-read \Aquelarre\Core\User\Infrastructure\Models\User $user
+ */
+class Search extends Fluent
 {
-    readonly public User $user;
 }

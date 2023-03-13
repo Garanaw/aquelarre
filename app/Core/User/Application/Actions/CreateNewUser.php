@@ -36,12 +36,12 @@ class CreateNewUser implements CreatesNewUsers
     // phpcs:ignore SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification -- baseline
     private function mapDataToDto(array $input): NewUser
     {
-        return new NewUser(
-            name: $input['name'],
-            email: $input['email'],
-            password: $input['password'],
-            role_name: $input['role'] ?? 'user',
-        );
+        return new NewUser([
+            'name' => $input['name'],
+            'email' => $input['email'],
+            'password' => $input['password'],
+            'role_name' => $input['role'] ?? 'user',
+        ]);
     }
 
     // phpcs:ignore SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification -- baseline

@@ -29,7 +29,7 @@ class Writer
                 'name' => $data->name,
                 'email' => $data->email,
                 'password' => $this->hashManager->make($data->password),
-                'email_verified_at' => $data->emailVerifiedAt->toDateTimeString(),
+                'email_verified_at' => $data->emailVerifiedAt?->toDateTimeString(),
             ];
 
             return tap(

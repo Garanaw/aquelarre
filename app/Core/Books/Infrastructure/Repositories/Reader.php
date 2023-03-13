@@ -51,9 +51,9 @@ readonly class Reader
 
     public function search(Search $search): SearchResult
     {
-        return new SearchResult(
-            books: new Collection(),
-            search: $search
-        );
+        return new SearchResult([
+            'books' => new Collection(),
+            'search' => $search,
+        ]);
     }
 }
