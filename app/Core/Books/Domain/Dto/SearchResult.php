@@ -6,14 +6,14 @@ namespace Aquelarre\Core\Books\Domain\Dto;
 
 use Aquelarre\Core\User\Infrastructure\Models\User;
 use Illuminate\Database\Eloquent\Collection;
-use Spatie\DataTransferObject\DataTransferObject;
+use Illuminate\Support\Fluent;
 
-class SearchResult extends DataTransferObject
+/**
+ * @property Collection $books
+ * @property Search $search
+ */
+class SearchResult extends Fluent
 {
-    readonly public Collection $books;
-
-    readonly public Search $search;
-
     public function getUser(): User
     {
         return $this->search->user;
