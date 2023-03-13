@@ -48,7 +48,7 @@ class IndexRequest extends FormRequest implements Searchable
             ...$this->castValidated(),
             ...[
                 'user' => $this->user(),
-            ]
+            ],
         ]);
     }
 
