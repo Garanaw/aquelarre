@@ -44,11 +44,10 @@ class IndexRequest extends FormRequest implements Searchable
 
     public function getSearcher(): Searcher
     {
+        $user = ['user' => $this->user()];
         return new IndexSearch([
             ...$this->castValidated(),
-            ...[
-                'user' => $this->user(),
-            ],
+            ...$user,
         ]);
     }
 
