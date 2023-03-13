@@ -46,10 +46,15 @@ class IndexRequest extends FormRequest implements Searchable
     {
         return new IndexSearch([
             ...$this->castValidated(),
-            ...['user' => $this->user()]
+            ...[
+                'user' => $this->user(),
+            ]
         ]);
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     private function castValidated(): array
     {
         return array_map(

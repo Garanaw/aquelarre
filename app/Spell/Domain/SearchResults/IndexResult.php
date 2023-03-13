@@ -6,13 +6,12 @@ namespace Aquelarre\Spell\Domain\SearchResults;
 
 use Aquelarre\Core\Framework\Domain\Search\Searcher;
 use Aquelarre\Core\Framework\Domain\SearchResult\SearchResult;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Fluent;
 
 /**
  * @property Searcher $searcher
- * @property LengthAwarePaginator $paginator
+ * @property \Illuminate\Contracts\Pagination\LengthAwarePaginator $paginator
  * @property Collection|<int, \Aquelarre\Spell\Infrastructure\Models\SpellForm> $forms
  * @property Collection|<int, \Aquelarre\Spell\Infrastructure\Models\SpellOrigin> $origins
  * @property Collection|<int, \Aquelarre\Spell\Infrastructure\Models\SpellNature> $natures
