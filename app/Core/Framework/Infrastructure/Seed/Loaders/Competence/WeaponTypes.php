@@ -13,7 +13,7 @@ class WeaponTypes extends WeaponsLoader
     /** @var null|Collection<int, int> */
     private ?Collection $weaponTypes = null;
 
-    public function load() : Collection
+    public function load(): Collection
     {
         parent::load();
 
@@ -24,6 +24,7 @@ class WeaponTypes extends WeaponsLoader
                 ->select('id', 'competence_id')
                 ->get()
                 ->mapWithKeys(callback: static fn (object $type) => [
+                    // phpcs:ignore
                     Str::slug($type->competence_id) => $type->id,
                 ])
         );
