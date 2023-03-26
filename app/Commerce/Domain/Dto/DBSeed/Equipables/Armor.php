@@ -84,6 +84,4 @@ class Armor extends Equipable
         $this->strength = $strength;
         return $this;
     }
-
-
 }
