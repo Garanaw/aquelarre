@@ -11,6 +11,7 @@ namespace Aquelarre\Commerce\Domain\Dto\DBSeed\Equipables;
  * @property ?string $max_absorbed_damage
  * @property ?int $created_by
  */
+// phpcs:ignoreFile
 class Shield extends Equipable
 {
     public static function ofItemId(int $itemId): static

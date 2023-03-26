@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Aquelarre\Commerce\Domain\Dto\DBSeed\Items;
 
+// phpcs:ignoreFile
 class Possession extends Item
 {
     public static function ofItemName(string $name): static

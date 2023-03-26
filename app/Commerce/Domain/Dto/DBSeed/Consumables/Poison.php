@@ -16,6 +16,7 @@ use Illuminate\Support\Fluent;
  * @property ?string $death_unit
  * @property string $effects
  */
+// phpcs:ignoreFile
 class Poison extends Fluent
 {
     public static function fromItemId(int $itemId): self

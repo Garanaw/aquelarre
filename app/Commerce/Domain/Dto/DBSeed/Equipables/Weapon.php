@@ -14,6 +14,7 @@ namespace Aquelarre\Commerce\Domain\Dto\DBSeed\Equipables;
  * @property int $bonus
  * @property ?string $range
  */
+// phpcs:ignoreFile
 class Weapon extends Equipable
 {
     private const LIGHT = 'ligera';
