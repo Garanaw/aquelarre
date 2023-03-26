@@ -23,101 +23,79 @@ abstract class Item extends Fluent
 {
     public static function cloth(string|array|object $name): Cloth
     {
-        return is_string($name)
-            ? Cloth::ofItemName($name)
-            : new Cloth(
-                static::ensureArray($name)
-            );
+        return is_string($name) ? Cloth::ofItemName($name) : new Cloth(
+            static::ensureArray($name)
+        );
     }
 
     public static function food(string|array|object $name): Food
     {
-        return is_string($name)
-            ? Food::ofItemName($name)
-            : new Food(
-                static::ensureArray($name)
-            );
+        return is_string($name) ? Food::ofItemName($name) : new Food(
+            static::ensureArray($name)
+        );
     }
 
     public static function transport(string|array|object $name): Transport
     {
-        return is_string($name)
-            ? Transport::ofItemName($name)
-            : new Transport(
-                static::ensureArray($name)
-            );
+        return is_string($name) ? Transport::ofItemName($name) : new Transport(
+            static::ensureArray($name)
+        );
     }
 
     public static function possession(string|array|object $name): Possession
     {
-        return is_string($name)
-            ? Possession::ofItemName($name)
-            : new Possession(
-                static::ensureArray($name)
-            );
+        return is_string($name) ? Possession::ofItemName($name) : new Possession(
+            static::ensureArray($name)
+        );
     }
 
     public static function service(string|array|object $name): Service
     {
-        return is_string($name)
-            ? Service::ofItemName($name)
-            : new Service(
-                static::ensureArray($name)
-            );
+        return is_string($name) ? Service::ofItemName($name) : new Service(
+            static::ensureArray($name)
+        );
     }
 
     public static function commodity(string|array|object $name): Commodity
     {
-        return is_string($name)
-            ? Commodity::ofItemName($name)
-            : new Commodity(
-                static::ensureArray($name)
-            );
+        return is_string($name) ? Commodity::ofItemName($name) : new Commodity(
+            static::ensureArray($name)
+        );
     }
 
     public static function jewel(string|array|object $name): Jewel
     {
-        return is_string($name)
-            ? Jewel::ofItemName($name)
-            : new Jewel(
-                static::ensureArray($name)
-            );
+        return is_string($name) ? Jewel::ofItemName($name) : new Jewel(
+            static::ensureArray($name)
+        );
     }
 
     public static function poison(string|array|object $name): Poison
     {
-        return is_string($name)
-            ? Poison::ofItemName($name)
-            : new Poison(
-                static::ensureArray($name)
-            );
+        return is_string($name) ? Poison::ofItemName($name) : new Poison(
+            static::ensureArray($name)
+        );
     }
 
     public static function weapon(string|array|object $name): Weapon
     {
-        return is_string($name)
-            ? Weapon::ofItemName($name)
-            : new Weapon(
-                static::ensureArray($name)
-            );
+        return is_string($name) ? Weapon::ofItemName($name) : new Weapon(
+            static::ensureArray($name)
+        );
     }
 
     public static function armor(string|array|object $name): Armor
     {
-        return is_string($name)
-            ? Armor::ofItemName($name)
-            : new Armor(
-                static::ensureArray($name)
-            );
+        return is_string($name) ? Armor::ofItemName($name) : new Armor(
+            static::ensureArray($name)
+        );
     }
 
     public static function shield(string|array|object $name): Shield
     {
-        return is_string($name)
-            ? Shield::ofItemName($name)
-            : new Shield(
-                static::ensureArray($name)
-            );
+        return is_string($name) ? Shield::ofItemName($name) : new Shield(
+            static::ensureArray($name)
+        );
     }
 
     protected static function ensureArray(object|array $data): array
