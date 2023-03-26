@@ -44,14 +44,14 @@ readonly class SpellFinder
             )
             ->when(!$searcher->book, static fn (SpellBuilder $query) => $query->inUsersBooks($searcher->user));
 
-        return new IndexResult(
-            searcher: $searcher,
-            paginator: $spells->paginate(),
-            forms: $this->getAllForms(),
-            origins: $this->getAllOrigins(),
-            natures: $this->getAllNatures(),
-            vises: Vis::getIterable(),
-        );
+        return new IndexResult([
+            'searcher' => $searcher,
+            'paginator' => $spells->paginate(),
+            'forms' => $this->getAllForms(),
+            'origins' => $this->getAllOrigins(),
+            'natures' => $this->getAllNatures(),
+            'vises' => Vis::getIterable(),
+        ]);
     }
 
     public function getAllForms(): Collection

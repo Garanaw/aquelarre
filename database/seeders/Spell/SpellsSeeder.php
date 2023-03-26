@@ -23,16 +23,7 @@ class SpellsSeeder extends Seeder
 
     public function run(): bool
     {
-        try {
-            return $this->db
-                ->table($this->table)
-                ->insert(
-                    $this->getData()
-                );
-        } catch (\Throwable $exception) {
-            dump($exception);
-            throw $exception;
-        }
+        return $this->db->table($this->table)->insert($this->getData());
     }
 
     protected function getData(): array
