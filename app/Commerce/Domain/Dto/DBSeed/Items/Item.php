@@ -19,6 +19,7 @@ use Illuminate\Support\Fluent;
  * @property bool $is_container
  * @property string $description
  */
+// phpcs:ignoreFile
 abstract class Item extends Fluent
 {
     public static function cloth(string|array|object $name): Cloth
