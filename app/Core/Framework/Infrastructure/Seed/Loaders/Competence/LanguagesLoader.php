@@ -13,6 +13,7 @@ use Illuminate\Support\Collection;
 
 class LanguagesLoader implements Loader
 {
+    /** @var null|Collection<string, int> */
     private ?Collection $languages = null;
 
     public function __construct(
