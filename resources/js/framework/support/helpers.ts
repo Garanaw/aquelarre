@@ -18,3 +18,7 @@ export function strictInject<T>(key: InjectionKey<T>, defaultValue?: T): T {
 export function injectContainer(): Application {
     return strictInject($CONTAINER, new Container());
 }
+
+export function objectKeys(obj: {}): (keyof {})[] {
+    return Object.keys(obj) as (keyof {})[];
+}
