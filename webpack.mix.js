@@ -16,9 +16,24 @@ mix
                 },
             }
         },
+        plugins: [
+            '@babel/plugin-proposal-class-properties',
+        ],
         processCssUrls: false,
     })
     .webpackConfig({
+        resolve: {
+            extensions: ['.js', '.vue', '.json', '.ts'],
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.ts$/,
+                    loader: 'ts-loader',
+                    options: { appendTsSuffixTo: [/\.vue$/] },
+                }
+            ],
+        },
         stats: {
             children: true,
         }

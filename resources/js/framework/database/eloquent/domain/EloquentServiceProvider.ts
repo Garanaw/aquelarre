@@ -5,7 +5,7 @@ export default class EloquentServiceProvider extends ServiceProvider
     boot() {
     }
 
-    get provides(): [] {
+    provides(): [] {
         return [
         ];
     }

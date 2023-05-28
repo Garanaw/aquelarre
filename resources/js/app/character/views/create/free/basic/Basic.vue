@@ -19,21 +19,20 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject } from 'vue';
+import { computed } from 'vue';
+import { strictInject } from '../../../../../../framework/support/helpers';
+import { SET_ELEMENTS } from '../../../../domain/providers/injections';
 import Character from '../../../../infrastructure/models/Character';
 import Name from '../../../../../shared/components/form/Name.vue';
 import Sex from '../../../../../shared/components/form/Sex.vue';
 import Title from '../../../../../shared/components/typography/Title.vue';
 import { Character as CharacterType } from '../../../../domain/types/Character';
-import SetElements from '../../shared/domain/services/SetElements';
-import Application from '../../../../../../framework/Application';
 
 const props = defineProps<{ character: Character & CharacterType }>();
-const { character } = props;
-const app = inject<Application>('$container');
 
-// @ts-ignore
-const SetElementsService = app.make('SetElements');
+const SetElementsService = strictInject(SET_ELEMENTS);
+
+const { character } = props;
 
 const isSexSet = computed<boolean>(() => SetElementsService.isComplete('sex'));
 

@@ -7,15 +7,13 @@ import {
 } from 'lodash';
 import Collection from 'collect.js';
 import dayjs from 'dayjs';
-//import Formatter from './Formatter/Formatter';
 import BuilderContract from '../../contracts/database/eloquent/Builder';
 import Builder from './Builder';
 import ModelException from './domain/Exception/ModelException';
 import makeNullModel from './domain/MakeNullModel';
 import {
-    RequestConfig,
     AnyObject
-} from '../../types/types';
+} from '../../types';
 //import Route from 'http/Route';
 
 export default abstract class Model<T>
@@ -611,7 +609,7 @@ export default abstract class Model<T>
         let toRemove = ['id', 'type', 'links', 'relationships', 'meta'];
         let result = {};
         forOwn(data, (value, key) => {
-            if (toRemove.includes(key) === false) {
+            if (!toRemove.includes(key)) {
                 result[key] = value;
             }
         });

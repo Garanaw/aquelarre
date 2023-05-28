@@ -7,18 +7,18 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, provide, inject } from 'vue';
+import { reactive, provide } from 'vue';
 import Basic from './basic/Basic.vue';
 import Character from '../../../infrastructure/models/Character';
 import { Character as CharacterType } from '../../../domain/types/Character';
 import CharacterFactory from '../../../infrastructure/factories/CharacterFactory';
-import Application from '../../../../../framework/Application';
 import SetElements from '../shared/domain/services/SetElements';
+import { injectContainer } from '../../../../../framework/support/helpers';
+import { SET_ELEMENTS } from '../../../domain/providers/injections';
 
-const app = inject<Application>('$container');
+const app = injectContainer();
 
-//@ts-ignore
-provide<SetElements>('SetElements', app.make(SetElements));
+provide<SetElements>(SET_ELEMENTS, app.make('SetElements') as SetElements);
 
 //@ts-ignore
 let character = reactive<Character>(CharacterFactory.forCreation()) as Character & CharacterType;
