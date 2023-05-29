@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import { computed, PropType } from 'vue';
-import {is, strictInject} from '../../../../../../framework/support/helpers';
+import { is, strictInject } from '../../../../../../framework/support/helpers';
 import { SET_ELEMENTS } from '../../../../domain/providers/injections';
 import Character from '../../../../infrastructure/models/Character';
 import Name from '../../../../../shared/components/form/Name.vue';
@@ -41,7 +41,7 @@ const props = defineProps({
 
 const SetElementsService = strictInject(SET_ELEMENTS, new SetElements()) as SetElements;
 
-const character: Character = props.character as Character;
+const { character } = props;
 
 const isSexSet = computed<boolean>(() => SetElementsService.isComplete('sex'));
 

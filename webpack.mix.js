@@ -46,7 +46,9 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.ts('resources/js/menu/menu.ts', 'public/js/menu.js');
 
-mix.ts('resources/js/app/character/views/create/classic.ts', 'public/js/character/create/classic.js');
+mix
+    .ts('resources/js/app/character/views/create/classic.ts', 'public/js/character/create/classic.js')
+    .ts('resources/js/app/character/views/create/free.ts', 'public/js/character/create/free.js');
 
 mix.postCss('resources/css/app.css', 'public/css', [
     require('postcss-import'),
