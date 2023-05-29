@@ -37,7 +37,7 @@ const emit = defineEmits({
 });
 const props = defineProps<{ disabled: boolean }>();
 
-let sex = ref<string | null>(null);
+let sex = ref<Sex | null>(null);
 
 function setSex() {
     emit('set:sex', sex);
