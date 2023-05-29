@@ -28,6 +28,7 @@ import Sex from '../../../../../shared/components/form/Sex.vue';
 import Title from '../../../../../shared/components/typography/Title.vue';
 import SetElements from '../../shared/domain/services/SetElements';
 import useName from '../../../../../shared/functions/HasName';
+import useSex from '../../../../../shared/functions/HasSex';
 
 const props = defineProps({
     character: {
@@ -50,10 +51,7 @@ function updateName(name) {
 }
 
 function setSex(sex) {
-    if (is<Character>(character, Character)) {
-        return;
-    }
-    character.sex = sex;
+    useSex(sex, character);
     SetElementsService.complete('sex');
 }
 </script>
