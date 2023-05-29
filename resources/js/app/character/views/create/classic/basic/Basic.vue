@@ -19,29 +19,40 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject } from 'vue';
+import { computed, PropType } from 'vue';
+import { is, strictInject } from '../../../../../../framework/support/helpers';
+import { SET_ELEMENTS } from '../../../../domain/providers/injections';
 import Character from '../../../../infrastructure/models/Character';
 import Name from '../../../../../shared/components/form/Name.vue';
 import Sex from '../../../../../shared/components/form/Sex.vue';
 import Title from '../../../../../shared/components/typography/Title.vue';
-import { Character as CharacterType } from '../../../../domain/types/Character';
 import SetElements from '../../shared/domain/services/SetElements';
-import Application from '../../../../../../framework/Application';
+import useName from '../../../../../shared/functions/HasName';
 
-const props = defineProps<{ character: Character & CharacterType }>();
+const props = defineProps({
+    character: {
+        type: Object as PropType<Character>,
+        required: true,
+        validator(value: unknown): boolean {
+            return is<Character>(value, Character);
+        }
+    },
+});
+
+const SetElementsService = strictInject(SET_ELEMENTS, new SetElements()) as SetElements;
+
 const { character } = props;
-const app = inject<Application>('$container');
-
-// @ts-ignore
-const SetElementsService = app.make('SetElements');
 
 const isSexSet = computed<boolean>(() => SetElementsService.isComplete('sex'));
 
 function updateName(name) {
-    character.name = name;
+    useName(name, character);
 }
 
 function setSex(sex) {
+    if (is<Character>(character, Character)) {
+        return;
+    }
     character.sex = sex;
     SetElementsService.complete('sex');
 }

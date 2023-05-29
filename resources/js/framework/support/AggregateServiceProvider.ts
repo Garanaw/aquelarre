@@ -2,7 +2,7 @@ import ServiceProvider from 'laravel-micro.js/src/Support/ServiceProvider';
 
 export default class AggregateServiceProvider extends ServiceProvider
 {
-    protected providers: Array<ServiceProvider> = [];
+    protected providers: ServiceProvider[] = [];
 
     protected instances: Array<any> = [];
 
@@ -13,7 +13,7 @@ export default class AggregateServiceProvider extends ServiceProvider
         this.instances = this.providers.map(provider => this.app.register(provider));
     }
 
-    public provides(): Array<string> {
+    public provides(): string[] {
         return this.providers.map(provider => {
             // @ts-ignore
             return this.app.resolveProvider(provider).provides();

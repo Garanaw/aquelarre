@@ -1,11 +1,13 @@
-// @ts-ignore
-import { ErrorHandler } from 'laravel-micro.js';
-
-const dontReport: string[] = [
-
-];
+import ErrorHandler from 'laravel-micro.js/src/Exceptions/ErrorHandler';
+import Exception from './Exception';
+import VoidException from './VoidException';
+import IConstructor from '../support/IConstructor';
 
 export default class Handler extends ErrorHandler {
+    private $dontReport: IConstructor<Error|Exception>[] = [
+        VoidException,
+    ];
+
     handle(error: Error) {
         this.report(error);
         return super.handle(error);
@@ -18,28 +20,31 @@ export default class Handler extends ErrorHandler {
         console.info(info);
     }
 
-    report(error: Error) {
+    report(error: Error|Exception) {
         if (this.shouldntReport(error)) {
             return;
         }
 
-        // @ts-ignore
-        if (typeof error?.report === 'function') {
+        if ('report' in error && typeof error?.report === 'function') {
             try {
-                // @ts-ignore
                 return error.report(this.app)
-            } catch (e) {
-                console.error(e)
+            } catch(e) {
+                console.error(e as Error);
             }
         }
         console.error(error);
     }
 
-    shouldntReport(error: any) {
+    ignore(...errors: IConstructor<|Exception>[]) {
+        errors.forEach((error) => this.$dontReport.push(error));
+    }
+
+    shouldntReport<E extends Error|Exception>(error: E) {
         if (process.env.NODE_ENV === 'development') {
             return true;
         }
 
-        return dontReport.includes(error.constructor.name);
+        return this.$dontReport
+            .find((e) => error instanceof e) !== undefined;
     }
 }

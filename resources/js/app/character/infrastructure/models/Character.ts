@@ -1,13 +1,21 @@
-import Model from '../../../../framework/database/eloquent/Model';
-import { Character as CharacterType } from '../../domain/types/Character';
-import Eloquent from "../../../../framework/database/eloquent/Eloquent";
+import Model from 'laravel-micro.js/src/Database/Eloquent/Model';
+import Sex from "../../../shared/enum/alive/Sex";
 
 /**
  * @typedef {Object} Character
  * @property {number} id
  * @property {string} name
  */
-// @ts-ignore
-@Eloquent
-export default class Character extends Model<CharacterType> {
+export default class Character extends Model {
+    id: number | null = null;
+    name: string = '';
+    // @ts-ignore
+    sex: Sex;
+    protected fields(): string[] {
+        return [
+            'id',
+            'name',
+            'sex',
+        ];
+    }
 }

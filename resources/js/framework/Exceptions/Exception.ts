@@ -1,6 +1,9 @@
 import BaseException from 'laravel-micro.js/src/Exceptions/Exception';
 
 export default class Exception extends BaseException {
+    // @ts-ignore
+    code: number;
+
     constructor(message: string, code: number = 500) {
         super(message, code);
 
@@ -38,18 +41,15 @@ export default class Exception extends BaseException {
         });
     }
 
-    getMessage(): string {
-        // @ts-ignore
+    public getMessage(): string {
         return this.message;
     }
 
-    getCode(): number {
-        // @ts-ignore
+    public getCode(): number {
         return this.code;
     }
 
-    getTrace(): string | undefined {
-        // @ts-ignore
+    public getTrace(): string | undefined {
         return this.stack;
     }
 
