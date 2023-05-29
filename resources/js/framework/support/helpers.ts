@@ -22,3 +22,7 @@ export function injectContainer(): Application {
 export function objectKeys(obj: {}): (keyof {})[] {
     return Object.keys(obj) as (keyof {})[];
 }
+
+export function is<T>(value: T | null | undefined | unknown, instance?): value is T {
+    return value !== null && value !== undefined && (instance ? value instanceof instance : true);
+}
