@@ -1,8 +1,12 @@
 import ErrorHandler from 'laravel-micro.js/src/Exceptions/ErrorHandler';
-import Exception from "framework/Exceptions/Exception";
+import Exception from './Exception';
+import VoidException from './VoidException';
+import IConstructor from '../support/IConstructor';
 
 export default class Handler extends ErrorHandler {
-    private $dontReport: typeof Error[] = [];
+    private $dontReport: IConstructor<Error|Exception>[] = [
+        VoidException,
+    ];
 
     handle(error: Error) {
         this.report(error);
@@ -31,15 +35,16 @@ export default class Handler extends ErrorHandler {
         console.error(error);
     }
 
-    ignore(...errors: typeof Error[]) {
-        this.$dontReport.push(...errors);
+    ignore(...errors: IConstructor<|Exception>[]) {
+        errors.forEach((error) => this.$dontReport.push(error));
     }
 
-    shouldntReport<E extends Error>(error: any) {
+    shouldntReport<E extends Error|Exception>(error: E) {
         if (process.env.NODE_ENV === 'development') {
             return true;
         }
 
-        return this.$dontReport.find((e) => error instanceof e) !== undefined;
+        return this.$dontReport
+            .find((e) => error instanceof e) !== undefined;
     }
 }
