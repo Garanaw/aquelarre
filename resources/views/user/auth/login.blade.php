@@ -6,7 +6,7 @@
     <div class="container mx-auto px-4 py-8">
         <h1 class="text-2xl font-bold mb-6">{{ __('Login') }}</h1>
 
-        <form method="POST" action="{{ route('') }}" class="space-y-6">
+        <form method="POST" action="{{ route('login.store') }}" class="space-y-6">
             @csrf
 
             <div class="mb-4">
@@ -17,12 +17,20 @@
                     <span class="text-red-600 text-sm">{{ $message }}</span>
                 @enderror
             </div>
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-medium text-gray-700">{{ __('Password') }}</label>
+                <input type="password" id="password" name="password" required
+                       class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                @error('password')
+                    <span class="text-red-600 text-sm">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="flex justify-end">
+                <button type="submit"
+                        class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    {{ __('Login') }}
+                </button>
+            </div>
         </form>
-        <div class="flex justify-end">
-            <button type="submit"
-                    class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                {{ __('Login') }}
-            </button>
-        </div>
     </div>
 </x-guest-layout>
