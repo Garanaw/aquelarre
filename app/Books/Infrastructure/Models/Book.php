@@ -6,8 +6,10 @@ namespace App\Books\Infrastructure\Models;
 
 use App\Books\Infrastructure\Enum\BookType;
 use App\Books\Infrastructure\Enum\Edition;
+use App\User\Infrastructure\Models\User;
 use Illuminate\Database\Eloquent\Casts\AsStringable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Stringable;
 
@@ -52,5 +54,10 @@ class Book extends Model
             'url' => AsStringable::class,
             'comment' => AsStringable::class,
         ];
+    }
+
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
     }
 }
