@@ -7,7 +7,6 @@ namespace App\Books\Application\Pages;
 use App\Books\Application\BookResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
-use Illuminate\Contracts\View\View;
 
 class ListBooks extends ListRecords
 {

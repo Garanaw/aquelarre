@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Books\Application\BookRegistrar;
+use App\Game\Core\Features\Characteristics\Application\CharacteristicsRegistrar;
 use App\Shared\Filament\Registrar;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -25,6 +26,7 @@ class AdminPanelProvider extends PanelProvider
 {
     private const array REGISTRARS = [
         BookRegistrar::class,
+        CharacteristicsRegistrar::class,
     ];
 
     public function panel(Panel $panel): Panel
