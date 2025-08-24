@@ -37,6 +37,8 @@ class AssignPermissionsToRolesSeeder extends Seeder
             'admin' => ['*'], // full access
             'moderator' => ['*'], // full access
             'editor' => [ // access to all content management except deleting, and managing users, roles and permissions
+                'admin.dashboard.view',
+                'user.dashboard.view',
                 'spells.view',
                 'spells.create',
                 'spells.edit',
