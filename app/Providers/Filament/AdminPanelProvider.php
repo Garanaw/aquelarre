@@ -2,6 +2,8 @@
 
 namespace App\Providers\Filament;
 
+use App\Books\Application\BookRegistrar;
+use App\Shared\Filament\Registrar;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -21,9 +23,13 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class AdminPanelProvider extends PanelProvider
 {
+    private const array REGISTRARS = [
+        BookRegistrar::class,
+    ];
+
     public function panel(Panel $panel): Panel
     {
-        return $panel
+        $panel
             ->default()
             ->id('admin')
             ->path('admin')
@@ -31,12 +37,12 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
+            //->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
+            //->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([
                 Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
+            //->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
                 AccountWidget::class,
                 FilamentInfoWidget::class,
@@ -55,5 +61,17 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ]);
+
+        return $this->registerDomains($panel);
+    }
+
+    private function registerDomains(Panel $panel): Panel
+    {
+        return collect(self::REGISTRARS)
+            ->map(fn (string $registrar): Registrar => resolve($registrar))
+            ->reduce(
+                static fn (Panel $panel, Registrar $registrar) => $registrar->register($panel),
+                $panel,
+            );
     }
 }
