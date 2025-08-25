@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Game\Core\Features\Skills\Infrastructure\Models;
 
-use App\Books\Infrastructure\Models\Book;
+use App\Books\Infrastructure\Models\Relations\BelongsToBook;
 use App\Game\Core\Features\Characteristics\Infrastructure\Models\Characteristic;
 use Illuminate\Database\Eloquent\Casts\AsStringable;
 use Illuminate\Database\Eloquent\Model;
@@ -29,6 +29,8 @@ use Illuminate\Support\Stringable;
  */
 class Skill extends Model
 {
+    use BelongsToBook;
+
     protected $fillable = [
         'name',
         'latin',
@@ -63,10 +65,5 @@ class Skill extends Model
     public function characteristic(): BelongsTo
     {
         return $this->belongsTo(Characteristic::class, 'characteristic_id');
-    }
-
-    public function book(): BelongsTo
-    {
-        return $this->belongsTo(Book::class, 'book_id');
     }
 }
