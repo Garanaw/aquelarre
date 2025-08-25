@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Books\Infrastructure\Models;
 
+use App\Books\Domain\Collection\BookCollection;
 use App\Books\Infrastructure\Enum\BookType;
 use App\Books\Infrastructure\Enum\Edition;
 use App\User\Infrastructure\Models\User;
+use Illuminate\Database\Eloquent\Attributes\CollectedBy;
 use Illuminate\Database\Eloquent\Casts\AsStringable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -14,6 +16,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Stringable;
 
 /**
+ * @property-read int $id
  * @property Stringable $name
  * @property BookType $type
  * @property Edition $edition
@@ -25,6 +28,7 @@ use Illuminate\Support\Stringable;
  * @property ?Stringable $url
  * @property ?Stringable $comment
  */
+#[CollectedBy(BookCollection::class)]
 class Book extends Model
 {
     protected $fillable = [
