@@ -7,6 +7,7 @@ namespace App\Books\Infrastructure\Models;
 use App\Books\Domain\Collection\BookCollection;
 use App\Books\Infrastructure\Enum\BookType;
 use App\Books\Infrastructure\Enum\Edition;
+use App\Game\Core\Features\Professions\Infrastructure\HasManyProfessions;
 use App\User\Infrastructure\Models\User;
 use Illuminate\Database\Eloquent\Attributes\CollectedBy;
 use Illuminate\Database\Eloquent\Casts\AsStringable;
@@ -31,6 +32,8 @@ use Illuminate\Support\Stringable;
 #[CollectedBy(BookCollection::class)]
 class Book extends Model
 {
+    use HasManyProfessions;
+
     protected $fillable = [
         'name',
         'type',

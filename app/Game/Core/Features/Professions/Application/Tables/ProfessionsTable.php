@@ -6,6 +6,7 @@ namespace App\Game\Core\Features\Professions\Application\Tables;
 
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
 class ProfessionsTable
@@ -35,6 +36,19 @@ class ProfessionsTable
                 ->wrap()
                 ->tooltip(fn ($record) => $record->description)
                 ->placeholder('No description provided.'),
+        ])->filters([
+            TernaryFilter::make('man')
+                ->label('Can be done by men?')
+                ->nullable(),
+            TernaryFilter::make('woman')
+                ->label('Can be done by women?')
+                ->nullable(),
+            TernaryFilter::make('has_faith')
+                ->label('Requires Faith?')
+                ->nullable(),
+            TernaryFilter::make('only_secondary')
+                ->label('Is Secondary Only?')
+                ->nullable(),
         ]);
     }
 }
