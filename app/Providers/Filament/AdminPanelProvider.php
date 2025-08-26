@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use App\Books\Application\BookRegistrar;
 use App\Game\Core\Features\Characteristics\Application\CharacteristicsRegistrar;
 use App\Game\Core\Features\Kingdom\Application\KingdomRegistrar;
+use App\Game\Core\Features\Professions\Application\ProfessionRegistrar;
 use App\Game\Core\Features\Skills\Application\SkillRegistrar;
 use App\Shared\Filament\Registrar;
 use Filament\Http\Middleware\Authenticate;
@@ -31,6 +32,7 @@ class AdminPanelProvider extends PanelProvider
         CharacteristicsRegistrar::class,
         SkillRegistrar::class,
         KingdomRegistrar::class,
+        ProfessionRegistrar::class,
     ];
 
     public function panel(Panel $panel): Panel

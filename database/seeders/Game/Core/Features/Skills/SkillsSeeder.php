@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Database\Seeders\Game\Core\Features;
+namespace Database\Seeders\Game\Core\Features\Skills;
 
 use App\Books\Domain\Reader\Reader as BookReader;
 use App\Game\Core\Features\Characteristics\Domain\Reader\Reader as CharacteristicReader;

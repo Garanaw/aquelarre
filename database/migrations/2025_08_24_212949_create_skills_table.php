@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Database\Seeders\Game\Core\Features\SkillsSeeder;
+use Database\Seeders\Game\Core\Features\Skills\SkillsSeeder;
 use Garanaw\SeedableMigrations\Blueprint;
 use Garanaw\SeedableMigrations\Enum\SeedAt;
 use Garanaw\SeedableMigrations\Migration;

@@ -17,7 +17,7 @@ enum NavigationGroup implements HasIcon
     {
         return match ($this) {
             self::ACL => Heroicon::Key,
-            self::CORE => Heroicon::Beaker,
+            self::CORE => Heroicon::Cog8Tooth,
         };
     }
 }
