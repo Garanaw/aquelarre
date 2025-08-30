@@ -7,6 +7,7 @@ use App\Game\Core\Features\Characteristics\Application\CharacteristicsRegistrar;
 use App\Game\Core\Features\Kingdom\Application\KingdomRegistrar;
 use App\Game\Core\Features\Professions\Application\ProfessionRegistrar;
 use App\Game\Core\Features\Skills\Application\SkillRegistrar;
+use App\Game\Core\Features\Spells\SpellRegistrar;
 use App\Shared\Filament\Registrar;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -33,6 +34,7 @@ class AdminPanelProvider extends PanelProvider
         SkillRegistrar::class,
         KingdomRegistrar::class,
         ProfessionRegistrar::class,
+        SpellRegistrar::class,
     ];
 
     public function panel(Panel $panel): Panel
