@@ -10,6 +10,7 @@ use App\Game\Core\Features\Rituals\RitualsRegistrar;
 use App\Game\Core\Features\Skills\Application\SkillRegistrar;
 use App\Game\Core\Features\Spells\SpellRegistrar;
 use App\Shared\Filament\Registrar;
+use App\User\Application\Middleware\CanSeeAdminPanel;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -69,6 +70,7 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                CanSeeAdminPanel::class,
             ])
             ->authMiddleware([
                 Authenticate::class,
