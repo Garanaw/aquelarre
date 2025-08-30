@@ -7,9 +7,11 @@ namespace App\Books\Infrastructure\Models;
 use App\Books\Domain\Collection\BookCollection;
 use App\Books\Infrastructure\Enum\BookType;
 use App\Books\Infrastructure\Enum\Edition;
+use App\Books\Infrastructure\Models\Builder\BookBuilder;
 use App\Game\Core\Features\Professions\Infrastructure\HasManyProfessions;
 use App\User\Infrastructure\Models\User;
 use Illuminate\Database\Eloquent\Attributes\CollectedBy;
+use Illuminate\Database\Eloquent\Attributes\UseEloquentBuilder;
 use Illuminate\Database\Eloquent\Casts\AsStringable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -30,6 +32,7 @@ use Illuminate\Support\Stringable;
  * @property ?Stringable $comment
  */
 #[CollectedBy(BookCollection::class)]
+#[UseEloquentBuilder(BookBuilder::class)]
 class Book extends Model
 {
     use HasManyProfessions;

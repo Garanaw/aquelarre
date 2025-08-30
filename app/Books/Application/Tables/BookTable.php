@@ -6,6 +6,7 @@ namespace App\Books\Application\Tables;
 
 use App\Books\Infrastructure\Enum\Edition;
 use App\Books\Infrastructure\Models\Book;
+use App\Books\Infrastructure\Models\Builder\BookBuilder;
 use App\Permission\Domain\Enum\Permission;
 use App\User\Infrastructure\Models\User;
 use Filament\Actions\ViewAction;
@@ -22,7 +23,7 @@ class BookTable
 
         return $user->can(Permission::ADMIN_DASHBOARD_VIEW)
             ? self::admin($table)
-            : self::user($table);
+            : self::user($table, $user);
     }
 
     private static function admin(Table $table): Table
@@ -37,7 +38,7 @@ class BookTable
         ]);
     }
 
-    private static function user(Table $table): Table
+    private static function user(Table $table, User $user): Table
     {
         return $table->striped()->columns([
             self::name(),
@@ -46,9 +47,9 @@ class BookTable
             self::publishedAt(),
         ])->recordActions([
             ViewAction::make(),
-        ])->modifyQueryUsing(function ($query) {
-            return $query;
-        });
+        ])->modifyQueryUsing(
+            fn (BookBuilder $query) => $query->ownedByUser($user)
+        );
     }
 
     // Fields
