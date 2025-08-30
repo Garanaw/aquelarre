@@ -23,7 +23,7 @@ class BookResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return BookTable::configure($table);
+        return BookTable::configure($table, auth()->user());
     }
 
     public static function infolist(Schema $schema): Schema

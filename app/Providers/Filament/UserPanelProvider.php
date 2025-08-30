@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Providers\Filament;
 
+use App\Books\Application\BookRegistrar;
 use App\Permission\Domain\Enum\Permission;
+use App\Shared\Filament\Panels\Concerns\RegistersDomains;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -23,9 +25,15 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class UserPanelProvider extends PanelProvider
 {
+    use RegistersDomains;
+
+    private const array REGISTRARS = [
+        BookRegistrar::class,
+    ];
+
     public function panel(Panel $panel): Panel
     {
-        return $panel
+        $panel
             ->id('user')
             ->path('user')
             ->login()
@@ -52,5 +60,7 @@ class UserPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ]);
+
+        return $this->registerDomains($panel, self::REGISTRARS);
     }
 }

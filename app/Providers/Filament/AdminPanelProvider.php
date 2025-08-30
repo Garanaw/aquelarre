@@ -9,6 +9,7 @@ use App\Game\Core\Features\Professions\Application\ProfessionRegistrar;
 use App\Game\Core\Features\Rituals\RitualsRegistrar;
 use App\Game\Core\Features\Skills\Application\SkillRegistrar;
 use App\Game\Core\Features\Spells\SpellRegistrar;
+use App\Shared\Filament\Panels\Concerns\RegistersDomains;
 use App\Shared\Filament\Registrar;
 use App\User\Application\Middleware\CanSeeAdminPanel;
 use Filament\Http\Middleware\Authenticate;
@@ -31,6 +32,8 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class AdminPanelProvider extends PanelProvider
 {
+    use RegistersDomains;
+
     private const array REGISTRARS = [
         BookRegistrar::class,
         CharacteristicsRegistrar::class,
@@ -51,8 +54,6 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
-            //->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
-            //->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([
                 Dashboard::class,
             ])
@@ -63,7 +64,6 @@ class AdminPanelProvider extends PanelProvider
                     ->icon('heroicon-o-user-circle')
                     ->group('Go to'),
             ])
-            //->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
                 AccountWidget::class,
                 FilamentInfoWidget::class,
@@ -84,16 +84,6 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ]);
 
-        return $this->registerDomains($panel);
-    }
-
-    private function registerDomains(Panel $panel): Panel
-    {
-        return collect(self::REGISTRARS)
-            ->map(fn (string $registrar): Registrar => resolve($registrar))
-            ->reduce(
-                static fn (Panel $panel, Registrar $registrar) => $registrar->register($panel),
-                $panel,
-            );
+        return $this->registerDomains($panel, self::REGISTRARS);
     }
 }
