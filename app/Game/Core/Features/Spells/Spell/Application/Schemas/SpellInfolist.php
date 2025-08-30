@@ -59,7 +59,7 @@ class SpellInfolist
                     ->label('Description')
                     ->placeholder('A detailed description of the spell, its effects, and usage.')
                     ->html(),
-            ])->columns(1),
+            ])->columnSpanFull(),
         ]);
     }
 }

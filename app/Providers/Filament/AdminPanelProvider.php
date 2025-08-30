@@ -6,6 +6,7 @@ use App\Books\Application\BookRegistrar;
 use App\Game\Core\Features\Characteristics\Application\CharacteristicsRegistrar;
 use App\Game\Core\Features\Kingdom\Application\KingdomRegistrar;
 use App\Game\Core\Features\Professions\Application\ProfessionRegistrar;
+use App\Game\Core\Features\Rituals\RitualsRegistrar;
 use App\Game\Core\Features\Skills\Application\SkillRegistrar;
 use App\Game\Core\Features\Spells\SpellRegistrar;
 use App\Shared\Filament\Registrar;
@@ -35,6 +36,7 @@ class AdminPanelProvider extends PanelProvider
         KingdomRegistrar::class,
         ProfessionRegistrar::class,
         SpellRegistrar::class,
+        RitualsRegistrar::class,
     ];
 
     public function panel(Panel $panel): Panel
