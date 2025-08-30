@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Game\Core\Features\Spells\Spell\Application\Schemas;
 
+use App\Filament\Infolists\Components\SpellComponentsEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
@@ -49,14 +50,15 @@ class SpellInfolist
                 TextEntry::make('duration')
                     ->label('Duration')
                     ->placeholder('The duration of the spell effect.'),
-                TextEntry::make('components')
+                SpellComponentsEntry::make('components')
                     ->label('Components')
                     ->placeholder('The components required to cast the spell (e.g., verbal, somatic, material).'),
             ]),
             Section::make('Description')->schema([
                 TextEntry::make('description')
                     ->label('Description')
-                    ->placeholder('A detailed description of the spell, its effects, and usage.'),
+                    ->placeholder('A detailed description of the spell, its effects, and usage.')
+                    ->html(),
             ])->columns(1),
         ]);
     }
