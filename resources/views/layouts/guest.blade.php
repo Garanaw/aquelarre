@@ -54,7 +54,7 @@
         </main>
         <footer class="w-full lg:max-w-4xl max-w-[335px] text-sm mt-6 text-center">
             <p class="text-gray-500 dark:text-gray-400">
-                &copy; {{ date('Y') }} <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Your Company</a>. All rights reserved.
+                &copy; {{ date('Y') }} <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Aquelarre</a>. All rights reserved.
             </p>
         </footer>
     </body>

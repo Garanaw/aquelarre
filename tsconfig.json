@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "allowSyntheticDefaultImports": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "preserve",
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["resources/js/*"]
+        }
+    },
+    "include": [
+        "resources/js/**/*.ts",
+        "resources/js/**/*.vue"
+    ],
+    "exclude": ["node_modules", "vendor"]
+}

@@ -7,7 +7,7 @@ namespace App\Providers\Filament;
 use App\Books\Application\BookRegistrar;
 use App\Permission\Domain\Enum\Permission;
 use App\Shared\Filament\Panels\Concerns\RegistersDomains;
-use Filament\Http\Middleware\AuthenticateSession;
+use App\Shared\Routing\Middleware\MiddlewareStore;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationItem;
@@ -16,12 +16,6 @@ use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Widgets\AccountWidget;
-use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
-use Illuminate\Cookie\Middleware\EncryptCookies;
-use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
-use Illuminate\Routing\Middleware\SubstituteBindings;
-use Illuminate\Session\Middleware\StartSession;
-use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class UserPanelProvider extends PanelProvider
 {
@@ -37,6 +31,7 @@ class UserPanelProvider extends PanelProvider
             ->id('user')
             ->path('user')
             ->login()
+            ->topNavigation()
             ->colors([
                 'primary' => Color::Red,
             ])->pages([
@@ -47,16 +42,14 @@ class UserPanelProvider extends PanelProvider
                     ->url(fn () => Dashboard::getUrl(panel: 'admin'))
                     ->icon('heroicon-o-cog')
                     ->visible(fn () => auth()->user()?->can(Permission::ADMIN_DASHBOARD_VIEW) ?? false),
+                NavigationItem::make('characters')
+                    ->label('Create Character Classic')
+                    ->url(fn () => route('characters.create', ['method' => 'classic']))
+                    ->icon('heroicon-o-user-group'),
             ])->widgets([
                 AccountWidget::class,
             ])->middleware([
-                EncryptCookies::class,
-                AddQueuedCookiesToResponse::class,
-                StartSession::class,
-                AuthenticateSession::class,
-                ShareErrorsFromSession::class,
-                VerifyCsrfToken::class,
-                SubstituteBindings::class,
+                ...MiddlewareStore::commonMiddleware(),
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ]);
