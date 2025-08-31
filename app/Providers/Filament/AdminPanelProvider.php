@@ -10,7 +10,6 @@ use App\Game\Core\Features\Rituals\RitualsRegistrar;
 use App\Game\Core\Features\Skills\Application\SkillRegistrar;
 use App\Game\Core\Features\Spells\SpellRegistrar;
 use App\Shared\Filament\Panels\Concerns\RegistersDomains;
-use App\Shared\Filament\Registrar;
 use App\User\Application\Middleware\CanSeeAdminPanel;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
