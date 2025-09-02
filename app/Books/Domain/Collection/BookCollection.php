@@ -34,7 +34,7 @@ class BookCollection extends Collection
 
     public function arsMalefica(): Book
     {
-        return $this->bookByName('Ars Maléfica');
+        return $this->bookByName('Ars Malefica');
     }
 
     public function decameron(): Book
