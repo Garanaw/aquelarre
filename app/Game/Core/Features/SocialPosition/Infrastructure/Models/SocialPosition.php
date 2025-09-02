@@ -16,7 +16,7 @@ use Illuminate\Support\Stringable;
  * @property int $id
  * @property Stringable $name
  * @property ?Stringable $description
- * @property int $social_position_id
+ * @property int $society_id
  * @property Society $society
  */
 #[CollectedBy(SocialPositions::class)]
@@ -37,6 +37,6 @@ class SocialPosition extends Model
 
     public function society(): BelongsTo
     {
-        return $this->belongsTo(related: Society::class, foreignKey: 'social_position_id');
+        return $this->belongsTo(related: Society::class, foreignKey: 'society_id');
     }
 }
