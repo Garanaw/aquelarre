@@ -1,13 +1,14 @@
 import { createApp } from 'vue';
 import PrimeVue from 'primevue/config';
 import App from './classic/App.vue';
-import Aura from '@primevue/themes/aura'
+import Aura from '@primevue/themes/aura';
+import Nora from '@primevue/themes/nora';
 import 'primeicons/primeicons.css';
 
 const app = createApp(App);
 app.use(PrimeVue, {
     theme: {
-        preset: Aura,
+        preset: Nora,
         options: {
             darkModeSelector: '.dark',
         }
