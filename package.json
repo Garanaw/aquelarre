@@ -16,6 +16,8 @@
         "vite": "^7.0.4"
     },
     "dependencies": {
+        "@jamescoyle/vue-icon": "^0.1.2",
+        "@mdi/js": "^7.4.47",
         "@primeuix/themes": "^1.2.3",
         "@primevue/themes": "^4.3.7",
         "@vitejs/plugin-vue": "^6.0.1",
