@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Game\Core\Features\Kingdom\Infrastructure\Models\Kingdom;
 use App\Permission\Infrastructure\Models\Permission;
 use App\Permission\Infrastructure\Models\Role;
 use App\User\Infrastructure\Models\User;
@@ -21,6 +22,7 @@ class EloquentServiceProvider extends ServiceProvider
             'user' => User::class,
             'role' => Role::class,
             'permission' => Permission::class,
+            'kingdom' => Kingdom::class,
         ]);
     }
 }
