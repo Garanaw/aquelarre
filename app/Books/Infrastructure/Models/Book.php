@@ -9,6 +9,8 @@ use App\Books\Infrastructure\Enum\BookType;
 use App\Books\Infrastructure\Enum\Edition;
 use App\Books\Infrastructure\Models\Builder\BookBuilder;
 use App\Game\Core\Features\Professions\Infrastructure\HasManyProfessions;
+use App\Shared\Optimus\OptimusConnection;
+use App\Shared\Optimus\UsesOptimus;
 use App\User\Infrastructure\Models\User;
 use Illuminate\Database\Eloquent\Attributes\CollectedBy;
 use Illuminate\Database\Eloquent\Attributes\UseEloquentBuilder;
@@ -36,6 +38,7 @@ use Illuminate\Support\Stringable;
 class Book extends Model
 {
     use HasManyProfessions;
+    use UsesOptimus;
 
     protected $fillable = [
         'name',
@@ -64,6 +67,11 @@ class Book extends Model
             'url' => AsStringable::class,
             'comment' => AsStringable::class,
         ];
+    }
+
+    protected function getOptimusConnection(): string
+    {
+        return OptimusConnection::BOOK->value;
     }
 
     public function users(): BelongsToMany
