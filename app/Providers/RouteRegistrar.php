@@ -14,5 +14,6 @@ class RouteRegistrar
         $router = $app->make(Registrar::class);
 
         $router->group(app_path('Character/routes.php'));
+        $router->group(app_path('Game/Core/Features/Kingdom/routes.php'));
     }
 }
